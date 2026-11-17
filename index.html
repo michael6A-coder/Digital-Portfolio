@@ -530,6 +530,48 @@ img.tshot,img.shot{transition:opacity .25s ease}
   .reveal{opacity:1!important;transform:none!important}
   .tech-card:hover,.btn:hover,.contact-socials a:hover{transform:none!important}
 }
+
+/* ===== Responsive refinements ===== */
+img,svg{max-width:100%}
+.ptabs,.tstrip{scrollbar-width:none;-ms-overflow-style:none}
+.ptabs::-webkit-scrollbar,.tstrip::-webkit-scrollbar{display:none}
+.tstrip{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent)}
+.contact-entry-text{min-width:0;flex:1}
+.contact-entry-text a,.contact-entry-text span:not(.contact-label){overflow-wrap:anywhere;word-break:normal;min-width:0}
+@media (max-width:1024px){
+  .highlights{grid-template-columns:1fr}
+  .contact-details{grid-template-columns:1fr}
+  .contact-entry:nth-last-child(1){border-bottom:0}
+}
+@media (max-width:900px){
+  .ach{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .about-intro{grid-template-columns:1fr;gap:12px}
+}
+@media (max-width:640px){
+  .ach{grid-template-columns:1fr}
+  .hero-stats b{font-size:21px}
+  .hero-stats span{font-size:11px;line-height:1.35;display:block}
+  .tour-info{flex-wrap:wrap}
+  .tour-text{order:-1;flex-basis:100%}
+  .tour-info .prev{margin-right:auto}
+  .contact-panel-header h3{font-size:20px}
+}
+@media (max-width:380px){
+  .wrap{padding:0 14px}
+  .contact-entry-text a,.contact-entry-text span:not(.contact-label){font-size:13px}
+  .cap-head h3{font-size:19px!important}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats b{font-size:20px}
+}
+@media (hover:none){
+  .links a,.btn,.ptab,.thumb,.nav,.contact-socials a{-webkit-tap-highlight-color:transparent}
+}
+
+/* ===== Justify all body text (every screen size) ===== */
+main p:not(.meta):not(.plabel):not(.badge):not(.obj-label):not(.contact-panel-overline):not(.year):not(.label),
+main li,.lede,.tour-desc,.tour-note,.ach p,.hl-card p,.skills-more-card p,.contact-panel-footer p,.hero-bottom,footer{text-align:justify!important;text-justify:inter-word;hyphens:none}
+.hero-stats span,.stats span,.stack-name,.stack-note,.tag,.skills-chiplist span,.thumb span,.ptab,.btn,.contact-label,.tour-title{text-align:inherit}
+footer{text-align-last:center}
 </style>
 </head>
 <body><a class="skip-link" href="#home">Skip to content</a>
