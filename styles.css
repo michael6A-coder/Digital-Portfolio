@@ -64,8 +64,8 @@ h1 em {font-family:"DM Serif Display",Georgia,serif; font-weight:400; color:var(
 .btn:hover {background:var(--secondary); text-decoration:none}
 .btn.primary:hover {background:var(--accent-hover)}
 .hero-aside {position:relative; width:100%; max-width:360px; justify-self:end; padding-bottom:8px}
-.portrait-card {border-radius:190px 190px 18px 18px; padding:10px; border:1px solid var(--blue-border); background:#E8EDF4}
-.photo {aspect-ratio:4/5; border-radius:180px 180px 12px 12px; overflow:hidden; background:#e0e6ee}
+.portrait-card {border-radius:0; padding:10px; border:1px solid var(--blue-border); background:#E8EDF4}
+.photo {aspect-ratio:4/5; border-radius:0; overflow:hidden; background:#e0e6ee}
 .photo img {height:100%; width:100%; object-fit:cover; object-position:center 28%}
 .portrait-label {display:flex; align-items:center; gap:13px; margin:-30px 15px 0; padding:16px; position:relative; background:white; border:1px solid var(--border); border-radius:12px; box-shadow:var(--shadow)}
 .portrait-monogram {height:42px; width:42px; flex-shrink:0; border-radius:9px; display:grid; place-items:center; color:var(--accent); background:var(--accent-soft); font:800 .85rem var(--heading-font)}
