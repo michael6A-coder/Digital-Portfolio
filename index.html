@@ -742,18 +742,6 @@ footer{text-align-last:center}
 <p class="meta" style="margin-top:8px">October 14 – December 1, 2025 · STI College Legazpi · Advanced Database Systems, Event-Driven Programming and Enterprise Architecture</p>
 </div>
 </div>
-<div class="showcase">
-<div class="viewer">
-<div class="browser-bar"><i></i><i></i><i></i><span class="url viewer-cap">Level 0 DFD: Context diagram</span><a class="fullsize" href="img/esumbong/dfd-level0.jpg">Full size ↗</a></div>
-<div class="viewer-stage"><img alt="Level 0 data flow diagram of E-Sumbong showing Resident and Admin exchanging reports, status updates and announcements with the system" class="shot" src="img/esumbong/dfd-level0.jpg"/></div>
-</div>
-<div aria-label="E-Sumbong diagrams" class="thumbs" role="tablist">
-<button aria-selected="true" class="thumb active" data-alt="Level 0 data flow diagram of E-Sumbong" data-cap="Level 0 DFD: Context diagram" data-src="img/esumbong/dfd-level0.jpg"><img alt="" src="img/esumbong/dfd-level0.jpg"/><span>Level 0 DFD</span></button>
-<button aria-selected="false" class="thumb" data-alt="Level 1 data flow diagram of E-Sumbong" data-cap="Level 1 DFD: Main processes" data-src="img/esumbong/dfd-level1.jpg"><img alt="" src="img/esumbong/dfd-level1.jpg"/><span>Level 1 DFD</span></button>
-<button aria-selected="false" class="thumb" data-alt="Level 2 data flow diagram of E-Sumbong" data-cap="Level 2 DFD: Detailed processes" data-src="img/esumbong/dfd-level2.jpg"><img alt="" src="img/esumbong/dfd-level2.jpg"/><span>Level 2 DFD</span></button>
-<button aria-selected="false" class="thumb" data-alt="Gantt chart of E-Sumbong tasks from October 14 to December 1, 2025" data-cap="Project timeline: Oct 14 – Dec 1, 2025" data-src="img/esumbong/timeline.jpg"><img alt="" src="img/esumbong/timeline.jpg"/><span>Project timeline</span></button>
-</div>
-</div>
 <div class="cap-body">
 <div>
 
@@ -932,37 +920,19 @@ footer{text-align-last:center}
 
   // A dignified fallback for photos that were not part of the provided HTML upload.
   const setMissing = img => {
-    const holder = img.closest('.photo, .tour-stage, .viewer-stage, .thumb');
+    const holder = img.closest('.photo, .tour-stage, .thumb');
     if (!holder) return;
     holder.classList.add('media-missing');
     holder.dataset.label = img.alt || holder.querySelector('span')?.textContent.trim() || 'Project preview';
   };
   const setLoaded = img => {
-    const holder = img.closest('.photo, .tour-stage, .viewer-stage, .thumb');
+    const holder = img.closest('.photo, .tour-stage, .thumb');
     holder?.classList.remove('media-missing');
   };
   document.querySelectorAll('img').forEach(img => {
     img.addEventListener('error', () => setMissing(img));
     img.addEventListener('load', () => setLoaded(img));
     if (img.complete && img.naturalWidth === 0) setMissing(img);
-  });
-
-  // E-Sumbong diagram gallery. Separate from the capstone project gallery.
-  document.querySelectorAll('.showcase').forEach(showcase => {
-    const display = showcase.querySelector('img.shot');
-    if (!display) return;
-    const full = showcase.querySelector('.fullsize');
-    const caption = showcase.querySelector('.viewer-cap');
-    showcase.querySelectorAll('.thumb').forEach(btn => btn.addEventListener('click', () => {
-      display.src = btn.dataset.src;
-      display.alt = btn.dataset.alt || btn.dataset.cap || 'Project diagram';
-      if (full) full.href = btn.dataset.src;
-      if (caption) caption.textContent = btn.dataset.cap || '';
-      showcase.querySelectorAll('.thumb').forEach(other => {
-        other.classList.toggle('active', other === btn);
-        other.setAttribute('aria-selected', String(other === btn));
-      });
-    }));
   });
 
   // Salon system tour: two tabs, thumbnail selection, and previous/next navigation.
@@ -1038,7 +1008,7 @@ footer{text-align-last:center}
 <script>(()=>{
   /* Crossfade for project screenshots: keeps the old image on top while the new one loads, then fades it out. */
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.querySelectorAll('img.tshot, img.shot').forEach(img=>{
+  document.querySelectorAll('img.tshot').forEach(img=>{
     const stage=img.parentElement;
     new MutationObserver(records=>{
       if(reduce) return;
