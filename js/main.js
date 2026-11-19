@@ -359,7 +359,7 @@
   const grid = document.querySelector('.featured-grid');
   if (!grid) return;
   const feature = grid.closest('article');
-  const salon = [grid.querySelector('.featured-media'), grid.querySelector('.featured-info'), feature.querySelector('.featured-more')];
+  const salon = [grid.querySelector('.salon-preview'), grid.querySelector('.featured-info'), feature.querySelector(':scope > .featured-more')];
   const panels = new Map([['capstone-title', salon]]);
   for (const card of grid.querySelectorAll('.project-summary')) {
     const id = card.getAttribute('aria-labelledby');

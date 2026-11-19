@@ -840,3 +840,17 @@ button.cert-media { cursor: zoom-in; }
 @media (min-width: 980px) {
   .featured-grid > .project-summary-panels { grid-column: span 2; align-self: stretch; }
 }
+
+#projects .section-head { max-width: none; }
+.salon-preview { min-width: 0; }
+#projects .featured-more { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 980px) {
+  #projects .featured-grid:has(> .salon-preview:not([hidden])) {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  }
+  .featured-grid:has(> .salon-preview:not([hidden])) .project-selector {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .featured-grid:has(> .salon-preview:not([hidden])) .project-selector > :is(.eyebrow, .project-selector-note) { display: none; }
+}
