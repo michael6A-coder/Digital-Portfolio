@@ -147,6 +147,15 @@ h3 { font-size: 16px; font-weight: 600; color: var(--h3); }
 h4 { font-size: 14px; font-weight: 600; color: var(--heading); margin-top: 1.1rem; }
 p { margin: 0 0 1rem; color: var(--para); }
 p:last-child { margin-bottom: 0; }
+/* Justify prose while keeping short UI labels and metadata naturally aligned. */
+main p:not(.eyebrow):not(.card-kicker):not(.meta):not(.label):not(.hero-subtitle):not(.hero-edu):not(.hero-location):not(.status-badge):not(.focus-label):not(.profile-name):not(.profile-role):not(.profile-school):not(.profile-grad):not(.tl-date):not(.tour-title):not(.tour-desc),
+.dialog-body p:not(.eyebrow):not(.card-kicker):not(.meta),
+.feature-list li,
+.course-list li {
+  text-align: justify;
+  text-align-last: start;
+  hyphens: auto;
+}
 ul, ol { margin: 0 0 1rem; padding-left: 1.2rem; }
 li { margin-bottom: .35rem; color: var(--para); }
 li::marker { color: var(--nav-active); }
