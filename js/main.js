@@ -377,15 +377,11 @@
     button.append(img, label);
     diagrams.append(button);
   }
-  grid.append(diagrams);
-  const summaries = document.querySelector('#projects .project-grid');
-  for (const card of summaries.querySelectorAll('.project-summary')) {
+  grid.insertBefore(diagrams, grid.querySelector('.project-summary'));
+  for (const card of grid.querySelectorAll('.project-summary')) {
     const id = card.getAttribute('aria-labelledby');
-    card.classList.remove('reveal');
-    grid.append(card);
     panels.set(id, id === 'esumbong-title' ? [diagrams, card] : [card]);
   }
-  summaries.hidden = true;
   const choices = grid.querySelectorAll('.project-choice');
   function select(id) {
     for (const [key, elements] of panels) {
