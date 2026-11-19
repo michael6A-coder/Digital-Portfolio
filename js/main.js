@@ -361,25 +361,9 @@
   const feature = grid.closest('article');
   const salon = [grid.querySelector('.featured-media'), grid.querySelector('.featured-info'), feature.querySelector('.featured-more')];
   const panels = new Map([['capstone-title', salon]]);
-  const diagrams = document.createElement('section');
-  diagrams.className = 'featured-media project-diagrams';
-  diagrams.setAttribute('aria-label', 'E-Sumbong project diagrams');
-  for (const [file, label] of [['dfd-level0', 'Level 0 data flow diagram'], ['dfd-level1', 'Level 1 data flow diagram'], ['dfd-level2', 'Level 2 data flow diagram'], ['timeline', 'Project timeline']]) {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.dataset.lightbox = '';
-    button.dataset.title = label;
-    const img = new Image();
-    img.loading = 'lazy';
-    img.alt = label;
-    img.src = 'assets/images/esumbong/' + file + '.webp';
-    button.append(img, label);
-    diagrams.append(button);
-  }
-  grid.insertBefore(diagrams, grid.querySelector('.project-summary'));
   for (const card of grid.querySelectorAll('.project-summary')) {
     const id = card.getAttribute('aria-labelledby');
-    panels.set(id, id === 'esumbong-title' ? [diagrams, card] : [card]);
+    panels.set(id, [card]);
   }
   const choices = grid.querySelectorAll('.project-choice');
   function select(id) {
