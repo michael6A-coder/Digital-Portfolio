@@ -1,121 +1,278 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Michael Kharl M. Agao — Software Developer Portfolio</title>
-<meta content="Digital portfolio of Michael Kharl M. Agao, a 4th-year BS Information Technology student at STI College Legazpi and aspiring software developer: projects, skills, experience and certifications." name="description"/>
-<meta content="Michael Kharl M. Agao" name="author"/>
-<meta content="profile" property="og:type"/>
-<meta content="Michael Kharl M. Agao | Digital Portfolio" property="og:title"/>
-<meta content="Aspiring Software Developer · BS Information Technology, STI College Legazpi. Projects, skills, experience and certifications." property="og:description"/>
-<meta content="photo.jpg" property="og:image"/>
-<meta content="#FAFBFC" name="theme-color"/>
-<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F2A4A'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='28' fill='white' text-anchor='middle'%3EMA%3C/text%3E%3C/svg%3E" rel="icon"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Michael Kharl M. Agao — Aspiring Software Developer | Portfolio</title>
+<meta name="description" content="Portfolio of Michael Kharl M. Agao, a 4th-year BS Information Technology student at STI College Legazpi and aspiring software developer: projects, skills, experience and certifications."/>
+<meta name="author" content="Michael Kharl M. Agao"/>
+<link rel="canonical" href="https://digital-portfolio-agao.vercel.app/"/>
+<meta name="theme-color" content="#F8FAFC" media="(prefers-color-scheme: light)"/>
+<meta name="theme-color" content="#101927" media="(prefers-color-scheme: dark)"/>
+
+<!-- Open Graph / social sharing (absolute URLs so previews work on every platform) -->
+<meta property="og:type" content="profile"/>
+<meta property="og:site_name" content="Michael Agao · Portfolio"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://digital-portfolio-agao.vercel.app/"/>
+<meta property="og:title" content="Michael Kharl M. Agao | Aspiring Software Developer"/>
+<meta property="og:description" content="BS Information Technology student at STI College Legazpi. Web development, UI/UX and system planning: projects, skills, experience and certifications."/>
+<meta property="og:image" content="https://digital-portfolio-agao.vercel.app/assets/images/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Michael Kharl M. Agao, Aspiring Software Developer, BS Information Technology at STI College Legazpi"/>
+<meta property="profile:first_name" content="Michael Kharl"/>
+<meta property="profile:last_name" content="Agao"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Michael Kharl M. Agao | Aspiring Software Developer"/>
+<meta name="twitter:description" content="BS Information Technology student at STI College Legazpi. Web development, UI/UX and system planning."/>
+<meta name="twitter:image" content="https://digital-portfolio-agao.vercel.app/assets/images/og-image.jpg"/>
+<meta name="twitter:image:alt" content="Michael Kharl M. Agao, Aspiring Software Developer"/>
+
+<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png"/>
+
+<!-- Theme: applied before first paint so there is no flash. Preference: "system" | "light" | "dark". -->
+<script>
+(function () {
+  var root = document.documentElement, pref = 'system';
+  try { pref = localStorage.getItem('theme') || 'system'; } catch (e) {}
+  if (pref !== 'light' && pref !== 'dark') pref = 'system';
+  var dark = pref === 'dark' || (pref === 'system' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  root.setAttribute('data-theme', dark ? 'dark' : 'light');
+  root.setAttribute('data-theme-pref', pref);
+  root.classList.add('js');
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/>
+<link rel="stylesheet" href="css/style.css"/>
+<script src="js/main.js" defer></script>
+
 <!-- Vercel Speed Insights -->
 <script>
   window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
-<link rel="stylesheet" href="styles.css"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=DM+Serif+Display:ital@1&display=swap" rel="stylesheet"/>
-<script src="gallery-data.js" defer></script>
-<script src="script.js" defer></script>
 </head>
-<body><a class="skip-link" href="#home">Skip to content</a>
-<header>
-<div class="wrap">
-<nav aria-label="Main">
-<a class="brand" href="#home" aria-label="Michael Agao — Home">MA <span aria-hidden="true">/</span></a><button aria-controls="nav-links" aria-expanded="false" aria-label="Open navigation menu" class="menu-toggle" type="button"><span></span><span></span><span></span></button>
-<div class="links" id="nav-links">
-<a href="#home">Home</a>
-<a href="#about">About Me</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#experience">Experience</a>
-<a href="#achievements">Certificates</a>
-<a href="#contact">Contact</a>
-</div>
-</nav>
-</div>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#home">
+      <img src="assets/images/portrait-96.webp" alt="" width="40" height="40"/>
+      <span class="brand-text">
+        <span class="brand-name">Michael Agao</span>
+        <span class="brand-tag">BSIT Student · STI College Legazpi</span>
+      </span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <div class="theme-control">
+        <label class="visually-hidden" for="theme-select">Color theme</label>
+        <span class="select-wrap">
+          <span class="ti ti-system"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg></span>
+          <span class="ti ti-light"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></span>
+          <span class="ti ti-dark"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span>
+          <select id="theme-select">
+            <option value="system">System</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </span>
+      </div>
+      <button type="button" class="menu-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+        <span class="mt-open"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></span><span class="mt-close"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span>
+      </button>
+    </div>
+  </div>
 </header>
-<main>
-<!-- HOME -->
-<section id="home">
-<div class="wrap hero"><div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span> STUDENT PORTFOLIO · LEGAZPI CITY</p><p class="hero-hello">Hello, I'm</p><h1>Michael Kharl<br/>M. <em>Agao.</em></h1><p class="hero-subtitle">Aspiring Software Developer &amp; UI/UX Designer</p><p class="hero-education">BS Information Technology · STI College Legazpi<br/>Expected graduation: June 2027</p><div class="intro"><p>I am a fourth-year Bachelor of Science in Information Technology student at STI College Legazpi, expecting to graduate in June 2027. I enjoy building practical applications and designing clear, user-friendly interfaces that make everyday tasks easier. Through academic projects, I have developed experience in system planning, web and desktop application development, databases, testing and technical documentation. My work includes our multi-branch salon platform, the E-Sumbong community issue reporting system, and a handmade crafts and expense log. I work with Java, C#, PHP, HTML, CSS, JavaScript and MySQL, and I am continuing to learn Python. I am looking for an entry-level software developer opportunity where I can learn from experienced teammates, strengthen my technical and design skills, and contribute to useful, reliable software.</p></div>
-<div class="cta"><a class="btn primary" href="#projects">Explore My Work <span aria-hidden="true">↗</span></a><a class="btn ghost" href="#about">About Me</a></div>
-<div class="contact-socials hero-socials" aria-label="Michael's social profiles">
-<a aria-label="Send Michael an email" href="mailto:agao.michaelkharl.mka@gmail.com" title="Email"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="20"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="m3 7 9 6 9-6"></path></svg></a>
-<a aria-label="Michael's GitHub" href="https://github.com/michael6A-coder" rel="noopener noreferrer" target="_blank" title="GitHub"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="20"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 6v-3.1a2.7 2.7 0 0 0-.75-2.1c2.5-.28 5.15-1.22 5.15-5.55a4.33 4.33 0 0 0-1.2-3 4.01 4.01 0 0 0-.12-2.95s-.97-.31-3.18 1.16a10.97 10.97 0 0 0-5.8 0C6.89 4.98 5.92 5.29 5.92 5.29a4.01 4.01 0 0 0-.12 2.95 4.33 4.33 0 0 0-1.2 3c0 4.31 2.65 5.27 5.15 5.55A2.7 2.7 0 0 0 9 18.9V22"></path></svg></a>
-<a aria-label="Michael's LinkedIn" href="https://www.linkedin.com/in/michael-kharl-agao" rel="noopener noreferrer" target="_blank" title="LinkedIn"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="20"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M7.5 10v7m0-10v.01M12 17v-7m0 3a3 3 0 0 1 6 0v4"></path></svg></a>
 
-<a aria-label="Michael's Facebook" href="https://www.facebook.com/share/14vfk2ME5Xy/" rel="noopener noreferrer" target="_blank" title="Facebook"><svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.25 0-1.64.78-1.64 1.57V12h2.8l-.45 2.89h-2.35v6.99A10 10 0 0 0 22 12Z"></path></svg></a>
-<a aria-label="Michael's Instagram" href="https://www.instagram.com/michael_kharl_6" rel="noopener noreferrer" target="_blank" title="Instagram"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.85" viewBox="0 0 24 24"><rect height="19" rx="5" width="19" x="2.5" y="2.5"></rect><circle cx="12" cy="12" r="4.3"></circle><circle cx="17.8" cy="6.5" fill="currentColor" r="1" stroke="none"></circle></svg></a>
-<a aria-label="Message Michael on Telegram" href="https://t.me/MiCh_KhArL" rel="noopener noreferrer" target="_blank" title="Telegram"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="m21 3-3.6 17-5.3-4.3-3.1 2.4.6-4.2L3 11.4 21 3Z"></path><path d="m9.6 13.9 8-7.1"></path></svg></a>
-</div></div>
-<aside class="hero-aside" aria-label="Michael's portrait"><div class="portrait-card"><div class="photo"><img alt="Professional portrait of Michael Kharl M. Agao" src="photo.jpg" width="480" height="600" fetchpriority="high"/></div></div>
-<div class="portrait-label"><span class="portrait-monogram" aria-hidden="true">MA</span><div><strong>Michael Kharl M. Agao</strong><span>Aspiring developer &amp; UI/UX designer</span></div></div>
-</aside></div></section>
-<!-- ABOUT -->
-<section id="about">
-<div class="wrap">
+<main id="main" tabindex="-1">
 
-<h2>About Me</h2><div class="about-intro"><p>I am an IT student from Legazpi City with an interest in software development, system design, and clear, user-friendly interfaces. My academic work brings together planning, development, documentation, and teamwork.</p></div>
+<!-- 1. HOME / HERO -->
+<section id="home" class="hero" aria-labelledby="hero-title">
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <p class="eyebrow">Professional profile</p>
+      <p class="status-badge"><span class="dot" aria-hidden="true"></span>Open to entry-level opportunities</p>
+      <h1 id="hero-title">Michael Kharl M. Agao</h1>
+      <p class="hero-subtitle">Aspiring Software Developer · Web Development &amp; UI/UX</p>
+      <p class="hero-edu">BS Information Technology · STI College Legazpi<br/>Expected graduation: June 2027</p>
+      <p class="hero-intro">I am a fourth-year Bachelor of Science in Information Technology student at STI College Legazpi, expecting to graduate in June 2027. I enjoy building practical applications and designing clear, user-friendly interfaces that make everyday tasks easier. Through academic projects, I have developed experience in system planning, web and desktop application development, databases, testing and technical documentation. My work includes our multi-branch salon platform, the E-Sumbong community issue reporting system, and a handmade crafts and expense log. I work with Java, C#, PHP, HTML, CSS, JavaScript and MySQL, and I am continuing to learn Python. I am looking for an entry-level software developer opportunity where I can learn from experienced teammates, strengthen my technical and design skills, and contribute to useful, reliable software.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#projects">Explore my work <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a class="btn btn-outline btn-on-dark" href="#about">About me</a>
+      </div>
+      <ul class="social-list" aria-label="Social profiles">
+        <li><a aria-label="Email Michael" title="Email" href="mailto:agao.michaelkharl.mka@gmail.com"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a></li>
+        <li><a aria-label="GitHub (opens in a new tab)" title="GitHub" href="https://github.com/michael6A-coder" rel="noopener noreferrer" target="_blank"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        <li><a aria-label="LinkedIn (opens in a new tab)" title="LinkedIn" href="https://www.linkedin.com/in/michael-kharl-agao" rel="noopener noreferrer" target="_blank"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
+        <li><a aria-label="Facebook (opens in a new tab)" title="Facebook" href="https://www.facebook.com/share/14vfk2ME5Xy/" rel="noopener noreferrer" target="_blank"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a></li>
+        <li><a aria-label="Instagram (opens in a new tab)" title="Instagram" href="https://www.instagram.com/michael_kharl_6" rel="noopener noreferrer" target="_blank"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></a></li>
+        <li><a aria-label="Telegram (opens in a new tab)" title="Telegram" href="https://t.me/MiCh_KhArL" rel="noopener noreferrer" target="_blank"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a></li>
+      </ul>
+      <div class="focus-block">
+        <p class="focus-label" id="focus-label">Currently focused on</p>
+        <ul class="chips" aria-labelledby="focus-label">
+          <li>Web development</li>
+          <li>UI/UX design</li>
+          <li>System planning</li>
+        </ul>
+      </div>
+      <p class="hero-location"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Legazpi City, Albay, Philippines</p>
+    </div>
 
-<div class="objective">
-<p class="obj-label">Career Objective</p>
-<p>Bachelor of Science in Information Technology student at STI College Legazpi seeking an entry-level Software Developer position at Alliance Software, Inc. Skilled in programming, databases, UI/UX design, software testing and technical documentation through academic software projects. Eager to contribute to a collaborative development team while continuing to strengthen my technical skills.</p>
-</div>
-<div class="grid2">
-<details class="disclosure about-card">
-<summary>Background</summary>
-<div class="disclosure-body">
-<p>I am from Legazpi City in the Bicol Region and have been studying Information Technology at STI College Legazpi since August 2023. My coursework covers application development, databases, web systems, human-computer interaction, systems integration and information security. Through group projects, I have worked with classmates on planning, building, testing and presenting systems. I speak Tagalog and Bikol natively and use English at a professional level.</p>
-</div></details>
-<details class="disclosure about-card">
-<summary>Career Goals</summary>
-<div class="disclosure-body">
-<p><strong>Short-term goal:</strong> Start my career as an entry-level Software Developer and learn from experienced developers on real projects.</p>
-<p><strong>Long-term goal:</strong> Build a career in software engineering and software development, using programming, problem-solving and UI/UX design to create useful, reliable and user-friendly applications.</p>
-</div></details>
-<details class="disclosure about-card">
-<summary>Interests</summary>
-<div class="disclosure-body">
-<ul>
-<li>Software development</li>
-<li>System design and organizing system processes</li>
-<li>UI/UX design and simple, user-friendly interfaces</li>
-<li>Visual and presentation design</li>
-</ul>
-</div></details>
-<details class="disclosure about-card">
-<summary>Strengths</summary>
-<div class="disclosure-body">
-<ul>
-<li>Problem-solving</li>
-<li>Attention to detail</li>
-<li>Team collaboration</li>
-<li>Time management</li>
-<li>Adaptability</li>
-<li>Creativity</li>
-</ul>
-</div></details>
-</div>
-</div>
+    <!-- 2. PROFILE CARD -->
+    <aside class="profile-card reveal" aria-labelledby="profile-name">
+      <p class="eyebrow profile-eyebrow">01 · The Developer</p>
+      <div class="profile-photo">
+        <img src="assets/images/portrait.webp" alt="Professional portrait of Michael Kharl M. Agao" width="480" height="480" fetchpriority="high"/>
+      </div>
+      <div class="profile-text">
+        <p class="profile-name" id="profile-name">Michael Kharl M. Agao</p>
+        <p class="profile-role">BSIT student · Aspiring software developer</p>
+        <p class="profile-school">STI College Legazpi · BS Information Technology</p>
+        <p class="profile-grad">Expected graduation <strong>June 2027</strong></p>
+      </div>
+      <ul class="chips profile-chips" aria-label="Focus areas">
+        <li>Development</li>
+        <li>Design</li>
+        <li>Documentation</li>
+      </ul>
+    </aside>
+  </div>
 </section>
-<section id="skills">
-<div class="wrap"><h2>Skills and Competencies</h2><p class="lede">Technical foundations, creative thinking, and the tools I use to bring academic projects to life.</p><div class="skill-groups"><article class="skill-group">
-<h3 class="eyebrow">Development</h3><div class="skills-chiplist"><span>Java</span><span>C#</span><span>PHP</span><span>JavaScript · Vanilla JS</span><span>HTML5</span><span>CSS3</span><span>Tailwind CSS · v4</span><span>Python · Beginner</span><span>Git</span><span>GitHub</span><span>Basic debugging</span><span>Software testing</span></div></article>
-<article class="skill-group">
-<h3 class="eyebrow">Data and Systems</h3><div class="skills-chiplist"><span>MySQL</span><span>MariaDB</span><span>MongoDB</span><span>SQL fundamentals</span><span>System analysis</span><span>Data flow diagrams</span><span>Flowcharts</span><span>Technical documentation</span></div></article>
-<article class="skill-group">
-<h3 class="eyebrow">Design and Collaboration</h3><div class="skills-chiplist"><span>Wireframing</span><span>User experience (UX)</span><span>Digital design</span><span>Visual &amp; presentation design</span><span>Problem-solving</span><span>Attention to detail</span><span>Teamwork</span><span>Time management</span><span>Adaptability</span><span>Creativity</span><span>Digital literacy</span></div></article></div>
-<details class="disclosure tools-disclosure">
-<summary>Tools &amp; applications<span>Development environments, design tools, and Microsoft Office</span></summary>
-<div class="disclosure-body"><div class="tech-stack-grid"><div class="tech-category tech-languages"><h3>Programming Languages</h3><div class="tech-card"><div class="stack-item"><span class="stack-logo"><svg aria-hidden="true" class="stack-icon" viewBox="0 0 64 64"><path d="M27 11c13 12-8 14-2 25M37 5c11 14-13 16-5 30" fill="none" stroke="#E74C3C" stroke-linecap="round" stroke-width="3.4"></path><path d="M17 39h28c-1 9-7 13-14 13S18 48 17 39Z" fill="#2084BA"></path><path d="M45 41c15-2 9 9-2 9" fill="none" stroke="#2084BA" stroke-width="3"></path><path d="M17 55c6 4 25 5 33-1" fill="none" stroke="#2084BA" stroke-linecap="round" stroke-width="3"></path></svg></span><span class="stack-name">Java</span></div>
+
+<!-- 3. ABOUT -->
+<section id="about" aria-labelledby="about-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">02 · About</p>
+      <h2 id="about-title">About Me</h2>
+    </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <ul class="stat-list">
+          <li class="stat"><span class="stat-num" data-count="3">3</span><span class="stat-label">Academic projects</span></li>
+          <li class="stat"><span class="stat-num" data-count="4">4</span><span class="stat-label">Certifications</span></li>
+        </ul>
+        <p class="tagline">Learning to build things that make everyday tasks a little simpler.</p>
+        <p>I am an IT student from Legazpi City with an interest in software development, system design, and clear, user-friendly interfaces. My academic work brings together planning, development, documentation, and teamwork.</p>
+        <div class="approach">
+          <h3 id="approach-title">How I approach my work</h3>
+          <p class="muted">Plan the system first, design around the people who use it, and build it together with the team.</p>
+          <ul class="chips" aria-labelledby="approach-title">
+            <li>System planning</li>
+            <li>User-focused design</li>
+            <li>Team collaboration</li>
+          </ul>
+        </div>
+      </div>
+      <div class="reveal">
+        <details class="disclosure" open>
+          <summary>Career objective</summary>
+          <div class="disclosure-body">
+            <p>Bachelor of Science in Information Technology student at STI College Legazpi seeking an entry-level Software Developer position at Alliance Software, Inc. Skilled in programming, databases, UI/UX design, software testing and technical documentation through academic software projects. Eager to contribute to a collaborative development team while continuing to strengthen my technical skills.</p>
+          </div>
+        </details>
+        <details class="disclosure">
+          <summary>Background &amp; interests</summary>
+          <div class="disclosure-body">
+            <p>I am from Legazpi City in the Bicol Region and have been studying Information Technology at STI College Legazpi since August 2023. My coursework covers application development, databases, web systems, human-computer interaction, systems integration and information security. Through group projects, I have worked with classmates on planning, building, testing and presenting systems. I speak Tagalog and Bikol natively and use English at a professional level.</p>
+            <h4>Interests</h4>
+            <ul>
+              <li>Software development</li>
+              <li>System design and organizing system processes</li>
+              <li>UI/UX design and simple, user-friendly interfaces</li>
+              <li>Visual and presentation design</li>
+            </ul>
+          </div>
+        </details>
+        <details class="disclosure">
+          <summary>Career direction</summary>
+          <div class="disclosure-body">
+            <p><strong>Short-term goal:</strong> Start my career as an entry-level Software Developer and learn from experienced developers on real projects.</p>
+            <p><strong>Long-term goal:</strong> Build a career in software engineering and software development, using programming, problem-solving and UI/UX design to create useful, reliable and user-friendly applications.</p>
+          </div>
+        </details>
+        <details class="disclosure">
+          <summary>Personal strengths</summary>
+          <div class="disclosure-body">
+            <ul class="chips">
+              <li>Problem-solving</li>
+              <li>Attention to detail</li>
+              <li>Team collaboration</li>
+              <li>Time management</li>
+              <li>Adaptability</li>
+              <li>Creativity</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. SKILLS -->
+<section id="skills" aria-labelledby="skills-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">03 · Skills</p>
+      <h2 id="skills-title">Skills &amp; Competencies</h2>
+      <p class="lede">Technical foundations, creative thinking, and the tools I use to bring academic projects to life.</p>
+    </div>
+    <div class="skill-grid">
+      <article class="card skill-card reveal">
+        <p class="card-kicker">Development</p>
+        <h3>Programming &amp; Web</h3>
+        <ul class="chips">
+          <li>PHP</li><li>Java</li><li>C#</li><li>JavaScript · Vanilla JS</li><li>HTML5</li><li>CSS3</li><li>Tailwind CSS · v4</li><li>Python · Beginner</li><li>Git</li><li>GitHub</li>
+        </ul>
+        <p class="card-note">Basic debugging and software testing.</p>
+      </article>
+      <article class="card skill-card reveal">
+        <p class="card-kicker">Data &amp; systems</p>
+        <h3>Databases &amp; Systems</h3>
+        <ul class="chips">
+          <li>MySQL</li><li>MariaDB</li><li>MongoDB</li><li>SQL fundamentals</li><li>System analysis</li><li>Data flow diagrams</li><li>Flowcharts</li><li>Technical documentation</li>
+        </ul>
+        <p class="card-note">Database design, system analysis and documentation for academic systems.</p>
+      </article>
+      <article class="card skill-card reveal">
+        <p class="card-kicker">Design &amp; collaboration</p>
+        <h3>Design &amp; Collaboration</h3>
+        <ul class="chips">
+          <li>Figma</li><li>Canva</li><li>draw.io</li><li>Wireframing</li><li>User experience (UX)</li><li>Digital design</li><li>Visual &amp; presentation design</li>
+        </ul>
+        <p class="card-note">Teamwork, attention to detail, adaptability and visual communication.</p>
+      </article>
+    </div>
+
+    <div class="strengths reveal">
+      <h3 id="strengths-title">Professional strengths</h3>
+      <ul class="chips" aria-labelledby="strengths-title">
+        <li>Problem-solving</li><li>Attention to detail</li><li>Teamwork</li><li>Time management</li><li>Adaptability</li><li>Creativity</li><li>Digital literacy</li>
+      </ul>
+    </div>
+
+    <details class="disclosure reveal">
+      <summary><span>Tools &amp; applications<span class="summary-sub">Development environments, design tools, and Microsoft Office</span></span></summary>
+      <div class="disclosure-body">
+<div class="tech-stack-grid"><div class="tech-category tech-languages"><h3>Programming Languages</h3><div class="tech-card"><div class="stack-item"><span class="stack-logo"><svg aria-hidden="true" class="stack-icon" viewBox="0 0 64 64"><path d="M27 11c13 12-8 14-2 25M37 5c11 14-13 16-5 30" fill="none" stroke="#E74C3C" stroke-linecap="round" stroke-width="3.4"></path><path d="M17 39h28c-1 9-7 13-14 13S18 48 17 39Z" fill="#2084BA"></path><path d="M45 41c15-2 9 9-2 9" fill="none" stroke="#2084BA" stroke-width="3"></path><path d="M17 55c6 4 25 5 33-1" fill="none" stroke="#2084BA" stroke-linecap="round" stroke-width="3"></path></svg></span><span class="stack-name">Java</span></div>
 <div class="stack-item"><span class="stack-logo"><svg aria-hidden="true" class="stack-icon" viewBox="0 0 64 64"><path d="M32 3 57 18v28L32 61 7 46V18Z" fill="#7C3FB3"></path><text fill="#fff" font-family="Arial,sans-serif" font-size="26" font-weight="800" text-anchor="middle" x="32" y="43">C#</text></svg></span><span class="stack-name">C#</span></div>
 <div class="stack-item"><span class="stack-logo"><svg aria-hidden="true" class="stack-icon stack-brand-icon" style="color:#777BB4" viewBox="-72.0 -988.0 1344.0 776.0" xmlns="http://www.w3.org/2000/svg"><path d="M350 690H351H303L278 557H319C347 557 368 562 382 573C395 584 404 601 409 625C414 649 412 666 403 676C394 685 377 690 350 690ZM600 916C519 916 441 908 366 891C295 875 231 852 176 823C121 794 78 760 47 723C16 684 0 643 0 600C0 557 16 516 47 477C78 440 121 406 176 377C231 348 295 325 366 309C441 292 519 284 600 284C681 284 759 292 834 309C905 325 969 348 1024 377C1079 406 1122 440 1153 477C1184 516 1200 557 1200 600C1200 643 1184 684 1153 723C1122 760 1079 794 1024 823C969 852 905 875 834 891C759 908 681 916 600 916ZM437 543C424 530 409 521 392 516C375 510 353 507 327 507H268L252 423H183L244 740H377C416 740 445 730 464 709C482 688 487 658 480 621C477 606 472 592 465 579C458 566 448 554 437 543ZM708 507H638L665 647C668 663 667 674 662 680C657 686 645 689 628 688H573L538 507H469L531 824H599L583 740H644C682 740 708 733 723 720C738 706 742 684 736 655L708 507ZM1018 621C1015 606 1010 592 1003 579C996 566 986 554 975 543C962 530 946 521 929 516C912 510 890 507 865 507H806L789 423H720L782 740H914C954 740 983 730 1002 709C1020 688 1025 658 1018 621ZM888 690H841L815 557H857C885 557 906 562 920 573C933 584 942 601 947 625C952 649 950 666 941 676C932 685 915 690 888 690Z" fill="currentColor" transform="scale(1,-1)"></path></svg></span><span class="stack-name">PHP</span></div>
 <div class="stack-item"><span class="stack-logo"><svg aria-hidden="true" class="stack-icon" viewBox="0 0 64 64"><rect fill="#F7DF1E" height="54" rx="9" width="54" x="5" y="5"></rect><text fill="#252525" font-family="Arial,sans-serif" font-size="29" font-weight="800" text-anchor="middle" x="31" y="46">JS</text></svg></span><span class="stack-name">JavaScript</span><span class="stack-note">Vanilla JS</span></div>
@@ -135,247 +292,485 @@
 <div class="stack-item"><span class="stack-logo"><svg aria-hidden="true" class="stack-icon stack-brand-icon" style="color:#F08705" viewBox="-84.0 -1284.0 1368.0 1368.0"><path d="M986 529H985H858L725 757C740 760 753 767 763 780C772 792 777 806 777 821V992C777 1010 771 1026 758 1039C745 1052 730 1058 711 1058H489C470 1058 455 1052 442 1039C429 1026 423 1011 423 993V821C423 806 428 792 438 780C447 768 460 760 475 757L341 529H215C197 529 182 523 169 510C156 497 150 482 150 464V292C150 274 156 259 169 246C182 233 197 227 215 227H438C456 227 471 233 484 246C497 259 503 274 503 292V463C503 482 497 497 485 510C472 523 457 529 438 529H417L549 755H652L785 529H763C744 529 729 523 716 510C703 497 697 482 697 464V292C697 274 703 259 716 246C729 233 744 227 762 227H985C1003 227 1019 233 1032 246C1045 259 1051 274 1051 292V463C1051 482 1045 497 1032 510C1019 523 1004 529 986 529ZM1200 1149V51C1200 37 1195 25 1185 15C1175 5 1163 0 1149 0H51C37 0 25 5 15 15C5 25 0 37 0 51V1149C0 1163 5 1175 15 1185C25 1195 37 1200 51 1200H1149C1163 1200 1175 1195 1185 1185C1195 1175 1200 1163 1200 1149Z" fill="currentColor" transform="scale(1,-1)"></path></svg></span><span class="stack-name">draw.io</span></div></div></div>
 <div class="tech-category tech-ides"><h3>IDEs &amp; Editors</h3><div class="tech-card"><div class="stack-item"><span class="stack-logo"><svg aria-hidden="true" class="stack-icon" viewBox="0 0 64 64"><path d="M44 3c2-1 3 0 5 1l9 4v48l-9 4c-2 1-3 2-5 1L20 43 10 51 3 47V17l7-4 10 8L44 3Z" fill="#24A6EB"></path><path d="M44 15 23 32l21 17V15Z" fill="#fff"></path><path d="m10 21 10 11-10 11V21Z" fill="#1269A0"></path></svg></span><span class="stack-name">VS Code</span></div>
 <div class="stack-item"><span class="stack-logo"><svg aria-hidden="true" class="stack-icon" viewBox="0 0 64 64"><path d="M24 18 45 4 60 10v44l-15 6-21-14-12 9-8-4V13l8-4Z" fill="#6C3EA0"></path><path d="m15 22 10 10-10 10m10-10L45 15v34L25 32Z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path></svg></span><span class="stack-name">Visual Studio</span></div>
-<div class="stack-item"><span class="stack-logo"><img alt="" class="stack-icon" src="img/netbeans.webp"/></span><span class="stack-name">NetBeans</span></div></div></div>
+<div class="stack-item"><span class="stack-logo"><img alt="" class="stack-icon" src="assets/images/netbeans-64.webp" width="55" height="64" loading="lazy"/></span><span class="stack-name">NetBeans</span></div></div></div>
 <div class="tech-category tech-servers"><h3>Local Servers &amp; Platforms</h3><div class="tech-card"><div class="stack-item"><span class="stack-logo"><svg aria-hidden="true" class="stack-icon stack-brand-icon" style="color:#FB7A24" viewBox="-78.0 -1284.0 1356.0 1368.0"><path d="M840 604C841 603 842 603 845 602L856 597C879 587 892 570 894 545C896 512 896 481 894 450C893 432 885 417 870 405C855 392 839 386 820 387C801 387 785 394 772 407C758 420 751 436 750 453C749 463 749 477 749 496L750 520C749 526 749 530 748 531C747 532 743 532 737 532H533C510 532 493 526 480 514C467 501 460 483 459 459C458 438 452 421 441 408C422 386 397 378 368 385C343 391 325 408 316 437C313 446 312 455 313 465C313 472 314 481 317 492C334 583 386 643 473 670C490 675 509 678 528 678H669L688 679C706 680 720 687 731 699C742 710 748 726 749 747L750 756C750 776 757 793 770 807C783 820 800 827 820 828C839 829 856 823 871 810C885 797 893 781 894 762C897 710 882 661 848 616L845 613C842 610 841 607 840 604ZM451 678H412C410 678 406 678 400 678C386 678 375 679 368 680C341 685 324 700 317 726C308 757 314 783 335 802C359 825 385 830 414 818C427 813 438 804 446 792C454 780 458 767 459 753C460 744 460 729 459 710V686C459 681 456 678 451 678ZM1084 1200H116C96 1200 78 1195 61 1185C44 1175 30 1162 21 1145C11 1128 6 1110 6 1090V124C6 101 12 81 23 62C34 43 49 28 68 17C87 6 107 0 130 0H1070C1093 0 1114 6 1133 17C1152 28 1167 43 1178 62C1189 81 1194 101 1194 124V1090C1194 1110 1189 1128 1180 1145C1170 1162 1157 1175 1140 1185C1123 1195 1104 1200 1084 1200ZM1006 576C1031 537 1043 493 1040 444C1037 397 1021 355 991 319C961 282 923 259 878 248C837 238 797 238 760 249C726 259 696 277 670 303C645 327 627 355 616 387C613 396 609 411 605 432V437L604 429C600 406 596 390 592 380C555 296 494 249 408 240C373 236 340 240 309 252C277 264 249 282 226 307C203 332 186 361 177 394C171 413 168 435 168 460C168 477 170 498 173 525C177 554 188 585 205 618C208 623 207 627 204 632C177 673 165 720 169 771C172 800 179 825 190 848C209 887 237 917 274 939C315 964 360 974 410 969C440 966 469 956 497 939C524 922 548 900 567 874C586 848 597 820 601 791L605 775L610 807C616 835 628 861 647 886C667 913 691 934 720 949C751 966 784 974 821 975C857 975 891 966 924 949C953 933 978 912 998 885C1018 858 1031 831 1036 802C1043 763 1042 719 1031 669C1026 649 1018 624 1005 595C1002 588 1003 582 1006 576Z" fill="currentColor" transform="scale(1,-1)"></path></svg></span><span class="stack-name">XAMPP</span></div></div></div>
 <div class="tech-category tech-office"><h3>Microsoft Office</h3><div class="tech-card"><div class="stack-item"><span class="stack-logo"><svg aria-hidden="true" class="stack-icon" viewBox="0 0 64 64"><defs><linearGradient id="office-Outlook" x2="1" y2="1"><stop stop-color="#28C7F7"/><stop offset="1" stop-color="#0078D4"/></linearGradient></defs><rect x="23" y="10" width="32" height="44" rx="6" fill="url(#office-Outlook)"/><path d="M23 25h32M23 39h32" stroke="white" stroke-opacity=".2" stroke-width="2"/><rect x="7" y="23" width="29" height="29" rx="5" fill="#0078D4"/><text x="21.5" y="44" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="white">O</text></svg></span><span class="stack-name">Outlook</span></div>
 <div class="stack-item"><span class="stack-logo"><svg aria-hidden="true" class="stack-icon" viewBox="0 0 64 64"><defs><linearGradient id="office-Teams" x2="1" y2="1"><stop stop-color="#A6A1FF"/><stop offset="1" stop-color="#5144C5"/></linearGradient></defs><circle cx="36" cy="14" r="9" fill="#A6A1FF"/><circle cx="53" cy="20" r="6" fill="#5144C5"/><rect x="43" y="29" width="17" height="23" rx="7" fill="#5144C5"/><rect x="24" y="27" width="25" height="31" rx="9" fill="#A6A1FF"/><rect x="7" y="23" width="29" height="29" rx="5" fill="#5144C5"/><text x="21.5" y="44" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="white">T</text></svg></span><span class="stack-name">Teams</span></div>
 <div class="stack-item"><span class="stack-logo"><svg aria-hidden="true" class="stack-icon" viewBox="0 0 64 64"><defs><linearGradient id="office-Word" x2="1" y2="1"><stop stop-color="#41A5EE"/><stop offset="1" stop-color="#185ABD"/></linearGradient></defs><rect x="23" y="10" width="32" height="44" rx="6" fill="url(#office-Word)"/><path d="M23 25h32M23 39h32" stroke="white" stroke-opacity=".2" stroke-width="2"/><rect x="7" y="23" width="29" height="29" rx="5" fill="#185ABD"/><text x="21.5" y="44" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="white">W</text></svg></span><span class="stack-name">Word</span></div>
 <div class="stack-item"><span class="stack-logo"><svg aria-hidden="true" class="stack-icon" viewBox="0 0 64 64"><defs><linearGradient id="office-Excel" x2="1" y2="1"><stop stop-color="#55CA83"/><stop offset="1" stop-color="#107C41"/></linearGradient></defs><rect x="23" y="10" width="32" height="44" rx="6" fill="url(#office-Excel)"/><path d="M23 25h32M23 39h32" stroke="white" stroke-opacity=".2" stroke-width="2"/><rect x="7" y="23" width="29" height="29" rx="5" fill="#107C41"/><text x="21.5" y="44" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="white">X</text></svg></span><span class="stack-name">Excel</span></div>
 <div class="stack-item"><span class="stack-logo"><svg aria-hidden="true" class="stack-icon" viewBox="0 0 64 64"><defs><linearGradient id="office-PowerPoint" x2="1" y2="1"><stop stop-color="#FF9966"/><stop offset="1" stop-color="#C43E1C"/></linearGradient></defs><circle cx="40" cy="31" r="23" fill="url(#office-PowerPoint)"/><path d="M40 8a23 23 0 0 1 23 23H40Z" fill="#FFAA76"/><rect x="7" y="23" width="29" height="29" rx="5" fill="#C43E1C"/><text x="21.5" y="44" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="white">P</text></svg></span><span class="stack-name">PowerPoint</span></div>
-<div class="stack-item"><span class="stack-logo"><svg aria-hidden="true" class="stack-icon" viewBox="0 0 64 64"><defs><linearGradient id="office-OneDrive" x2="1" y2="1"><stop stop-color="#14C9EF"/><stop offset="1" stop-color="#0878D4"/></linearGradient></defs><path d="M18 49h30c18 0 20-24 4-28-5-17-29-18-35-1C-1 19-3 49 18 49Z" fill="url(#office-OneDrive)"/><path d="m9 45 24-23 23 22c-2 3-5 5-9 5H19Z" fill="#19B5EF" opacity=".6"/></svg></span><span class="stack-name">OneDrive</span></div></div></div></div></div></details>
-<div class="skills-more-grid"><div class="skills-more-card"><h4>Languages</h4><p>Tagalog (Native) · Bikol (Native) · English (Professional working)</p></div>
-<div class="skills-more-card"><h4>Relevant Coursework</h4>
-<ul class="course-list"><li>Application Development and Emerging Technologies</li><li>Advanced Database Systems</li><li>Web Systems and Technologies</li><li>Human-Computer Interaction</li><li>Systems Integration and Architecture</li><li>Information Assurance and Security</li></ul></div>
-</div></div></section>
-<section id="projects">
-<div class="wrap">
+<div class="stack-item"><span class="stack-logo"><svg aria-hidden="true" class="stack-icon" viewBox="0 0 64 64"><defs><linearGradient id="office-OneDrive" x2="1" y2="1"><stop stop-color="#14C9EF"/><stop offset="1" stop-color="#0878D4"/></linearGradient></defs><path d="M18 49h30c18 0 20-24 4-28-5-17-29-18-35-1C-1 19-3 49 18 49Z" fill="url(#office-OneDrive)"/><path d="m9 45 24-23 23 22c-2 3-5 5-9 5H19Z" fill="#19B5EF" opacity=".6"/></svg></span><span class="stack-name">OneDrive</span></div></div></div></div>
+      </div>
+    </details>
 
-<h2>Sample Works and Projects</h2>
-<p class="lede">Explore the salon booking platform, community reporting system, and crafts expense log.</p>
-<article class="project featured capstone">
-<div class="cap-head">
-<div>
-<p class="badge">Capstone Project</p>
-<h3>Centralized Digital Multi-Branch Platform for Leo Mejillano Salon and Beauty Services</h3>
-<p class="meta" style="margin-top:8px">June 2026 – December 2026 · STI College Legazpi · Project team: Michael Kharl Agao, Angelo and Paulo</p>
-</div>
-<a class="btn primary live" href="https://leo-mejillano-salon.site/" rel="noopener noreferrer" target="_blank">Visit the Live System ↗</a>
-</div>
-<div class="tour" aria-label="Salon system screenshot gallery"><div class="ptabs" role="tablist" aria-label="Screenshot categories"><button type="button" id="tab-guest" class="ptab active" role="tab" aria-selected="true" aria-controls="gallery-panel" data-category="guest">Guest <small>21</small></button><button type="button" id="tab-account" class="ptab" role="tab" aria-selected="false" aria-controls="gallery-panel" tabindex="-1" data-category="account">Login &amp; Account <small>6</small></button></div>
-<div id="gallery-panel" role="tabpanel" aria-labelledby="tab-guest" tabindex="0"><div class="browser"><div class="browser-bar"><span class="browser-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url">leo-mejillano-salon.site</span><span class="counter" aria-label="Screenshot position">1 / 21</span></div><button type="button" class="tour-stage" aria-label="Enlarge Home Page screenshot" aria-haspopup="dialog"><img class="tshot" src="img/screens/01.jpg" alt="Salon system — Home Page"/></button></div>
-<div class="tour-info"><button type="button" class="nav prev" aria-label="Previous screenshot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button><div class="tour-text" aria-live="polite" aria-atomic="true"><p class="tour-title"><span class="tour-panel">Guest</span><span class="screen-title">Home Page</span></p><p class="tour-desc">Navigation, log in, dark mode, Book an Appointment and live salon stats.</p></div><button type="button" class="nav next" aria-label="Next screenshot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button></div>
-<div class="tstrip" aria-label="Choose a screenshot"></div></div>
-<noscript><p class="meta">Enable JavaScript to explore the complete screenshot gallery.</p></noscript></div>
-<details class="disclosure project-scope">
-<summary>Project scope &amp; technical details</summary>
-<div class="stats">
-<div><b>5</b><span>user panels</span></div>
-<div><b>3</b><span>branches served</span></div>
-<div><b>24k+</b><span>lines of PHP</span></div>
-<div><b>17k+</b><span>lines of JavaScript</span></div>
-<div><b>69</b><span>database migrations</span></div>
-<div><b>30+</b><span>automated test scripts</span></div>
-</div></details>
-<div class="cap-body">
-<div>
-
-<div class="info-stack"><details class="disclosure" open>
-<summary>Description</summary>
-<div class="disclosure-body"><p>A web-based multi-branch portal for Leo Mejillano Salon &amp; Beauty that helps customers explore salon services, view branch information and manage appointment bookings. It includes guest and client booking, branch and staff selection, appointment scheduling, payment details, booking tracking and customer feedback, with separate Client Portal and Team Portal access for customer and staff functions. The project focuses on a responsive, organized and user-friendly experience for salon customers and branch operations.</p></div></details>
-
-<details class="disclosure">
-<summary>Key features</summary>
-<div class="disclosure-body"><div class="tags">
-<span class="tag">Online appointment booking</span><span class="tag">Three salon branches in Albay</span><span class="tag">Service &amp; stylist selection</span><span class="tag">Appointment scheduling</span><span class="tag">Multiple payment options</span><span class="tag">Email or SMS verification</span><span class="tag">Booking tracking</span><span class="tag">Account registration &amp; login</span><span class="tag">Home &amp; event service requests</span>
-</div></div></details></div></div>
-<div class="cap-skills">
-
-<div class="info-stack"><details class="disclosure">
-<summary>Skills demonstrated</summary>
-<div class="disclosure-body"><ul>
-<li>Full-stack web development with PHP 8 and MySQL</li>
-<li>Responsive front end with HTML, Tailwind CSS and JavaScript</li>
-<li>Online payments through PayMongo, plus email and SMS one-time codes</li>
-<li>Role-based access for five user panels</li>
-<li>System planning and analysis</li>
-<li>UI/UX design: booking flows, portals and layouts</li>
-<li>Wireframing, data flow diagrams and flowcharts</li>
-<li>Automated tests for bookings, payments and checkout, with a mock PayMongo server</li>
-<li>Deploying with Docker to Vercel, with scheduled email, SMS and reminder jobs</li>
-<li>Technical documentation, including the system's user manual</li>
-<li>Team collaboration and project presentation</li>
-</ul></div></details>
-<details class="disclosure">
-<summary>Built with</summary>
-<div class="disclosure-body"><div class="tags"><span class="tag soft">PHP 8</span><span class="tag soft">MySQL / MariaDB</span><span class="tag soft">HTML</span><span class="tag soft">Tailwind CSS</span><span class="tag soft">JavaScript</span><span class="tag soft">PayMongo</span><span class="tag soft">Brevo email</span><span class="tag soft">textbee SMS</span><span class="tag soft">Composer</span><span class="tag soft">Docker</span><span class="tag soft">Vercel</span></div>
-<div class="plinks"><a href="https://github.com/michael6A-coder/Leo-Mejillano-Salon" rel="noopener noreferrer" target="_blank">View the source code ↗</a><a href="https://github.com/michael6A-coder" rel="noopener noreferrer" target="_blank">My GitHub ↗</a></div></div></details></div></div>
-</div>
-</article>
-<article class="project featured esumbong">
-<div class="cap-head">
-<div>
-<p class="badge alt">System Proposal · Desktop App</p>
-<h3>E-Sumbong: Local Governance and Community Issue Resolution System</h3>
-<p class="meta" style="margin-top:8px">October 14 – December 1, 2025 · STI College Legazpi · Advanced Database Systems, Event-Driven Programming and Enterprise Architecture</p>
-</div>
-</div>
-<div class="cap-body">
-<div>
-
-<div class="info-stack"><details class="disclosure" open>
-<summary>Description</summary>
-<div class="disclosure-body"><p>A desktop application that gives barangay residents and the Local Government Unit (LGU) one structured channel for community concerns. Residents log in to file reports, track their status and read official announcements, while barangay officials manage reports, update their status and post announcements. The project was developed as a desktop application using C# and Windows Forms, with MongoDB for data storage.</p></div></details>
-<details class="disclosure">
-<summary>Key modules</summary>
-<div class="disclosure-body"><div class="tags">
-<span class="tag">Role-based log in</span><span class="tag">Resident &amp; Admin Portals</span><span class="tag">Report Issue with landmark &amp; priority</span><span class="tag">Manage Reports</span><span class="tag">Pending → In Progress → Resolved</span><span class="tag">My Reports</span><span class="tag">Live Issues Feed</span><span class="tag">Announcement Posting</span>
-</div></div></details>
-<details class="disclosure">
-<summary>Built with</summary>
-<div class="disclosure-body"><div class="tags">
-<span class="tag soft">C#</span><span class="tag soft">Windows Forms (.NET Framework)</span><span class="tag soft">Visual Studio 2022</span><span class="tag soft">MongoDB</span>
-</div></div></details></div></div>
-<div class="cap-skills">
-
-<div class="info-stack"><details class="disclosure">
-<summary>Skills demonstrated</summary>
-<div class="disclosure-body"><ul>
-<li>Desktop application development with C# and Windows Forms</li>
-<li>Database design with MongoDB</li>
-<li>Data flow diagrams (Levels 0, 1 and 2)</li>
-<li>System design and UI wireframing</li>
-<li>Project planning with a task timeline</li>
-<li>System integration, testing and documentation</li>
-</ul><p class="meta" style="margin-top:16px">Team: Johnson Jay Ellana, Mhyan Mar Musa, King Prince Mojado, Carl Andrew Romabon and Michael Kharl Agao</p></div></details></div></div>
-</div>
-</article>
-<article class="project">
-<div class="phead">
-<h3>Handmade Crafts and Expense Log</h3>
-<span class="meta">2025 · STI College Legazpi</span>
-</div>
-<div class="project-summary-grid"><div class="info-stack"><details class="disclosure" open>
-<summary>Description</summary>
-<div class="disclosure-body"><p>A record-keeping project that organizes handmade craft entries and monitors the expenses related to them.</p></div></details>
-<details class="disclosure">
-<summary>Skills demonstrated</summary>
-<div class="disclosure-body"><ul>
-<li>Organizing records and structured data</li>
-<li>Expense monitoring</li>
-<li>Basic debugging and testing</li>
-</ul></div></details></div></div>
-
-</article>
-</div>
+    <div class="info-grid">
+      <div class="card reveal">
+        <h3>Languages</h3>
+        <p>Tagalog (Native) · Bikol (Native) · English (Professional working)</p>
+      </div>
+      <div class="card reveal">
+        <h3>Relevant coursework</h3>
+        <ul class="course-list">
+          <li>Application Development and Emerging Technologies</li>
+          <li>Advanced Database Systems</li>
+          <li>Web Systems and Technologies</li>
+          <li>Human-Computer Interaction</li>
+          <li>Systems Integration and Architecture</li>
+          <li>Information Assurance and Security</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
-<section id="experience">
-<div class="wrap">
 
-<h2>Education and Experience</h2>
-<p class="lede">My education and the experience gained through academic project teams.</p>
-<div class="timeline">
-<div class="tl-item">
-<h3>Capstone Project Team Member</h3>
-<p class="meta">STI College Legazpi · June 2026 – December 2026</p>
-<p>Designed and developed a web-based multi-branch portal for Leo Mejillano Salon &amp; Beauty with teammates Angelo and Paulo, covering service browsing, appointment booking, booking tracking, customer feedback, and separate Client and Team Portals.</p>
-</div>
-<div class="tl-item">
-<h3>E-Sumbong Project Member</h3>
-<p class="meta">STI College Legazpi · October – December 2025</p>
-<p>Worked in a five-member team on a C# Windows Forms desktop app with a MongoDB database for barangay issue reporting, status tracking and announcements, from wireframes and data flow diagrams to testing and documentation.</p>
-</div>
-<div class="tl-item">
-<h3>Bachelor of Science in Information Technology</h3>
-<p class="meta">STI College Legazpi · Barangay 20 Cabangan East, Legazpi City · August 2023 – June 2027 (expected)</p>
-<p>Coursework in application development, advanced databases, web systems, human-computer interaction, systems integration and information security.</p>
-</div>
-</div>
-</div>
+<!-- 5. PROJECTS -->
+<section id="projects" aria-labelledby="projects-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">04 · Projects</p>
+      <h2 id="projects-title">Sample Works &amp; Projects</h2>
+      <p class="lede">Explore the salon booking platform, community reporting system, and crafts expense log.</p>
+    </div>
+
+    <article class="card featured reveal" aria-labelledby="capstone-title">
+      <div class="featured-grid">
+        <div class="featured-media">
+          <div class="tour" aria-label="Salon system screenshot gallery">
+            <div class="ptabs" role="tablist" aria-label="Screenshot categories">
+              <button type="button" id="tab-guest" class="ptab active" role="tab" aria-selected="true" aria-controls="gallery-panel" data-category="guest">Guest <small>21</small></button>
+              <button type="button" id="tab-account" class="ptab" role="tab" aria-selected="false" aria-controls="gallery-panel" tabindex="-1" data-category="account">Login &amp; Account <small>6</small></button>
+            </div>
+            <div id="gallery-panel" role="tabpanel" aria-labelledby="tab-guest" tabindex="0">
+              <div class="browser">
+                <div class="browser-bar">
+                  <span class="browser-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <span class="url">leo-mejillano-salon.site</span>
+                  <span class="counter" aria-label="Screenshot position">1 / 21</span>
+                </div>
+                <button type="button" class="tour-stage" aria-label="Enlarge Home Page screenshot" aria-haspopup="dialog"><img class="tshot" src="assets/images/screens/01.webp" alt="Salon system — Home Page" width="1440" height="900" loading="lazy"/></button>
+              </div>
+              <div class="tour-info">
+                <button type="button" class="tour-nav prev" aria-label="Previous screenshot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg></button>
+                <div class="tour-text" aria-live="polite" aria-atomic="true">
+                  <p class="tour-title"><span class="tour-panel">Guest</span><span class="screen-title">Home Page</span></p>
+                  <p class="tour-desc">Navigation, log in, dark mode, Book an Appointment and live salon stats.</p>
+                </div>
+                <button type="button" class="tour-nav next" aria-label="Next screenshot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg></button>
+              </div>
+              <div class="tstrip" aria-label="Choose a screenshot"></div>
+            </div>
+            <noscript><p class="meta">Enable JavaScript to explore the complete screenshot gallery.</p></noscript>
+          </div>
+        </div>
+
+        <div class="featured-info">
+          <p class="card-kicker">Capstone project · 2026</p>
+          <h3 id="capstone-title" class="featured-title">Centralized Digital Multi-Branch Platform for Leo Mejillano Salon and Beauty Services</h3>
+          <p class="meta">June 2026 – December 2026 · STI College Legazpi · Project team: Michael Kharl Agao, Angelo and Paulo</p>
+          <p>A web-based multi-branch portal for Leo Mejillano Salon &amp; Beauty that helps customers explore salon services, view branch information and manage appointment bookings. It includes guest and client booking, branch and staff selection, appointment scheduling, payment details, booking tracking and customer feedback, with separate Client Portal and Team Portal access for customer and staff functions. The project focuses on a responsive, organized and user-friendly experience for salon customers and branch operations.</p>
+          <h4>Key features</h4>
+          <ul class="feature-list">
+            <li>Online appointment booking</li>
+            <li>Three salon branches in Albay</li>
+            <li>Service &amp; stylist selection</li>
+            <li>Appointment scheduling</li>
+            <li>Multiple payment options</li>
+            <li>Email or SMS verification</li>
+            <li>Booking tracking</li>
+            <li>Account registration &amp; login</li>
+            <li>Home &amp; event service requests</li>
+          </ul>
+          <h4 id="capstone-built">Built with</h4>
+          <ul class="chips" aria-labelledby="capstone-built">
+            <li>PHP 8</li><li>MySQL / MariaDB</li><li>HTML</li><li>Tailwind CSS</li><li>JavaScript</li><li>PayMongo</li><li>Brevo email</li><li>textbee SMS</li><li>Composer</li><li>Docker</li><li>Vercel</li>
+          </ul>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://leo-mejillano-salon.site/" rel="noopener noreferrer" target="_blank">Live site <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg><span class="visually-hidden"> (opens in a new tab)</span></a>
+            <a class="btn btn-outline" href="https://github.com/michael6A-coder/Leo-Mejillano-Salon" rel="noopener noreferrer" target="_blank">Source code <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg><span class="visually-hidden"> (opens in a new tab)</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="featured-more">
+        <details class="disclosure">
+          <summary>Project scope &amp; technical details</summary>
+          <div class="disclosure-body">
+            <ul class="scope-stats">
+              <li><b>5</b><span>user panels</span></li>
+              <li><b>3</b><span>branches served</span></li>
+              <li><b>24k+</b><span>lines of PHP</span></li>
+              <li><b>17k+</b><span>lines of JavaScript</span></li>
+              <li><b>69</b><span>database migrations</span></li>
+              <li><b>30+</b><span>automated test scripts</span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="disclosure">
+          <summary>My contribution &amp; skills demonstrated</summary>
+          <div class="disclosure-body">
+            <ul>
+              <li>Full-stack web development with PHP 8 and MySQL</li>
+              <li>Responsive front end with HTML, Tailwind CSS and JavaScript</li>
+              <li>Online payments through PayMongo, plus email and SMS one-time codes</li>
+              <li>Role-based access for five user panels</li>
+              <li>System planning and analysis</li>
+              <li>UI/UX design: booking flows, portals and layouts</li>
+              <li>Wireframing, data flow diagrams and flowcharts</li>
+              <li>Automated tests for bookings, payments and checkout, with a mock PayMongo server</li>
+              <li>Deploying with Docker to Vercel, with scheduled email, SMS and reminder jobs</li>
+              <li>Technical documentation, including the system's user manual</li>
+              <li>Team collaboration and project presentation</li>
+            </ul>
+            <p class="meta"><a class="inline-icon-link" href="https://github.com/michael6A-coder" rel="noopener noreferrer" target="_blank">My GitHub <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg><span class="visually-hidden"> (opens in a new tab)</span></a></p>
+          </div>
+        </details>
+      </div>
+    </article>
+
+    <div class="project-grid">
+      <article class="card project-card reveal" aria-labelledby="esumbong-title">
+        <div class="project-top"><p class="card-kicker">Desktop application</p><span class="year">2025</span></div>
+        <h3 id="esumbong-title">E-Sumbong: Local Governance and Community Issue Resolution System</h3>
+        <p>A C# Windows Forms desktop app with a MongoDB database that gives barangay residents and the LGU one structured channel for community concerns.</p>
+        <p class="label">Skills demonstrated</p>
+        <p class="skill-line">C# development · Database design · Wireframing · Documentation</p>
+        <ul class="chips" aria-label="Technologies">
+          <li>C#</li><li>Windows Forms</li><li>MongoDB</li>
+        </ul>
+        <button type="button" class="btn btn-outline" data-project="esumbong" aria-haspopup="dialog">View project details</button>
+      </article>
+      <article class="card project-card reveal" aria-labelledby="crafts-title">
+        <div class="project-top"><p class="card-kicker">Record-keeping project</p><span class="year">2025</span></div>
+        <h3 id="crafts-title">Handmade Crafts &amp; Expense Log</h3>
+        <p>A record-keeping project that organizes handmade craft entries and monitors the expenses related to them.</p>
+        <p class="label">Skills demonstrated</p>
+        <p class="skill-line">Structured records · Expense monitoring · Debugging</p>
+        <ul class="chips" aria-label="Focus areas">
+          <li>Structured data</li><li>Expense monitoring</li>
+        </ul>
+        <!-- TODO: add the technologies used and screenshots for the Handmade Crafts & Expense Log project. -->
+        <button type="button" class="btn btn-outline" data-project="crafts" aria-haspopup="dialog">View project details</button>
+      </article>
+    </div>
+  </div>
 </section>
-<section id="achievements">
-<div class="wrap">
 
-<h2>Academic Achievements</h2>
-<p class="lede">Certificates from Canva Design School and Oracle Academy.</p>
+<!-- Project details content (cloned into the dialog by js/main.js) -->
+<template id="project-esumbong">
+  <p class="card-kicker">System proposal · Desktop app</p>
+  <h2 class="dialog-title" id="project-dialog-title">E-Sumbong: Local Governance and Community Issue Resolution System</h2>
+  <p class="meta">October 14 – December 1, 2025 · STI College Legazpi · Advanced Database Systems, Event-Driven Programming and Enterprise Architecture</p>
+  <p>A desktop application that gives barangay residents and the Local Government Unit (LGU) one structured channel for community concerns. Residents log in to file reports, track their status and read official announcements, while barangay officials manage reports, update their status and post announcements. The project was developed as a desktop application using C# and Windows Forms, with MongoDB for data storage.</p>
+  <h3>Key modules</h3>
+  <ul class="chips">
+    <li>Role-based log in</li><li>Resident &amp; Admin Portals</li><li>Report Issue with landmark &amp; priority</li><li>Manage Reports</li><li>Pending → In Progress → Resolved</li><li>My Reports</li><li>Live Issues Feed</li><li>Announcement Posting</li>
+  </ul>
+  <h3>Built with</h3>
+  <ul class="chips">
+    <li>C#</li><li>Windows Forms (.NET Framework)</li><li>Visual Studio 2022</li><li>MongoDB</li>
+  </ul>
+  <h3>Skills demonstrated</h3>
+  <ul>
+    <li>Desktop application development with C# and Windows Forms</li>
+    <li>Database design with MongoDB</li>
+    <li>Data flow diagrams (Levels 0, 1 and 2)</li>
+    <li>System design and UI wireframing</li>
+    <li>Project planning with a task timeline</li>
+    <li>System integration, testing and documentation</li>
+  </ul>
+  <h3>Planning &amp; documentation</h3>
+  <div class="doc-gallery">
+    <button type="button" class="doc-thumb" data-lightbox data-title="E-Sumbong — Data flow diagram, Level 0" aria-haspopup="dialog"><img src="assets/images/esumbong/dfd-level0.webp" alt="E-Sumbong data flow diagram, Level 0" width="1600" height="855" loading="lazy"/><span>DFD · Level 0</span></button>
+    <button type="button" class="doc-thumb" data-lightbox data-title="E-Sumbong — Data flow diagram, Level 1" aria-haspopup="dialog"><img src="assets/images/esumbong/dfd-level1.webp" alt="E-Sumbong data flow diagram, Level 1" width="2000" height="714" loading="lazy"/><span>DFD · Level 1</span></button>
+    <button type="button" class="doc-thumb" data-lightbox data-title="E-Sumbong — Data flow diagram, Level 2" aria-haspopup="dialog"><img src="assets/images/esumbong/dfd-level2.webp" alt="E-Sumbong data flow diagram, Level 2" width="1600" height="1139" loading="lazy"/><span>DFD · Level 2</span></button>
+    <button type="button" class="doc-thumb" data-lightbox data-title="E-Sumbong — Project timeline" aria-haspopup="dialog"><img src="assets/images/esumbong/timeline.webp" alt="E-Sumbong project task timeline" width="1600" height="595" loading="lazy"/><span>Project timeline</span></button>
+  </div>
+  <h3>Project team</h3>
+  <p>Johnson Jay Ellana, Mhyan Mar Musa, King Prince Mojado, Carl Andrew Romabon and Michael Kharl Agao</p>
+</template>
 
-<div class="ach">
-<div class="card">
-<p class="year">Issued October 2026 · ID ea3c9a</p>
-<h3>Graphic Design Essentials</h3>
-<p>Canva Design School. Introductory training in graphic design, visual communication and digital creativity.</p>
-</div>
-<div class="card">
-<p class="year">Issued October 2026 · ID d921ef</p>
-<h3>Canva Essentials</h3>
-<p>Canva Design School. Foundational training in digital design and content creation for presentations and graphics.</p>
-</div>
-<div class="card">
-<p class="year">Issued October 2026 · ID bcc990</p>
-<h3>AI Essentials 2026</h3>
-<p>Canva Design School. Foundations of artificial intelligence and its uses in content creation and productivity.</p>
-</div>
-<div class="card">
-<p class="year">Issued June 2024</p>
-<h3>Java Fundamentals</h3>
-<p>Oracle Academy. Completed as part of Computer Programming 2, building a foundation in Java programming.</p>
-</div>
-</div>
-</div>
+<template id="project-crafts">
+  <p class="card-kicker">Record-keeping project</p>
+  <h2 class="dialog-title" id="project-dialog-title">Handmade Crafts &amp; Expense Log</h2>
+  <p class="meta">2025 · STI College Legazpi</p>
+  <p>A record-keeping project that organizes handmade craft entries and monitors the expenses related to them.</p>
+  <h3>Skills demonstrated</h3>
+  <ul>
+    <li>Organizing records and structured data</li>
+    <li>Expense monitoring</li>
+    <li>Basic debugging and testing</li>
+  </ul>
+  <!-- TODO: add "Built with" technologies, your role, and screenshots for this project. -->
+</template>
+
+<!-- 6. EXPERIENCE -->
+<section id="experience" aria-labelledby="experience-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">05 · Experience</p>
+      <h2 id="experience-title">Education &amp; Experience</h2>
+      <p class="lede">My education and the experience gained through academic project teams.</p>
+    </div>
+    <ol class="timeline">
+      <li class="tl-row reveal">
+        <p class="tl-date">Jun – Dec 2026</p>
+        <div class="tl-body">
+          <h3>Capstone Project Team Member</h3>
+          <p class="meta">STI College Legazpi · June 2026 – December 2026</p>
+          <p>Designed and developed a web-based multi-branch portal for Leo Mejillano Salon &amp; Beauty with teammates Angelo and Paulo, covering service browsing, appointment booking, booking tracking, customer feedback, and separate Client and Team Portals.</p>
+        </div>
+      </li>
+      <li class="tl-row reveal">
+        <p class="tl-date">Oct – Dec 2025</p>
+        <div class="tl-body">
+          <h3>E-Sumbong Project Member</h3>
+          <p class="meta">STI College Legazpi · October – December 2025</p>
+          <p>Worked in a five-member team on a C# Windows Forms desktop app with a MongoDB database for barangay issue reporting, status tracking and announcements, from wireframes and data flow diagrams to testing and documentation.</p>
+        </div>
+      </li>
+      <li class="tl-row reveal">
+        <p class="tl-date">Aug 2023 – Jun 2027 <span class="tl-note">(expected)</span></p>
+        <div class="tl-body">
+          <h3>Bachelor of Science in Information Technology</h3>
+          <p class="meta">STI College Legazpi · Barangay 20 Cabangan East, Legazpi City</p>
+          <p>Coursework in application development, advanced databases, web systems, human-computer interaction, systems integration and information security.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
 </section>
-<section id="contact">
-<div class="wrap">
-<div class="contact-intro">
-<div>
 
-<h2>Contact Information</h2>
-<p class="lede">I am open to entry-level software developer opportunities.</p>
-</div>
+<!-- 7. ACHIEVEMENTS -->
+<section id="achievements" aria-labelledby="achievements-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">06 · Achievements</p>
+      <h2 id="achievements-title">Academic Achievements</h2>
+      <p class="lede">Certificates from Canva Design School and Oracle Academy, plus the systems built through coursework.</p>
+    </div>
+    <ul class="summary-stats">
+      <li class="card stat reveal"><span class="stat-num">Live</span><span class="stat-label">Capstone system</span><p>Built and deployed the Leo Mejillano platform for three salon branches.</p></li>
+      <li class="card stat reveal"><span class="stat-num" data-count="3">3</span><span class="stat-label">Academic systems</span><p>Salon platform, E-Sumbong, and the Handmade Crafts &amp; Expense Log.</p></li>
+      <li class="card stat reveal"><span class="stat-num" data-count="4">4</span><span class="stat-label">Certifications</span><p>Programming and design training completed from 2024 to 2026.</p></li>
+    </ul>
 
-</div>
-<div class="contact-panel">
-
-<div class="contact-details"><div class="contact-entry contact-mail">
-<div class="contact-symbol"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="20"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="m3 7 9 6 9-6"></path></svg></div>
-<div class="contact-entry-text"><span class="contact-label">Email</span><a href="mailto:agao.michaelkharl.mka@gmail.com">agao.michaelkharl.mka@gmail.com</a></div>
-</div>
-<div class="contact-entry contact-linkedin">
-<div class="contact-symbol"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="20"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M7.5 10v7m0-10v.01M12 17v-7m0 3a3 3 0 0 1 6 0v4"></path></svg></div>
-<div class="contact-entry-text"><span class="contact-label">LinkedIn</span><a href="https://www.linkedin.com/in/michael-kharl-agao" rel="noopener noreferrer" target="_blank">linkedin.com/in/michael-kharl-agao<svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="20"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></div>
-</div>
-<div class="contact-entry contact-github">
-<div class="contact-symbol"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="20"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 6v-3.1a2.7 2.7 0 0 0-.75-2.1c2.5-.28 5.15-1.22 5.15-5.55a4.33 4.33 0 0 0-1.2-3 4.01 4.01 0 0 0-.12-2.95s-.97-.31-3.18 1.16a10.97 10.97 0 0 0-5.8 0C6.89 4.98 5.92 5.29 5.92 5.29a4.01 4.01 0 0 0-.12 2.95 4.33 4.33 0 0 0-1.2 3c0 4.31 2.65 5.27 5.15 5.55A2.7 2.7 0 0 0 9 18.9V22"></path></svg></div>
-<div class="contact-entry-text"><span class="contact-label">GitHub</span><a href="https://github.com/michael6A-coder" rel="noopener noreferrer" target="_blank">github.com/michael6A-coder<svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="20"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></div>
-</div>
-<div class="contact-entry contact-phone">
-<div class="contact-symbol"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.97.37 1.92.72 2.81a2 2 0 0 1-.45 2.11L8.11 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.89.35 1.84.59 2.81.72A2 2 0 0 1 22 16.92z"></path></svg></div>
-<div class="contact-entry-text"><span class="contact-label">Mobile</span><a href="tel:+639542450588">0954 245 0588</a></div>
-</div>
-<div class="contact-entry contact-pin">
-<div class="contact-symbol"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="20"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></div>
-<div class="contact-entry-text"><span class="contact-label">Location</span><span>Legazpi City, Albay, Philippines</span></div>
-</div></div>
-<div class="contact-panel-footer">
-<div aria-label="Connect with me" class="contact-socials">
-<a aria-label="Send Michael an email" href="mailto:agao.michaelkharl.mka@gmail.com" title="Email"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="20"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="m3 7 9 6 9-6"></path></svg></a>
-<a aria-label="Michael's GitHub" href="https://github.com/michael6A-coder" rel="noopener noreferrer" target="_blank" title="GitHub"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="20"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 6v-3.1a2.7 2.7 0 0 0-.75-2.1c2.5-.28 5.15-1.22 5.15-5.55a4.33 4.33 0 0 0-1.2-3 4.01 4.01 0 0 0-.12-2.95s-.97-.31-3.18 1.16a10.97 10.97 0 0 0-5.8 0C6.89 4.98 5.92 5.29 5.92 5.29a4.01 4.01 0 0 0-.12 2.95 4.33 4.33 0 0 0-1.2 3c0 4.31 2.65 5.27 5.15 5.55A2.7 2.7 0 0 0 9 18.9V22"></path></svg></a>
-<a aria-label="Michael's LinkedIn" href="https://www.linkedin.com/in/michael-kharl-agao" rel="noopener noreferrer" target="_blank" title="LinkedIn"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="20"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M7.5 10v7m0-10v.01M12 17v-7m0 3a3 3 0 0 1 6 0v4"></path></svg></a>
-
-<a aria-label="Michael's Facebook" href="https://www.facebook.com/share/14vfk2ME5Xy/" rel="noopener noreferrer" target="_blank" title="Facebook"><svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.25 0-1.64.78-1.64 1.57V12h2.8l-.45 2.89h-2.35v6.99A10 10 0 0 0 22 12Z"></path></svg></a>
-<a aria-label="Michael's Instagram" href="https://www.instagram.com/michael_kharl_6" rel="noopener noreferrer" target="_blank" title="Instagram"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.85" viewBox="0 0 24 24"><rect height="19" rx="5" width="19" x="2.5" y="2.5"></rect><circle cx="12" cy="12" r="4.3"></circle><circle cx="17.8" cy="6.5" fill="currentColor" r="1" stroke="none"></circle></svg></a>
-<a aria-label="Message Michael on Telegram" href="https://t.me/MiCh_KhArL" rel="noopener noreferrer" target="_blank" title="Telegram"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="m21 3-3.6 17-5.3-4.3-3.1 2.4.6-4.2L3 11.4 21 3Z"></path><path d="m9.6 13.9 8-7.1"></path></svg></a>
-</div>
-<p>Thank you for visiting my portfolio.</p>
-</div>
-</div>
-</div>
+    <!--
+      TODO (certificates): no certificate files are in the repo yet. For each certificate:
+        1. Add an image, e.g. assets/images/certificates/graphic-design-essentials.webp
+        2. Add the PDF,  e.g. assets/docs/graphic-design-essentials.pdf
+        3. Replace that card's <div class="cert-media">…</div> with:
+             <button type="button" class="cert-media" data-lightbox data-title="Graphic Design Essentials certificate" aria-haspopup="dialog">
+               <img src="assets/images/certificates/graphic-design-essentials.webp" alt="Graphic Design Essentials certificate from Canva Design School" width="64" height="64" loading="lazy"/>
+             </button>
+           (clicking it opens the full image in the image dialog)
+        4. Uncomment the .cert-actions block in that card.
+      File names are case-sensitive on Vercel: match them exactly.
+    -->
+    <div class="cert-grid">
+      <article class="card cert-card reveal">
+        <div class="cert-media" aria-hidden="true">✳</div>
+        <div class="cert-body">
+          <p class="card-kicker">Canva Design School</p>
+          <h3>Graphic Design Essentials</h3>
+          <p class="meta">Issued October 2026 · ID ea3c9a</p>
+          <p>Introductory training in graphic design, visual communication and digital creativity.</p>
+          <!-- TODO: add assets/docs/graphic-design-essentials.pdf, then uncomment:
+          <div class="cert-actions">
+            <a class="btn btn-sm btn-outline" href="assets/docs/graphic-design-essentials.pdf" target="_blank" rel="noopener">View<span class="visually-hidden"> Graphic Design Essentials certificate (PDF, opens in a new tab)</span></a>
+            <a class="btn btn-sm btn-primary" href="assets/docs/graphic-design-essentials.pdf" download>Download PDF<span class="visually-hidden">: Graphic Design Essentials certificate</span></a>
+          </div> -->
+        </div>
+      </article>
+      <article class="card cert-card reveal">
+        <div class="cert-media" aria-hidden="true">◈</div>
+        <div class="cert-body">
+          <p class="card-kicker">Canva Design School</p>
+          <h3>Canva Essentials</h3>
+          <p class="meta">Issued October 2026 · ID d921ef</p>
+          <p>Foundational training in digital design and content creation for presentations and graphics.</p>
+          <!-- TODO: add assets/docs/canva-essentials.pdf, then uncomment:
+          <div class="cert-actions">
+            <a class="btn btn-sm btn-outline" href="assets/docs/canva-essentials.pdf" target="_blank" rel="noopener">View<span class="visually-hidden"> Canva Essentials certificate (PDF, opens in a new tab)</span></a>
+            <a class="btn btn-sm btn-primary" href="assets/docs/canva-essentials.pdf" download>Download PDF<span class="visually-hidden">: Canva Essentials certificate</span></a>
+          </div> -->
+        </div>
+      </article>
+      <article class="card cert-card reveal">
+        <div class="cert-media" aria-hidden="true">✧</div>
+        <div class="cert-body">
+          <p class="card-kicker">Canva Design School</p>
+          <h3>AI Essentials 2026</h3>
+          <p class="meta">Issued October 2026 · ID bcc990</p>
+          <p>Foundations of artificial intelligence and its uses in content creation and productivity.</p>
+          <!-- TODO: add assets/docs/ai-essentials-2026.pdf, then uncomment:
+          <div class="cert-actions">
+            <a class="btn btn-sm btn-outline" href="assets/docs/ai-essentials-2026.pdf" target="_blank" rel="noopener">View<span class="visually-hidden"> AI Essentials 2026 certificate (PDF, opens in a new tab)</span></a>
+            <a class="btn btn-sm btn-primary" href="assets/docs/ai-essentials-2026.pdf" download>Download PDF<span class="visually-hidden">: AI Essentials 2026 certificate</span></a>
+          </div> -->
+        </div>
+      </article>
+      <article class="card cert-card reveal">
+        <div class="cert-media" aria-hidden="true">⌘</div>
+        <div class="cert-body">
+          <p class="card-kicker">Oracle Academy</p>
+          <h3>Java Fundamentals</h3>
+          <p class="meta">Issued June 2024 · Computer Programming 2</p>
+          <p>Completed as part of Computer Programming 2, building a foundation in Java programming.</p>
+          <!-- TODO: add assets/docs/java-fundamentals.pdf, then uncomment:
+          <div class="cert-actions">
+            <a class="btn btn-sm btn-outline" href="assets/docs/java-fundamentals.pdf" target="_blank" rel="noopener">View<span class="visually-hidden"> Java Fundamentals certificate (PDF, opens in a new tab)</span></a>
+            <a class="btn btn-sm btn-primary" href="assets/docs/java-fundamentals.pdf" download>Download PDF<span class="visually-hidden">: Java Fundamentals certificate</span></a>
+          </div> -->
+        </div>
+      </article>
+    </div>
+  </div>
 </section>
+
+<!-- 8. CONTACT -->
+<section id="contact" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <p class="eyebrow">07 · Contact</p>
+        <h2 id="contact-title">Contact Information</h2>
+        <p class="lede">I am open to entry-level software developer opportunities and conversations about meaningful projects. Thank you for visiting my portfolio.</p>
+        <a class="btn btn-primary" href="mailto:agao.michaelkharl.mka@gmail.com"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Say hello</a>
+        <ul class="contact-cards">
+          <li class="card contact-card">
+            <span class="contact-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+            <span class="contact-text"><span class="contact-label">Email</span><a href="mailto:agao.michaelkharl.mka@gmail.com">agao.michaelkharl.mka@gmail.com</a></span>
+          </li>
+          <li class="card contact-card">
+            <span class="contact-icon"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span>
+            <span class="contact-text"><span class="contact-label">LinkedIn</span><a href="https://www.linkedin.com/in/michael-kharl-agao" rel="noopener noreferrer" target="_blank">linkedin.com/in/michael-kharl-agao<span class="visually-hidden"> (opens in a new tab)</span></a></span>
+          </li>
+          <li class="card contact-card">
+            <span class="contact-icon"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span>
+            <span class="contact-text"><span class="contact-label">GitHub</span><a href="https://github.com/michael6A-coder" rel="noopener noreferrer" target="_blank">github.com/michael6A-coder<span class="visually-hidden"> (opens in a new tab)</span></a></span>
+          </li>
+          <li class="card contact-card">
+            <span class="contact-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <span class="contact-text"><span class="contact-label">Mobile</span><a href="tel:+639542450588">0954 245 0588</a></span>
+          </li>
+          <li class="card contact-card">
+            <span class="contact-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <span class="contact-text"><span class="contact-label">Location</span><span>Legazpi City, Albay, Philippines</span></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card form-card reveal">
+        <h3 class="form-title" id="form-title">Send a direct inquiry</h3>
+        <p class="form-note" id="form-note">Send me a message straight from this page. All fields are required.</p>
+        <!-- TODO (Formspree): replace YOUR_FORM_ID below with your form's ID.
+             Create a form at https://formspree.io, copy its endpoint (https://formspree.io/f/abcdwxyz)
+             and paste the last part in place of YOUR_FORM_ID. Until then the form shows a message
+             pointing visitors to the "Say hello" email button. -->
+        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" aria-labelledby="form-title" aria-describedby="form-note" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="cf-name">Your name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" required/>
+            </div>
+            <div class="field">
+              <label for="cf-email">Your email</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" required/>
+            </div>
+          </div>
+          <div class="field">
+            <label for="cf-subject">Subject</label>
+            <input id="cf-subject" name="_subject" type="text" required/>
+          </div>
+          <div class="field">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="5" required></textarea>
+          </div>
+          <!-- Spam honeypot: hidden from people; bots that fill it in are rejected by Formspree. -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="cf-gotcha">Leave this field empty</label>
+            <input id="cf-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off"/>
+          </div>
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. DOCUMENTS -->
+<section id="documents" aria-labelledby="documents-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">08 · Documents</p>
+      <h2 id="documents-title">My Documents</h2>
+      <p class="lede">View or download my résumé and cover letter.</p>
+    </div>
+    <div class="doc-grid">
+      <article class="card doc-card reveal">
+        <span class="contact-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>
+        <div>
+          <h3>Résumé</h3>
+          <p class="meta">PDF</p>
+          <!-- The résumé stays at the site root (/Agao_Resume.pdf) so links you've already shared keep working. -->
+          <div class="btn-row">
+            <a class="btn btn-sm btn-outline" href="Agao_Resume.pdf" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>View résumé<span class="visually-hidden"> (PDF, opens in a new tab)</span></a>
+            <a class="btn btn-sm btn-primary" href="Agao_Resume.pdf" download><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>Download PDF<span class="visually-hidden">: résumé</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card doc-card reveal">
+        <span class="contact-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+        <div>
+          <h3>Cover Letter</h3>
+          <p class="meta">Software Developer · Alliance Software, Inc.</p>
+          <!-- TODO: add assets/docs/Agao_Cover_Letter.pdf, then replace the "Request by email" link below with:
+          <a class="btn btn-sm btn-outline" href="assets/docs/Agao_Cover_Letter.pdf" target="_blank" rel="noopener">View cover letter<span class="visually-hidden"> (PDF, opens in a new tab)</span></a>
+          <a class="btn btn-sm btn-primary" href="assets/docs/Agao_Cover_Letter.pdf" download>Download PDF<span class="visually-hidden">: cover letter</span></a> -->
+          <div class="btn-row">
+            <a class="btn btn-sm btn-outline" href="mailto:agao.michaelkharl.mka@gmail.com?subject=Cover%20letter%20request"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Request by email</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 </main>
-<footer>
-<div class="wrap">© 2026 Michael Kharl M. Agao · Euthenics 2 Digital Portfolio · STI College Legazpi</div>
+
+<!-- 10. FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© 2026 Michael Kharl M. Agao · Euthenics 2 Digital Portfolio</p>
+    <p>STI College Legazpi</p>
+    <a class="back-to-top" href="#home">Back to top <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg></a>
+  </div>
 </footer>
 
-<dialog class="image-dialog" aria-labelledby="image-dialog-title" aria-describedby="image-dialog-description"><div class="dialog-toolbar"><h2 id="image-dialog-title">Project screenshot</h2><button type="button" class="dialog-close" aria-label="Close enlarged image" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
-<div class="dialog-image-wrap"><img class="dialog-image" alt=""/></div>
-<p id="image-dialog-description" class="dialog-description"></p></dialog>
+<!-- Image dialog (screenshots, diagrams, certificates) -->
+<dialog class="image-dialog" id="image-dialog" aria-labelledby="image-dialog-title" aria-describedby="image-dialog-description">
+  <div class="dialog-head">
+    <h2 id="image-dialog-title">Image</h2>
+    <button type="button" class="dialog-close" aria-label="Close image"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  </div>
+  <div class="dialog-image-wrap"><img class="dialog-image" alt=""/></div>
+  <p id="image-dialog-description" class="dialog-description"></p>
+</dialog>
+
+<!-- Project details dialog -->
+<dialog class="project-dialog" id="project-dialog" aria-labelledby="project-dialog-title">
+  <div class="dialog-head">
+    <p class="eyebrow">Project details</p>
+    <button type="button" class="dialog-close" aria-label="Close project details"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  </div>
+  <div class="dialog-body"></div>
+</dialog>
+
+<!-- Vercel Web Analytics (enable it in the Vercel dashboard: Project → Analytics → Enable) -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
