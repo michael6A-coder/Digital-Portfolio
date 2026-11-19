@@ -647,6 +647,8 @@ dialog::backdrop { background: var(--backdrop); }
 .involvement-heading .meta { margin: 0; font-size: 13px; }
 .involvement-details .involvement-organization { margin-bottom: 8px; color: var(--link); font-size: 14px; font-weight: 600; text-align: start; }
 .involvement-details > p:last-child { margin: 0; }
+.experience-gallery .doc-thumb img { object-fit: contain; background: var(--chip-bg); }
+@media (max-width: 480px) { .experience-gallery { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 480px) {
   .involvement-card { padding: 18px; gap: 14px; }
 }
@@ -683,6 +685,11 @@ button.cert-media { cursor: zoom-in; }
 .contact-text { min-width: 0; display: flex; flex-direction: column; font-size: 14px; }
 .contact-label { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
 .contact-text a { font-weight: 600; overflow-wrap: anywhere; }
+.contact-socials { display: flex; align-items: center; gap: 16px; list-style: none; margin: 18px 0 0; padding: 0; }
+.contact-socials li { margin: 0; }
+.contact-socials a { display: grid; place-items: center; width: 32px; height: 32px; color: var(--muted); border-radius: 4px; }
+.contact-socials a:hover { color: var(--link); }
+.contact-socials svg { width: 22px; height: 22px; }
 /* ---------- Documents ---------- */
 .doc-grid { display: grid; gap: 16px; }
 @media (min-width: 720px) { .doc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
