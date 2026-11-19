@@ -174,13 +174,16 @@
   };
   imageDialog?.dialog.addEventListener('dialog:closed', () => enlarged.removeAttribute('src'));
 
-  // Any [data-lightbox] button containing an <img> opens it in the image dialog
-  // (E-Sumbong diagrams now, certificate images once they are added).
+  // Open diagram images and certificate image links in the shared preview.
   document.addEventListener('click', event => {
     const button = event.target.closest('[data-lightbox]');
+    if (!button) return;
     const img = button?.querySelector('img');
-    if (!img) return;
-    openImage({src: img.currentSrc || img.src, alt: img.alt, title: button.dataset.title, description: button.dataset.description}, button);
+    const src = button.dataset.imageSrc || img?.currentSrc || img?.src;
+    if (!src || !imageDialog) return;
+    event.preventDefault();
+    const title = button.dataset.title || button.closest('.cert-card')?.querySelector('h3')?.textContent;
+    openImage({src, alt: img?.alt || `${title} certificate`, title, description: button.dataset.description}, button);
   });
 
   // Project details dialog: content is cloned from <template id="project-…">
