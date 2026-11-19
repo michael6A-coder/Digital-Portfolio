@@ -365,7 +365,7 @@
     const id = card.getAttribute('aria-labelledby');
     panels.set(id, [card]);
   }
-  const choices = grid.querySelectorAll('.project-choice');
+  const choices = feature.querySelectorAll('.project-choice');
   function select(id) {
     for (const [key, elements] of panels) {
       for (const element of elements) element.hidden = key !== id;
