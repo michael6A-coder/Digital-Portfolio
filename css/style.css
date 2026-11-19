@@ -197,6 +197,7 @@ main > section { padding: 40px 0; background: transparent; }
   text-transform: uppercase; color: var(--eyebrow);
 }
 .section-head { max-width: 700px; margin-bottom: 24px; }
+#achievements .section-head { max-width: none; }
 .section-head h2 { margin-bottom: 6px; }
 .lede, .muted { color: var(--muted); }
 .meta { font-size: 14px; color: var(--muted); }
