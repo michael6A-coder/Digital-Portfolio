@@ -3,7 +3,7 @@
    the dark theme overrides them on html[data-theme="dark"]. */
 
 /* ---------- Tokens ----------
-   Palette "Navy & Cyan": a small scale of raw colors, then semantic roles that point at it.
+   Palette "Pastel Aqua & White": a small scale of raw colors, then semantic roles that point at it.
    Components only use the semantic roles, so the whole theme is changed here. */
 :root {
   color-scheme: light;
@@ -11,22 +11,22 @@
   --radius: 9px;
 
   /* Palette */
-  --navy-900: #0B1B2C;
-  --navy-800: #102A41;
-  --navy-700: #1A3851;
-  --navy-600: #245D7B;
-  --ink:      #203247;
-  --slate-500: #4F6880;
-  --slate-400: #456580;
-  --teal-700: #126D97;   /* text-safe teal (5.7:1 on white) */
-  --teal-500: #1595BD;   /* lines, rings and dots only, never small text */
-  --cyan-300: #81D5E7;
-  --cyan-50:  #E3F6FB;
-  --gray-50:  #F8FAFC;
-  --blue-50:  #F0F6FB;
-  --line-100: #E0EBF3;
-  --line-200: #DCE6EE;
-  --line-300: #C5D5E2;
+  --navy-900: #26383D;
+  --navy-800: #26383D;
+  --navy-700: #26383D;
+  --navy-600: #276773;
+  --ink:      #52666C;
+  --slate-500: #52666C;
+  --slate-400: #52666C;
+  --teal-700: #276773;   /* Deep teal for text on light surfaces. */
+  --teal-500: #43818B;   /* lines, rings and dots only, never small text */
+  --cyan-300: #BFE7EA;
+  --cyan-50:  #E7F5F6;
+  --gray-50:  #F8FCFD;
+  --blue-50:  #E7F5F6;
+  --line-100: #DDE9EB;
+  --line-200: #DDE9EB;
+  --line-300: #B5CDD1;
   --white:    #FFFFFF;
   --green-500: #4ADE80;
   --green-700: #17794A;
@@ -52,13 +52,13 @@
 
   /* Actions */
   --primary: var(--cyan-300);
-  --primary-hover: #6BCBE0;
+  --primary-hover: #A8DADF;
   --primary-ink: var(--navy-900);
   --link: var(--teal-700);
-  --nav: var(--teal-700);
+  --nav: var(--slate-500);
   --nav-active: var(--teal-500);
   --nav-active-text: var(--teal-700);
-  --nav-hover: rgba(21, 149, 189, .08);
+  --nav-hover: rgba(39, 103, 115, .06);
   --focus: var(--teal-500);
 
   /* Status */
@@ -69,55 +69,57 @@
 
   /* Header, overlays */
   --header-bg: rgba(255, 255, 255, .93);
-  --header-shadow: 0 1px 8px rgba(20, 44, 64, .06);
+  --header-shadow: none;
   --menu-shadow: 0 10px 24px rgba(11, 27, 44, .12);
   --backdrop: rgba(11, 27, 44, .72);
 
-  /* Hero (always dark, in both themes) */
-  --hero-from: var(--navy-800);
-  --hero-to: var(--navy-900);
-  --on-dark: var(--white);
-  --on-dark-text: #D3E1EC;
-  --on-dark-accent: var(--cyan-300);
-  --on-dark-fill: rgba(255, 255, 255, .06);
-  --on-dark-line: rgba(255, 255, 255, .18);
-  --on-dark-line-strong: rgba(255, 255, 255, .45);
-  --cyan-fill: rgba(129, 213, 231, .12);
-  --cyan-line: rgba(129, 213, 231, .32);
+  /* Hero follows the selected theme; legacy token names are retained. */
+  --hero-from: var(--white);
+  --hero-to: var(--white);
+  --on-dark: var(--heading);
+  --on-dark-text: var(--para);
+  --on-dark-accent: var(--link);
+  --on-dark-fill: var(--chip-bg);
+  --on-dark-line: var(--border);
+  --on-dark-line-strong: var(--input-border);
+  --cyan-fill: var(--chip-bg);
+  --cyan-line: var(--chip-border);
 
   --header-h: 68px;
 }
 
 html[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #101927;
-  --card: #1B2B3F;
-  --border: #334B62;
-  --text: #E1EAF3;
-  --para: #B0C4D7;
-  --muted: #91AEC7;
-  --heading: #E4EFF8;
-  --h3: #E4EFF8;
-  --eyebrow: #91AEC7;
+  --bg: #152326;
+  --card: #1E3034;
+  --border: #354D52;
+  --text: #E4EFF0;
+  --para: #BECDCF;
+  --muted: #A4BABE;
+  --heading: #EAF4F5;
+  --h3: #EAF4F5;
+  --eyebrow: #A4BABE;
 
-  --chip-bg: #273F55;
-  --chip-text: #D5E6F4;
-  --chip-border: #3C566E;
-  --input-bg: #20354A;
-  --input-border: #425D74;
+  --chip-bg: #273F44;
+  --chip-text: #D1E8EB;
+  --chip-border: #39565C;
+  --input-bg: #20363B;
+  --input-border: #4D6B72;
 
-  --link: #89D6ED;
-  --nav: #B0C4D7;
-  --nav-active: #89D6ED;
-  --nav-active-text: #89D6ED;
-  --nav-hover: rgba(137, 214, 237, .1);
-  --focus: #89D6ED;
+  --link: #BFE7EA;
+  --nav: #BECDCF;
+  --nav-active: #BFE7EA;
+  --nav-active-text: #BFE7EA;
+  --nav-hover: rgba(191, 231, 234, .08);
+  --focus: #BFE7EA;
 
   --success: #6EE7A8;
   --error: #FCA5A5;
 
-  --header-bg: rgba(20, 34, 53, .93);
-  --header-shadow: 0 1px 8px rgba(0, 0, 0, .28);
+  --header-bg: rgba(21, 35, 38, .96);
+  --header-shadow: none;
+  --hero-from: var(--bg);
+  --hero-to: var(--bg);
   --menu-shadow: 0 10px 24px rgba(0, 0, 0, .35);
 }
 
@@ -327,7 +329,8 @@ html:not(.js) .menu-toggle { display: none; }
 
 /* ---------- Hero ---------- */
 main > section.hero {
-  background: linear-gradient(150deg, var(--hero-from), var(--hero-to));
+  background: var(--hero-from);
+  border-bottom: 1px solid var(--border);
   color: var(--on-dark); padding: 35px 0 45px;
 }
 .hero-grid { display: grid; gap: 28px; }
@@ -361,7 +364,7 @@ main > section.hero {
   text-transform: uppercase; color: var(--on-dark-accent);
 }
 .hero-copy .chips li {
-  background: var(--cyan-fill); color: var(--cyan-50);
+  background: var(--cyan-fill); color: var(--link);
   border-color: var(--cyan-line); font-weight: 600;
 }
 .hero .hero-location { display: flex; align-items: center; gap: 6px; margin-top: 18px; font-size: 14px; }
