@@ -1,6 +1,6 @@
 /* Michael Agao — portfolio enhancements.
    Vanilla JavaScript (ES6), no dependencies, no build step.
-   Sections: theme · mobile menu · scroll-spy · reveal · counters · dialogs · contact form · carousel */
+   Sections: theme · mobile menu · scroll-spy · reveal · counters · dialogs · carousel */
 (() => {
   'use strict';
   const root = document.documentElement;
@@ -195,73 +195,6 @@
       projectDialog.open(button);
     });
   });
-
-  /* ---------- Contact form → Formspree (fetch, no page reload) ---------- */
-  const form = document.getElementById('contact-form');
-  if (form) {
-    const status = form.querySelector('.form-status');
-    const submit = form.querySelector('[type="submit"]');
-    const fields = [...form.querySelectorAll('input:not([name="_gotcha"]), textarea')];
-    const setStatus = (type, message) => {
-      status.classList.toggle('is-error', type === 'error');
-      status.classList.toggle('is-success', type === 'success');
-      status.textContent = message;
-    };
-    const fallback = ' You can also email me at agao.michaelkharl.mka@gmail.com.';
-
-    form.addEventListener('submit', async event => {
-      event.preventDefault();
-      let firstInvalid = null;
-      fields.forEach(field => {
-        if (field.value.trim() === '') field.value = '';
-        const valid = field.checkValidity();
-        field.setAttribute('aria-invalid', String(!valid));
-        if (!valid && !firstInvalid) firstInvalid = field;
-      });
-      if (firstInvalid) {
-        setStatus('error', 'Please fill in every field with a valid value.');
-        firstInvalid.focus();
-        return;
-      }
-      const endpoint = form.getAttribute('action') || '';
-      if (endpoint.includes('YOUR_FORM_ID')) {
-        setStatus('error', 'The contact form is not connected yet. Please use the "Say hello" button instead.' + fallback);
-        return;
-      }
-      submit.disabled = true;
-      form.setAttribute('aria-busy', 'true');
-      setStatus('', 'Sending your message…');
-      try {
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: {Accept: 'application/json'}
-        });
-        if (response.ok) {
-          form.reset();
-          fields.forEach(field => field.removeAttribute('aria-invalid'));
-          setStatus('success', 'Thank you! Your message has been sent.');
-        } else {
-          let message = 'Sorry, your message could not be sent. Please try again.';
-          try {
-            const data = await response.json();
-            if (Array.isArray(data.errors) && data.errors.length) message = data.errors.map(error => error.message).join(' ');
-          } catch (e) { /* non-JSON error response */ }
-          setStatus('error', message + fallback);
-        }
-      } catch (e) {
-        setStatus('error', 'Network error: your message was not sent. Please check your connection and try again.' + fallback);
-      } finally {
-        submit.disabled = false;
-        form.removeAttribute('aria-busy');
-      }
-    });
-    form.addEventListener('input', event => {
-      if (event.target.getAttribute('aria-invalid') === 'true' && event.target.checkValidity()) {
-        event.target.setAttribute('aria-invalid', 'false');
-      }
-    });
-  }
 
   /* ---------- Capstone screenshot carousel ---------- */
   const screens = [

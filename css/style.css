@@ -611,9 +611,9 @@ button.cert-media { cursor: zoom-in; }
 
 /* ---------- Contact ---------- */
 .contact-grid { display: grid; gap: 24px; }
-@media (min-width: 940px) { .contact-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; align-items: start; } }
+
 .contact-cards { list-style: none; display: grid; gap: 10px; padding: 0; margin: 22px 0 0; }
-@media (min-width: 560px) and (max-width: 939px) { .contact-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 640px) { .contact-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .contact-card { display: flex; align-items: center; gap: 12px; margin: 0; padding: 14px 16px; min-width: 0; }
 .contact-icon {
   display: grid; place-items: center; width: 40px; height: 40px; flex: none; border-radius: 8px;
@@ -623,28 +623,6 @@ button.cert-media { cursor: zoom-in; }
 .contact-text { min-width: 0; display: flex; flex-direction: column; font-size: 14px; }
 .contact-label { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
 .contact-text a { font-weight: 600; overflow-wrap: anywhere; }
-.form-title { font-size: 18px; color: var(--heading); margin-bottom: 4px; }
-.form-note { font-size: 13px; color: var(--muted); }
-#contact-form { margin-top: 16px; }
-#contact-form .form-note { margin-top: 10px; }
-.field { display: grid; gap: 6px; margin-bottom: 14px; min-width: 0; }
-.field label { font-size: 14px; font-weight: 600; color: var(--heading); }
-.field-row { display: grid; gap: 0 14px; }
-@media (min-width: 560px) { .field-row { grid-template-columns: 1fr 1fr; } }
-.field input, .field textarea {
-  width: 100%; font: inherit; font-size: 16px; color: var(--text);
-  background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 6px; padding: 10px 12px;
-}
-.field textarea { min-height: 140px; resize: vertical; }
-.field input:focus-visible, .field textarea:focus-visible { outline-offset: 1px; border-color: var(--focus); }
-.field [aria-invalid="true"] { border-color: var(--error); }
-.hp-field { display: none; }
-#contact-form .btn[disabled] { opacity: .65; cursor: progress; }
-.form-status { margin: 12px 0 0; font-size: 14px; font-weight: 500; }
-.form-status:empty { display: none; }
-.form-status.is-error { color: var(--error); }
-.form-status.is-success { color: var(--success); }
-
 /* ---------- Documents ---------- */
 .doc-grid { display: grid; gap: 16px; }
 @media (min-width: 720px) { .doc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
