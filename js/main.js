@@ -219,20 +219,19 @@
     {category: 'guest', n: '15', title: "Step 2 · Branch & Services", description: "Choose a branch, then search and pick services."},
     {category: 'guest', n: '16', title: "Step 3 · Date, Time & Stylist", description: "Open time slots, with each stylist's live status: available, busy or day off."},
     {category: 'guest', n: '17', title: "Step 4 · Payment", description: "Deposit or full payment by GCash, Maya, card or cash at the branch."},
-    {category: 'guest', n: '18', title: "Step 5 · Review Booking", description: "Check every detail, then continue to email or SMS verification."},
-    {category: 'guest', n: '19', title: "Payment Successful", description: "PayMongo returns here with the reference, amount and method."},
-    {category: 'guest', n: '20', title: "Track a Booking", description: "Look up any booking by its reference; no account needed."},
-    {category: 'guest', n: '21', title: "Booking Status", description: "Pending → Confirmed → In Progress → Completed, with booking details."},
-    {category: 'account', n: '22', title: "Login", description: "One redesigned sign-in for customers, admins, cashiers and staff."},
-    {category: 'account', n: '23', title: "Create an Account", description: "Customer sign-up that links earlier guest bookings by mobile number."},
-    {category: 'account', n: '24', title: "Verify Your Email", description: "Six-digit code to activate the account."},
-    {category: 'account', n: '25', title: "Forgot Password", description: "Request a reset code by email."},
-    {category: 'account', n: '26', title: "Enter Your Code", description: "Enter the code, then set a new password."},
-    {category: 'account', n: '27', title: "Set Your Password", description: "New staff and cashier accounts set their password from an email link."}
+    {category: 'guest', n: '18', title: "Online Payment Result", description: "Payment outcome after completing the online payment flow."},
+    {category: 'guest', n: '19', title: "Track a Booking", description: "Look up any booking by its reference; no account needed."},
+    {category: 'guest', n: '20', title: "Booking Status", description: "Pending → Confirmed → In Progress → Completed, with booking details."},
+    {category: 'account', n: '21', title: "Login", description: "One redesigned sign-in for customers, admins, cashiers and staff."},
+    {category: 'account', n: '22', title: "Create an Account", description: "Customer sign-up that links earlier guest bookings by mobile number."},
+    {category: 'account', n: '23', title: "Verify Your Email", description: "Six-digit code to activate the account."},
+    {category: 'account', n: '24', title: "Forgot Password", description: "Request a reset code by email."},
+    {category: 'account', n: '25', title: "Enter Your Code", description: "Enter the code, then set a new password."},
+    {category: 'account', n: '26', title: "Confirm Mobile Number", description: "Confirm the mobile number associated with the account."}
   ].map(item => ({
     ...item,
-    src: 'assets/images/screens/' + item.n + '.webp',
-    thumbnail: 'assets/images/screens/thumbs/' + item.n + '.webp'
+    src: 'assets/images/screens/manual/' + item.n + (Number(item.n) >= 20 && item.n !== '22' ? '.jpeg' : '.png'),
+    thumbnail: 'assets/images/screens/manual/' + item.n + '-thumb.jpg'
   }));
 
   const tour = document.querySelector('.tour');
