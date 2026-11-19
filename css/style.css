@@ -822,7 +822,21 @@ button.cert-media { cursor: zoom-in; }
 }
 
 #projects [hidden] { display: none !important; }
-.featured-grid > .project-summary { min-width: 0; }
+.project-summary-panels { min-width: 0; display: grid; }
+.project-summary-panels:has(> :not([hidden])) > .project-summary {
+  grid-area: 1 / 1;
+  align-self: stretch;
+  min-width: 0;
+}
+/* Both cards size the same grid cell so switching projects keeps its height. */
+#projects .project-summary-panels:has(> :not([hidden])) > [hidden] {
+  display: flex !important;
+  visibility: hidden;
+}
+.project-summary-panels:not(:has(> :not([hidden]))) { display: none; }
 @media (min-width: 980px) {
-  .featured-grid > .project-summary { grid-column: span 2; }
+  .project-summary-panels .summary-checklist { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 980px) {
+  .featured-grid > .project-summary-panels { grid-column: span 2; align-self: stretch; }
 }
