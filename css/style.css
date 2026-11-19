@@ -690,6 +690,8 @@ button.cert-media { cursor: zoom-in; }
 .contact-socials a { display: grid; place-items: center; width: 32px; height: 32px; color: var(--muted); border-radius: 4px; }
 .contact-socials a:hover { color: var(--link); }
 .contact-socials svg { width: 22px; height: 22px; }
+.contact-social-cell { display: flex; align-items: center; min-width: 0; margin: 0; padding: 14px 16px; }
+.contact-social-cell .contact-socials { margin: 0; }
 /* ---------- Documents ---------- */
 .doc-grid { display: grid; gap: 16px; }
 @media (min-width: 720px) { .doc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
