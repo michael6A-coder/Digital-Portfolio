@@ -166,6 +166,7 @@
   const imageDescription = imageDialog?.dialog.querySelector('.dialog-description');
   const openImage = ({src, alt, title, description}, from) => {
     if (!imageDialog) return;
+    imageDialog.dialog.classList.toggle('certificate-preview', Boolean(from?.closest('.cert-card')));
     enlarged.src = src;
     enlarged.alt = alt || '';
     imageTitle.textContent = title || alt || 'Image';
