@@ -616,6 +616,19 @@ dialog::backdrop { background: var(--backdrop); }
   .education-icon { width: 40px; height: 40px; }
   .education-details h3 { font-size: 17px; }
 }
+/* ---------- Experience & involvement ---------- */
+.involvement-list { display: grid; gap: 20px; }
+.involvement-card { display: flex; align-items: flex-start; gap: 20px; padding: 26px; }
+.involvement-details { flex: 1; min-width: 0; }
+.involvement-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 8px 24px; flex-wrap: wrap; margin-bottom: 6px; }
+.involvement-heading h3 { margin: 0; font-size: 18px; color: var(--heading); }
+.involvement-heading .meta { margin: 0; font-size: 13px; }
+.involvement-details .involvement-organization { margin-bottom: 8px; color: var(--link); font-size: 14px; font-weight: 600; text-align: start; }
+.involvement-details > p:last-child { margin: 0; }
+@media (max-width: 480px) {
+  .involvement-card { padding: 18px; gap: 14px; }
+}
+
 /* ---------- Achievements ---------- */
 .cert-grid { display: grid; gap: 16px; }
 @media (min-width: 720px) { .cert-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
