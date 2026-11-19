@@ -173,7 +173,7 @@ main:focus { outline: none; }
 }
 .skip-link:focus { top: 12px; }
 
-.container { width: 100%; max-width: 1120px; margin-inline: auto; padding-inline: 16px; }
+.container { width: 100%; max-width: 1440px; margin-inline: auto; padding-inline: 16px; }
 @media (min-width: 640px) { .container { padding-inline: 24px; } }
 
 main > section { padding: 40px 0; background: transparent; }
@@ -201,6 +201,8 @@ main > section { padding: 40px 0; background: transparent; }
 }
 .btn-primary { background: var(--primary); color: var(--primary-ink); }
 .btn-primary:hover { background: var(--primary-hover); }
+.btn:disabled { cursor: not-allowed; opacity: .65; }
+.btn-primary:disabled:hover { background: var(--primary); }
 .btn-outline { background: var(--input-bg); color: var(--heading); border-color: var(--input-border); }
 .btn-outline:hover { border-color: var(--nav-active); background: var(--nav-hover); }
 .btn-on-dark { background: transparent; color: var(--on-dark); border-color: var(--on-dark-line-strong); }
