@@ -590,10 +590,6 @@ dialog::backdrop { background: var(--backdrop); }
 }
 
 /* ---------- Achievements ---------- */
-.summary-stats { list-style: none; display: grid; gap: 12px; padding: 0; margin: 0 0 20px; }
-@media (min-width: 720px) { .summary-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.summary-stats .stat { margin: 0; padding: 18px; }
-.summary-stats .stat p { margin-top: 8px; font-size: 14px; color: var(--muted); }
 .cert-grid { display: grid; gap: 16px; }
 @media (min-width: 720px) { .cert-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .cert-card { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; align-items: start; }
@@ -608,6 +604,8 @@ button.cert-media { cursor: zoom-in; }
 .cert-body .meta { margin-bottom: 8px; }
 .cert-body p:not(.meta):not(.card-kicker) { font-size: 15px; }
 .cert-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.btn-certificate { background: #203F60; color: #FFFFFF; border-color: #203F60; border-radius: 10px; }
+.btn-certificate:hover { background: #18324D; border-color: #18324D; }
 
 /* ---------- Contact ---------- */
 .contact-grid { display: grid; gap: 24px; }
