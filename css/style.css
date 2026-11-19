@@ -579,9 +579,9 @@ main > section.hero {
 #projects .featured-more .disclosure-body > ul:not(.scope-stats) { display: grid; gap: 10px; padding-left: 20px; margin-bottom: 16px; font-size: .875rem; }
 #esumbong-title, #crafts-title, #capstone-title { scroll-margin-top: 110px; }
 @media (min-width: 980px) {
-  #projects .featured-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
-  .project-selector { grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .project-selector > .eyebrow, .project-selector-note { display: none; }
+  #projects .featured-grid { grid-template-columns: clamp(180px, 17%, 240px) minmax(0, 1.15fr) minmax(0, 1fr); }
+  .project-selector { grid-column: 1; grid-template-columns: minmax(0, 1fr); align-content: start; }
+  .project-selector-note { display: none; }
   #projects .featured-more { grid-template-columns: .9fr 1.3fr; }
   #projects .featured-more .disclosure-body > ul:not(.scope-stats) { grid-template-columns: 1fr 1fr; column-gap: 28px; }
 }
