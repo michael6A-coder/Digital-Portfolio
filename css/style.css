@@ -820,3 +820,12 @@ button.cert-media { cursor: zoom-in; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
   .reveal-ready .reveal { opacity: 1; transform: none; }
 }
+
+#projects [hidden] { display: none !important; }
+.featured-grid > .project-summary { min-width: 0; }
+.project-diagrams { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.project-diagrams button { background: var(--card); color: inherit; font: inherit; cursor: zoom-in; border: 1px solid var(--border); border-radius: 10px; padding: 8px; }
+.project-diagrams img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; display: block; margin-bottom: 6px; }
+@media (min-width: 980px) {
+  .featured-grid > [aria-labelledby="crafts-title"] { grid-column: span 2; }
+}
