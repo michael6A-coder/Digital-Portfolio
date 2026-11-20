@@ -1843,3 +1843,43 @@ html[data-theme="dark"] .showcase { --sc-bg: #1E3A3F; --sc-bg-2: #2C555C; }
 }
 #skills .info-card .skill-card-head { margin-bottom: 8px; }
 #skills .lang-list li { padding: 7px 0; }
+
+/* ==== Polish & device fit ==== */
+/* Certificates: newest (AWS) card is featured so the grid always fills evenly (7 cards) */
+@media (min-width: 720px) {
+  .cert-grid > .cert-card:first-child { grid-column: span 2; flex-direction: row; align-items: center; gap: 22px; }
+  .cert-grid > .cert-card:first-child .cert-body { flex-direction: row; flex-wrap: wrap; align-items: center; column-gap: 24px; }
+  .cert-grid > .cert-card:first-child .cert-body > :not(.cert-actions) { flex-basis: 100%; }
+  .cert-grid > .cert-card:first-child .cert-body h3 { font-size: 22px; }
+  .cert-grid > .cert-card:first-child .cert-actions { margin-top: 6px; }
+}
+@media (min-width: 1200px) { .cert-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* Contact: long email and LinkedIn get a full row on tablets so they never break mid-word */
+@media (min-width: 760px) and (max-width: 1199px) {
+  .contact-cards li:nth-child(-n+2) { grid-column: 1 / -1; }
+}
+.contact-card a, .contact-card strong, .contact-card span { overflow-wrap: break-word; word-break: normal; }
+
+/* Showcase stepper: on tablets show only the current label, like phones */
+@media (min-width: 600px) and (max-width: 899px) {
+  .sc-step-label { visibility: hidden; }
+  .sc-steps li.is-current .sc-step-label { visibility: visible; }
+}
+
+/* Small phones (320–359px) */
+@media (max-width: 359px) {
+  .sc-win { flex-basis: 92%; }
+  .sc-steps li { min-width: 40px; }
+  .sc-dot { width: 26px; height: 26px; font-size: .72rem; }
+  .sc-steps::before, .sc-steps::after { top: 22px; }
+  .summary-header { gap: 10px; }
+  .summary-icon { width: 54px; height: 54px; }
+  .summary-icon svg { width: 34px; height: 34px; }
+}
+
+/* Large screens: keep line lengths readable */
+@media (min-width: 1600px) {
+  #projects .sc-intro p { max-width: 62ch; }
+}
+@media (max-width: 379px) { .contact-card a, .contact-card strong { font-size: .82rem; } }
