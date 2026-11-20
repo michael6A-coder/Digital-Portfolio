@@ -1209,6 +1209,7 @@ html[data-theme="dark"] .contact-cta { background: radial-gradient(circle at 90%
 /* ---------- Documents ---------- */
 .doc-grid { display: grid; gap: 18px; }
 @media (min-width: 720px) { .doc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.doc-grid > :only-child { grid-column: 1 / -1; }
 .doc-card { display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 18px; align-items: start; padding: 26px; overflow: hidden; }
 .doc-card::after {
   content: ''; position: absolute; right: 0; bottom: 0; width: 72px; height: 44px; pointer-events: none;
@@ -1297,3 +1298,105 @@ html[data-theme="dark"] .education-icon,
 html[data-theme="dark"] .cert-media,
 html[data-theme="dark"] .contact-icon { box-shadow: 0 6px 14px rgba(0, 0, 0, .3); }
 html[data-theme="dark"] .education-honors { background: rgba(110, 231, 168, .12); }
+
+/* ---------- Compact phone sizing (≤ 599px) ---------- */
+@media (max-width: 599px) {
+  body { font-size: 15px; }
+  main > section { padding: 32px 0; }
+  main > section.hero { padding: 20px 0 28px; }
+  .container { padding-inline: 14px; }
+
+  /* Headings */
+  #home h1 { font-size: 1.85rem; letter-spacing: -1px; margin-bottom: 10px; }
+  #about .about-head h2, #skills .skills-head h2, #projects .section-head h2, .split-head h2 { font-size: 1.75rem; letter-spacing: -.8px; }
+  .eyebrow { font-size: 11px; letter-spacing: 1.6px; }
+  .split-head .eyebrow::after, #skills .skills-head .eyebrow::after, #about .about-head .eyebrow::after, .hero-eyebrow::after { width: 56px; }
+  .section-head, .split-head, #skills .skills-head { margin-bottom: 18px; }
+  #about .about-head { margin-bottom: 18px; }
+  .lede, #about .about-head .lede { font-size: 14px; }
+
+  /* Hero */
+  #home .hero-role { font-size: 13px; margin-bottom: 14px; }
+  .hero-role-icon { width: 32px; height: 26px; }
+  .hero-facts { margin-bottom: 14px; }
+  .hero-facts .icon { width: 26px; height: 26px; }
+  .hero-facts strong { font-size: 14px; }
+  .hero-grad { font-size: 15px; }
+  .hero-intro-card { padding: 0 16px 16px; }
+  #home .hero-tab { font-size: 16px; padding: 8px 26px 8px 16px; margin-left: -17px; margin-bottom: 12px; }
+  .hero-intro { padding-left: 12px; border-left-width: 3px; }
+  #home .hero-intro p { font-size: 14px; line-height: 1.55; }
+  .hero-portrait { max-width: 340px; }
+  .hero-panel { padding: 12px; }
+  #home .hero-panel-head { font-size: 16px; }
+  .hero-panel-head .skill-icon { width: 40px; height: 40px; }
+  .focus-rows li { font-size: 14px; padding: 6px 12px 6px 6px; }
+  .focus-rows .icon { width: 36px; height: 36px; padding: 9px; }
+  .hero-actions .btn { min-height: 42px; font-size: 14px; }
+  .social-list a { width: 100%; height: 40px; max-height: 40px; aspect-ratio: auto; }
+
+  /* Shared cards and icon tiles */
+  .skill-icon { width: 42px; height: 42px; border-radius: 12px; }
+  .skill-icon .icon { width: 21px; height: 21px; }
+  .education-icon, .cert-media, .contact-icon { width: 42px; height: 42px; border-radius: 12px; }
+  .education-icon svg, .contact-icon svg { width: 21px; height: 21px; }
+  .skill-card-head h3, .about-panel-head h3 { font-size: 17px; }
+  .about-panel { padding: 12px 12px 16px; }
+  .about-panel-head { gap: 12px; margin-bottom: 14px; }
+  #about .about-bg { font-size: 14px; padding-left: 14px; }
+
+  /* About quote */
+  .about-quote { padding: 22px 18px 18px; gap: 14px; }
+  .quote-mark { width: 36px; height: 36px; }
+  #about .about-quote .quote-text { font-size: 1.2rem; }
+
+  /* Interests and goals */
+  .interest-grid { gap: 8px; }
+  .interest-grid li { min-height: 84px; padding: 12px 8px; font-size: 13px; }
+  .interest-grid .icon { width: 26px; height: 26px; }
+  .goal-icon { width: 44px; height: 44px; }
+  .goal-icon .icon { width: 22px; height: 22px; }
+  .goal-label { font-size: 14px; padding: 6px 12px; }
+  .goal-list dd { font-size: 14px; }
+
+  /* Skills */
+  .skill-card { padding: 16px; }
+  .skill-chips { margin: 14px 0 16px; gap: 7px; }
+  .skill-chips li { font-size: 13px; padding: 7px 10px; }
+  .strengths-band { padding: 14px 16px; gap: 10px; }
+  .strengths-band h3 { font-size: 16px; }
+  .check-chips { gap: 6px; }
+  .check-chips li { font-size: 12px; padding: 6px 11px 6px 7px; }
+  .tools-panel { padding: 16px 16px 30px; }
+  .tools-head h3 { font-size: 19px; }
+  .tech-stack-grid { gap: 18px 14px; }
+  .tech-card { gap: 7px; }
+  .tech-category { flex-basis: 100%; }
+  .tech-card { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; }
+  .stack-item { min-width: 0; min-height: 80px; padding: 10px 4px 8px; }
+  .stack-logo { width: 32px; height: 32px; }
+  .stack-icon { width: 26px; height: 26px; }
+  .stack-name { font-size: 11px; }
+  .info-card { padding: 16px 16px 24px; }
+  #skills .course-list li { font-size: 14px; }
+
+  /* Projects */
+  #projects .featured-title { font-size: 1.2rem; }
+  .project-choice { padding: 12px 14px; }
+  .project-choice-icon { width: 38px; height: 38px; }
+
+  /* Lower sections */
+  .education-card { padding: 14px; }
+  .education-list::before { left: 34px; }
+  .education-details h3, .involvement-heading h3, .cert-body h3 { font-size: 16px; }
+  .education-details .education-degree { font-size: 14px; }
+  .involvement-card, .cert-card, .doc-card { padding: 16px; gap: 12px; }
+  #experience .involvement-details > p:not(.involvement-organization), #achievements .cert-body p:not(.meta):not(.card-kicker) { font-size: 14px; }
+  .contact-cta { padding: 22px 18px; gap: 12px; }
+  .contact-cta h3 { font-size: 1.3rem; }
+  .contact-card { padding: 12px 14px; }
+  .contact-text { font-size: 14px; }
+  .doc-card h3 { font-size: 17px; }
+  .doc-card > .contact-icon { width: 46px; height: 46px; }
+  .skill-card::after, .tools-panel::after, .info-card::after, .involvement-card::after, .doc-card::after { width: 48px; height: 30px; }
+}
