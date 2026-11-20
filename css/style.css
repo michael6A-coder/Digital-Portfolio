@@ -1823,3 +1823,10 @@ html[data-theme="dark"] .showcase { --sc-bg: #1E3A3F; --sc-bg-2: #2C555C; }
   .sc-built, .sc-mine { display: none; }
   .sc-side { justify-content: flex-start; }
 }
+
+/* Skills: proof lines + compact tools row (replaces old tools table) */
+#skills .skill-note strong { color: var(--text, inherit); font-weight: 600; }
+#skills .strengths-proof { flex-basis: 100%; margin: 0; font-size: .875rem; color: var(--muted, inherit); }
+#skills .strengths-band:has(+ .tools-band) { margin-bottom: 0; }
+#skills .tools-band { margin-top: 0; border-top: 0; }
+#skills .tools-band .skill-chips { flex: 1; margin: 0; }
