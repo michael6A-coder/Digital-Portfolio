@@ -1255,7 +1255,7 @@ html[data-theme="dark"] .showcase { --sc-bg: #1E3A3F; --sc-bg-2: #2C555C; }
   .sc-float { padding: 16px 18px; border-radius: 16px; background: rgba(255, 255, 255, .1); border: 1px solid rgba(191, 231, 234, .35); backdrop-filter: blur(6px); box-shadow: 0 16px 34px rgba(0, 0, 0, .18); }
   .sc-float.swap { animation: sc-float-in .55s cubic-bezier(.2, .9, .3, 1.2); }
   #projects .sc-float-kicker { margin: 0 0 8px; font-family: var(--sc-mono); font-size: .72rem; letter-spacing: 1.4px; text-transform: uppercase; color: var(--sc-accent); text-align: left; }
-  #projects .sc-float-text { margin: 0; font-size: 1.02rem; font-weight: 700; line-height: 1.4; color: #FFFFFF; text-align: left; hyphens: none; }
+  #projects .sc-float-text { margin: 0; font-family: var(--font); font-size: 1rem; font-weight: 500; line-height: 1.55; letter-spacing: 0; color: #FFFFFF; text-align: left; hyphens: none; }
   .sc-feature { background: #FFFFFF; border-color: #FFFFFF; }
   #projects .sc-feature .sc-float-kicker { color: #2F7E8A; }
   #projects .sc-feature .sc-float-text { color: #17343A; }
@@ -1736,3 +1736,33 @@ html[data-theme="dark"] .sk-logo[src$="mysql.svg"], html[data-theme="dark"] .sk-
 @media (min-width: 600px) and (max-width: 759px) { .m-swipe { --gutter: 16px; } .m-swipe > * { flex-basis: 62%; } }
 @media (max-width: 359px) { .m-swipe { --gutter: 12px; } .m-swipe > * { flex-basis: 90%; } }
 @media (max-width: 759px) and (prefers-reduced-motion: reduce) { .swipe-dots button::before { transition: none; } }
+
+/* ==== Readability fixes on phones ==== */
+
+/* Capstone "Behind the build" card is always white, so its text always uses
+   the light-theme colours (it was light-on-white in dark mode). */
+.sc-details {
+  --para: #52666C; --text: #52666C; --heading: #26383D; --muted: #52666C; --link: #276773;
+  --chip-bg: #E7F5F6; --chip-text: #26383D; --chip-border: #DDE9EB; --border: #DDE9EB;
+  --primary: #BFE7EA; --primary-ink: #26383D; --nav-active: #43818B; --card: #FFFFFF; --bg: #F8FCFD;
+  color: #26383D;
+}
+.sc-details li, .sc-details .chips li { color: #26383D; }
+
+/* Stepper under the screenshots: every part keeps its name and the row
+   scrolls sideways (the current part is kept in view by the script). */
+@media (max-width: 899px), (prefers-reduced-motion: reduce) {
+  .sc-steps { justify-content: flex-start; padding-inline: 4px; scroll-padding-inline: 16px; }
+  .sc-steps::before, .sc-steps::after { display: none; }
+  .sc-steps li { flex: 0 0 84px; min-width: 84px; }
+  .sc-steps li::after {
+    content: ""; position: absolute; z-index: -1; top: 25px; left: 50%; width: 100%; height: 3px;
+    background: rgba(255, 255, 255, .25);
+  }
+  .sc-steps li:last-child::after { display: none; }
+  .sc-steps li.is-done::after { background: var(--sc-accent); }
+  .sc-step-label, .sc-steps li .sc-step-label { visibility: visible; display: block; max-width: 80px; white-space: normal; text-align: center; font-size: 12px; line-height: 1.25; }
+  .sc-steps button { color: rgba(255, 255, 255, .82); }
+}
+@media (max-width: 599px) { .sc-steps li::after { top: 23px; } }
+@media (max-width: 359px) { .sc-steps li::after { top: 22px; } }

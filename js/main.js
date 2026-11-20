@@ -574,6 +574,7 @@
     const sticky = showcase.querySelector('.sc-sticky');
     const wins = showcase.querySelector('.sc-wins');
     const stepList = showcase.querySelector('.sc-steps');
+    let shownStep = -1;
     const info = showcase.querySelector('.sc-info');
     const num = showcase.querySelector('.sc-num-big');
     const numOf = showcase.querySelector('.sc-num-of');
@@ -645,6 +646,13 @@
         if (c === item.chapter) button.setAttribute('aria-current', 'step');
         else button.removeAttribute('aria-current');
       });
+      // Phones/tablets: the stepper scrolls sideways, keep the current part in view.
+      if (!pinned.matches && item.chapter !== shownStep) {
+        const li = stepButtons[item.chapter].parentElement;
+        const left = li.offsetLeft - (stepList.clientWidth - li.offsetWidth) / 2;
+        stepList.scrollTo({left: Math.max(0, left), behavior: shownStep < 0 || reduceMotion.matches ? 'auto' : 'smooth'});
+      }
+      shownStep = item.chapter;
       const first = steps.findIndex(s => s.chapter === item.chapter);
       const within = item.details ? 0 : (step - first) / chapters[item.chapter].shots.length;
       stepList.style.setProperty('--fill', Math.min(1, (item.chapter + within) / (chapters.length - 1)).toFixed(4));
