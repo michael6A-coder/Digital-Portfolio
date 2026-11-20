@@ -413,8 +413,18 @@
     const steps = chapters.flatMap((chapter, c) => chapter.shots.map(shot => ({...shot, chapter: c})));
     const shotCount = steps.length;
     chapters.push({label: 'Behind the build', shots: []});
-    steps.push({details: true, chapter: chapters.length - 1, title: 'Features, tools & my part', description: 'What the system does, what it was built with, and what I worked on.'});
+    // "Behind the build" takes three scroll steps: one per column, revealed in turn.
+    for (let part = 0; part < 3; part++) {
+      steps.push({details: true, part, chapter: chapters.length - 1, title: 'Features, tools & my part', description: 'What the system does, what it was built with, and what I worked on.'});
+    }
+    const firstDetails = steps.findIndex(item => item.details);
     const detailsCard = showcase.querySelector('.sc-details');
+    detailsCard.querySelectorAll('.works-block').forEach(block => {
+      block.querySelectorAll('li').forEach((li, k) => li.style.setProperty('--i', k));
+    });
+    const revealDetails = parts => {
+      for (let k = 1; k <= 3; k++) detailsCard.classList.toggle('r' + k, parts >= k);
+    };
     const pad = n => String(n).padStart(2, '0');
     const sticky = showcase.querySelector('.sc-sticky');
     const wins = showcase.querySelector('.sc-wins');
@@ -475,12 +485,15 @@
       if (step === active) return;
       active = step;
       const item = steps[step];
+      const current = item.details ? firstDetails : step;
       cards.forEach((card, i) => {
-        card.classList.toggle('is-active', i === step);
-        card.classList.toggle('is-past', i < step);
-        card.classList.toggle('is-next', i > step);
+        if (steps[i].details && i !== firstDetails) return;
+        card.classList.toggle('is-active', i === current);
+        card.classList.toggle('is-past', i < current);
+        card.classList.toggle('is-next', i > current);
         if (!steps[i].details) card.tabIndex = i === step || !pinned.matches ? 0 : -1;
       });
+      if (pinned.matches) revealDetails(item.details ? item.part + 1 : 0);
       stepButtons.forEach((button, c) => {
         button.parentElement.classList.toggle('is-done', c < item.chapter);
         button.parentElement.classList.toggle('is-current', c === item.chapter);
@@ -536,7 +549,19 @@
     window.addEventListener('scroll', () => { if (pinned.matches) queue(); }, {passive: true});
     window.addEventListener('resize', queue);
     wins.addEventListener('scroll', queue, {passive: true});
-    const placeDetails = () => (pinned.matches ? wins : sticky).append(detailsCard);
+    // On phones the card sits below the stepper; reveal its columns when it scrolls into view.
+    const mobileReveal = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting || pinned.matches) return;
+        [1, 2, 3].forEach(k => setTimeout(() => revealDetails(k), (k - 1) * 350));
+        mobileReveal.unobserve(entry.target);
+      });
+    }, {threshold: 0.15});
+    const placeDetails = () => {
+      (pinned.matches ? wins : sticky).append(detailsCard);
+      if (pinned.matches) revealDetails(0);
+      else mobileReveal.observe(detailsCard);
+    };
     placeDetails();
     pinned.addEventListener('change', () => { placeDetails(); active = -1; fromScroll(); });
     render(0);
