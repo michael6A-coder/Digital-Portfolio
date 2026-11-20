@@ -1691,3 +1691,43 @@ html[data-theme="dark"] .showcase { --sc-bg: #1E3A3F; --sc-bg-2: #2C555C; }
   .sc-steps button { font-size: .78rem; }
   .sc-step-label { max-width: 112px; white-space: normal; text-align: center; line-height: 1.2; }
 }
+
+/* ==== Floating cards around the screenshot (desktop) ==== */
+.sc-side { display: none; }
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .sc-sticky > .sc-details { display: none; }
+  .sc-stage { grid-template-columns: 250px minmax(0, 1fr) 250px; gap: 28px; align-items: stretch; }
+  .sc-side { display: flex; flex-direction: column; justify-content: space-between; gap: 18px; min-height: 0; padding: 26px 0 8px; }
+  .sc-left .sc-info { margin: 0; }
+  .sc-float { padding: 16px 18px; border-radius: 16px; background: rgba(255, 255, 255, .1); border: 1px solid rgba(191, 231, 234, .35); backdrop-filter: blur(6px); box-shadow: 0 16px 34px rgba(0, 0, 0, .18); }
+  .sc-float.swap { animation: sc-float-in .55s cubic-bezier(.2, .9, .3, 1.2); }
+  #projects .sc-float-kicker { margin: 0 0 8px; font-family: var(--sc-mono); font-size: .72rem; letter-spacing: 1.4px; text-transform: uppercase; color: var(--sc-accent); text-align: left; }
+  #projects .sc-float-text { margin: 0; font-size: 1.02rem; font-weight: 700; line-height: 1.4; color: #FFFFFF; text-align: left; hyphens: none; }
+  .sc-feature { background: #FFFFFF; border-color: #FFFFFF; }
+  #projects .sc-feature .sc-float-kicker { color: #2F7E8A; }
+  #projects .sc-feature .sc-float-text { color: #17343A; }
+  .sc-built { background: rgba(0, 0, 0, .22); }
+  .sc-float-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; }
+  .sc-float-chips li { padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .35); font-family: var(--sc-mono); font-size: .72rem; color: #FFFFFF; }
+  .sc-mine { border-style: dashed; }
+}
+@keyframes sc-float-in { from { opacity: 0; transform: translateY(14px) scale(.97); } to { opacity: 1; transform: none; } }
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .sc-built { rotate: -2deg; }
+  .sc-feature { rotate: 1.5deg; }
+  .sc-mine { rotate: -1.5deg; }
+  .sc-float { transition: rotate .4s ease, translate .4s ease; }
+  .sc-float:hover { rotate: 0deg; translate: 0 -3px; }
+}
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .sc-side { padding-bottom: 26px; }
+  .sc-float { padding: 14px 16px; }
+  .sc-float-chips li { padding: 3px 9px; }
+}
+
+/* Stepper dots: never clipped, always clearly visible */
+.sc-steps { padding: 10px 0 4px; }
+.sc-steps::before, .sc-steps::after { top: 25px; }
+.sc-dot { background: #163F46; border: 2px solid rgba(255, 255, 255, .7); color: #FFFFFF; box-shadow: 0 2px 8px rgba(0, 0, 0, .25); }
+.sc-steps li.is-current .sc-dot { box-shadow: 0 0 0 5px rgba(191, 231, 234, .35), 0 4px 12px rgba(0, 0, 0, .25); }
+@media (max-width: 599px) { .sc-steps::before, .sc-steps::after { top: 23px; } }

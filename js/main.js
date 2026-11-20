@@ -582,11 +582,20 @@
     ];
     const steps = chapters.flatMap((chapter, c) => chapter.shots.map(shot => ({...shot, chapter: c})));
     const shotCount = steps.length;
-    chapters.push({label: 'Behind the build', shots: []});
-    // "Behind the build" takes three scroll steps: one per column, revealed in turn.
-    for (let part = 0; part < 3; part++) {
-      steps.push({details: true, part, chapter: chapters.length - 1, title: 'Features, tools & my part', description: 'What the system does, what it was built with, and what I worked on.'});
-    }
+    // Floating cards beside the screenshot: one key feature and one part of my work per chapter.
+    const extras = [
+      {feature: 'Three branches under one brand, each with its own hours, services and prices.', mine: 'UI/UX design of the public pages and layouts.'},
+      {feature: 'Per-branch price lists with promos, category filters and search.', mine: 'Web development with PHP 8 and MySQL.'},
+      {feature: 'Home and event service requests with quotes and rescheduling rules.', mine: 'System planning and analysis, with data flow diagrams and flowcharts.'},
+      {feature: 'Book in under a minute with just a name and mobile number; no account needed.', mine: 'Email and SMS one-time codes through Brevo and textbee.'},
+      {feature: 'One login for customers, admins, cashiers and staff.', mine: 'Role-based access for five user panels.'},
+      {feature: 'Digital loyalty card: 20% off on the 5th visit and a free treatment on the 10th.', mine: 'Responsive front end with HTML, Tailwind CSS and JavaScript.'},
+      {feature: 'Pay a deposit or in full by GCash, Maya, card or cash at the branch.', mine: 'PayMongo payments, tested with automated tests and a mock PayMongo server.'},
+      {feature: 'Track, reschedule or cancel bookings, request home service and leave reviews.', mine: 'Deployed with Docker to Vercel; wrote the technical documentation and user manual.'}
+    ];
+    const featureCard = showcase.querySelector('.sc-feature');
+    const mineCard = showcase.querySelector('.sc-mine');
+    let shownChapter = -1;
     const firstDetails = steps.findIndex(item => item.details);
     const detailsCard = showcase.querySelector('.sc-details');
     detailsCard.querySelectorAll('.works-block').forEach(block => {
@@ -681,6 +690,12 @@
       showcase.classList.toggle('at-details', Boolean(item.details));
       num.textContent = pad(Math.min(step + 1, shotCount));
       chapterLabel.textContent = 'Part ' + (item.chapter + 1) + ' · ' + chapters[item.chapter].label;
+      if (item.chapter !== shownChapter && extras[item.chapter]) {
+        shownChapter = item.chapter;
+        featureCard.querySelector('.sc-float-text').textContent = extras[item.chapter].feature;
+        mineCard.querySelector('.sc-float-text').textContent = extras[item.chapter].mine;
+        [featureCard, mineCard].forEach(card => { card.classList.remove('swap'); void card.offsetWidth; card.classList.add('swap'); });
+      }
       infoTitle.textContent = item.title;
       infoText.textContent = item.description;
     };
@@ -728,9 +743,8 @@
       });
     }, {threshold: 0.15});
     const placeDetails = () => {
-      (pinned.matches ? wins : sticky).append(detailsCard);
-      if (pinned.matches) revealDetails(0);
-      else mobileReveal.observe(detailsCard);
+      sticky.append(detailsCard);
+      if (!pinned.matches) mobileReveal.observe(detailsCard);
     };
     placeDetails();
     pinned.addEventListener('change', () => { placeDetails(); active = -1; fromScroll(); });
