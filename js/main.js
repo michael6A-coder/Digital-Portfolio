@@ -1,4 +1,4 @@
-/* Michael Agao — portfolio enhancements.
+/* Michael Agao: portfolio enhancements.
    Vanilla JavaScript (ES6), no dependencies, no build step.
    Sections: theme · mobile menu · scroll-spy · reveal · counters · dialogs · carousel */
 (() => {
@@ -631,7 +631,7 @@
       card.innerHTML = '<span class="sc-bar"><span class="sc-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="sc-url">leo-mejillano-salon.site</span></span>';
       const img = document.createElement('img');
       img.src = item.src;
-      img.alt = 'Salon system — ' + item.title;
+      img.alt = 'Salon system: ' + item.title;
       img.width = 1440;
       img.height = 900;
       img.loading = i < 2 ? 'eager' : 'lazy';
@@ -782,7 +782,7 @@
     index = (nextIndex + items.length) % items.length;
     const item = current();
     display.src = item.src;
-    display.alt = 'Salon system — ' + item.title;
+    display.alt = 'Salon system: ' + item.title;
     stage.setAttribute('aria-label', 'Enlarge ' + item.title + ' screenshot');
     title.textContent = item.title;
     categoryBadge.textContent = labels[category];
@@ -867,7 +867,7 @@
   });
   stage.addEventListener('click', () => {
     const item = current();
-    openImage({src: item.src, alt: display.alt, title: labels[category] + ' — ' + item.title, description: item.description}, stage);
+    openImage({src: item.src, alt: display.alt, title: labels[category] + ' · ' + item.title, description: item.description}, stage);
   });
   switchCategory('guest');
 })();
