@@ -252,6 +252,10 @@
       {label: 'Account', shots: ['21', '22', '23', '24', '25', '26']}
     ];
     const steps = chapters.flatMap((chapter, c) => chapter.shots.map(n => ({...screens.find(item => item.n === n), chapter: c})));
+    const shotCount = steps.length;
+    chapters.push({label: 'Behind the build', shots: []});
+    steps.push({details: true, chapter: chapters.length - 1, title: 'Features, tools & my part', description: 'What the system does, what it was built with, and what I worked on.'});
+    const detailsCard = showcase.querySelector('.sc-details');
     const pad = n => String(n).padStart(2, '0');
     const sticky = showcase.querySelector('.sc-sticky');
     const wins = showcase.querySelector('.sc-wins');
@@ -264,10 +268,14 @@
     const infoText = showcase.querySelector('.sc-info-text');
     const pinned = window.matchMedia('(min-width: 900px) and (prefers-reduced-motion: no-preference)');
     showcase.style.setProperty('--steps', steps.length);
-    numOf.textContent = '/ ' + steps.length;
+    numOf.textContent = '/ ' + shotCount;
     stepList.style.setProperty('--n', chapters.length);
 
     const cards = steps.map((item, i) => {
+      if (item.details) {
+        detailsCard.classList.add('sc-win');
+        return detailsCard;
+      }
       const card = document.createElement('button');
       card.type = 'button';
       card.className = 'sc-win';
@@ -282,7 +290,7 @@
       const cap = document.createElement('span');
       cap.className = 'sc-cap';
       cap.innerHTML = '<small></small><b></b><span></span>';
-      cap.querySelector('small').textContent = pad(i + 1) + ' / ' + steps.length + ' · ' + chapters[item.chapter].label;
+      cap.querySelector('small').textContent = pad(i + 1) + ' / ' + shotCount + ' · ' + chapters[item.chapter].label;
       cap.querySelector('b').textContent = item.title;
       cap.querySelector('span').textContent = item.description;
       card.append(img, cap);
@@ -312,7 +320,7 @@
         card.classList.toggle('is-active', i === step);
         card.classList.toggle('is-past', i < step);
         card.classList.toggle('is-next', i > step);
-        card.tabIndex = i === step || !pinned.matches ? 0 : -1;
+        if (!steps[i].details) card.tabIndex = i === step || !pinned.matches ? 0 : -1;
       });
       stepButtons.forEach((button, c) => {
         button.parentElement.classList.toggle('is-done', c < item.chapter);
@@ -321,13 +329,15 @@
         else button.removeAttribute('aria-current');
       });
       const first = steps.findIndex(s => s.chapter === item.chapter);
-      const within = (step - first) / chapters[item.chapter].shots.length;
+      const within = item.details ? 0 : (step - first) / chapters[item.chapter].shots.length;
       stepList.style.setProperty('--fill', Math.min(1, (item.chapter + within) / (chapters.length - 1)).toFixed(4));
       info.classList.remove('swap');
       void info.offsetWidth;
       info.classList.add('swap');
       info.classList.toggle('started', step > 0);
-      num.textContent = pad(step + 1);
+      info.classList.toggle('is-details', Boolean(item.details));
+      showcase.classList.toggle('at-details', Boolean(item.details));
+      num.textContent = pad(Math.min(step + 1, shotCount));
       chapterLabel.textContent = 'Part ' + (item.chapter + 1) + ' · ' + chapters[item.chapter].label;
       infoTitle.textContent = item.title;
       infoText.textContent = item.description;
@@ -342,13 +352,17 @@
         render(Math.min(steps.length - 1, Math.floor(progress * steps.length)));
       } else {
         const width = cards[0].offsetWidth + parseFloat(getComputedStyle(wins).columnGap || 0);
-        render(Math.min(steps.length - 1, Math.max(0, Math.round(wins.scrollLeft / width))));
+        const atEnd = wins.scrollLeft >= wins.scrollWidth - wins.clientWidth - 2;
+        render(atEnd ? shotCount - 1 : Math.min(shotCount - 1, Math.max(0, Math.round(wins.scrollLeft / width))));
       }
     };
     const go = step => {
       if (pinned.matches) {
         const top = window.scrollY + showcase.getBoundingClientRect().top - headerHeight() + (step + 0.5) / steps.length * travel();
         window.scrollTo({top, behavior: scrollBehavior()});
+      } else if (steps[step].details) {
+        render(step);
+        detailsCard.scrollIntoView({behavior: scrollBehavior(), block: 'start'});
       } else {
         wins.scrollTo({left: cards[step].offsetLeft, behavior: scrollBehavior()});
       }
@@ -360,10 +374,12 @@
       queued = true;
       requestAnimationFrame(() => { queued = false; fromScroll(); });
     };
-    window.addEventListener('scroll', queue, {passive: true});
+    window.addEventListener('scroll', () => { if (pinned.matches) queue(); }, {passive: true});
     window.addEventListener('resize', queue);
     wins.addEventListener('scroll', queue, {passive: true});
-    pinned.addEventListener('change', () => { active = -1; fromScroll(); });
+    const placeDetails = () => (pinned.matches ? wins : sticky).append(detailsCard);
+    placeDetails();
+    pinned.addEventListener('change', () => { placeDetails(); active = -1; fromScroll(); });
     render(0);
     fromScroll();
   })();
@@ -505,6 +521,7 @@
       for (const element of elements) element.hidden = key !== id;
     }
     feature.setAttribute('aria-labelledby', id);
+    feature.hidden = id === 'capstone-title';
     for (const choice of choices) {
       const active = choice.hash === '#' + id;
       choice.classList.toggle('project-choice-featured', active);
