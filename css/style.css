@@ -1928,3 +1928,7 @@ html[data-theme="dark"] .showcase { --sc-bg: #1E3A3F; --sc-bg-2: #2C555C; }
   .sc-built .sc-float-chips li { transition: background .2s, color .2s; }
   .sc-built .sc-float-chips li:hover { background: var(--sc-accent); color: #17343A; }
 }
+/* "Beginner level" label above the programming languages */
+#skills .skill-level { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 10px; padding: 4px 12px; border-radius: 999px; background: var(--chip-bg); border: 1px solid var(--chip-border); font-size: .72rem; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--link); text-align: left; }
+.skill-level-dot { width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(90deg, var(--link) 50%, var(--chip-border) 50%); }
+#skills .skill-card > .skill-main { align-self: start; }
