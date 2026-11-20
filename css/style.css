@@ -1434,3 +1434,22 @@ html[data-theme="dark"] .education-honors { background: rgba(110, 231, 168, .12)
 .site-footer .contact-cta h2 { margin: 0; }
 .site-footer .footer-inner { padding-top: 20px; border-top: 1px solid var(--border); }
 #contact .contact-cta p { margin: 0; color: inherit; opacity: .86; text-align: left; hyphens: none; }
+
+/* Professional profile within About Me. */
+#about .about-profile { --h-radius: 20px; --h-shadow: var(--ab-shadow); }
+#about .about-profile-name { margin: 0 0 18px; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.1; letter-spacing: -1.5px; overflow-wrap: anywhere; }
+#about .about-profile-name span { color: var(--link); }
+#about .about-profile .hero-role {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px;
+  margin: 0 0 20px; padding: 5px 16px 5px 5px; border-radius: 24px;
+  background: var(--chip-bg); border: 1px solid var(--chip-border);
+  font-size: 1rem; font-weight: 700; line-height: 1.4;
+}
+#about .about-profile .about-facts { margin: 0 0 24px; row-gap: 16px; }
+#about .about-profile .hero-tab {
+  align-self: flex-start; margin: -1px 0 20px -23px; padding: 12px 32px 12px 22px;
+  border-radius: 20px 0 40px 0; background: var(--link); color: var(--card);
+  font-size: 1.25rem; box-shadow: 4px 0 0 var(--primary);
+}
+#about .about-profile .hero-intro p { margin: 0 0 16px; text-align: justify; text-align-last: start; }
+#about .about-profile .hero-intro p:last-child { margin-bottom: 0; }
