@@ -244,31 +244,35 @@
     const showcase = document.querySelector('.showcase');
     if (!showcase) return;
     const chapters = [
-      {label: 'Home', shots: ['01', '02']},
-      {label: 'Services', shots: ['05', '07', '10']},
-      {label: 'Booking', shots: ['14', '15', '16']},
-      {label: 'Payment', shots: ['17', '18']},
-      {label: 'Tracking', shots: ['19', '20']},
-      {label: 'Account', shots: ['21', '22']}
+      {label: 'Explore', shots: ['01', '02', '03']},
+      {label: 'Services', shots: ['04', '05', '06', '07', '08', '09', '12']},
+      {label: 'Home Service', shots: ['10', '11']},
+      {label: 'Booking', shots: ['13', '14', '15', '16', '17']},
+      {label: 'Tracking', shots: ['18', '19', '20']},
+      {label: 'Account', shots: ['21', '22', '23', '24', '25', '26']}
     ];
     const steps = chapters.flatMap((chapter, c) => chapter.shots.map(n => ({...screens.find(item => item.n === n), chapter: c})));
+    const pad = n => String(n).padStart(2, '0');
     const sticky = showcase.querySelector('.sc-sticky');
     const wins = showcase.querySelector('.sc-wins');
-    const tabsBox = showcase.querySelector('.sc-tabs');
-    const kicker = showcase.querySelector('.sc-callout-kicker');
-    const text = showcase.querySelector('.sc-callout-text');
-    const callout = showcase.querySelector('.sc-callout');
-    const counter = showcase.querySelector('.sc-counter');
+    const stepList = showcase.querySelector('.sc-steps');
+    const info = showcase.querySelector('.sc-info');
+    const num = showcase.querySelector('.sc-num-big');
+    const numOf = showcase.querySelector('.sc-num-of');
+    const chapterLabel = showcase.querySelector('.sc-chapter');
+    const infoTitle = showcase.querySelector('.sc-info-title');
+    const infoText = showcase.querySelector('.sc-info-text');
     const pinned = window.matchMedia('(min-width: 900px) and (prefers-reduced-motion: no-preference)');
     showcase.style.setProperty('--steps', steps.length);
+    numOf.textContent = '/ ' + steps.length;
+    stepList.style.setProperty('--n', chapters.length);
 
     const cards = steps.map((item, i) => {
       const card = document.createElement('button');
       card.type = 'button';
       card.className = 'sc-win';
       card.setAttribute('aria-label', 'Enlarge ' + item.title + ' screenshot');
-      card.innerHTML = '<span class="sc-bar"><span class="sc-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="sc-tab"></span></span>';
-      card.querySelector('.sc-tab').textContent = item.title;
+      card.innerHTML = '<span class="sc-bar"><span class="sc-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="sc-url">leo-mejillano-salon.site</span></span>';
       const img = document.createElement('img');
       img.src = item.src;
       img.alt = 'Salon system — ' + item.title;
@@ -277,7 +281,8 @@
       img.loading = i < 2 ? 'eager' : 'lazy';
       const cap = document.createElement('span');
       cap.className = 'sc-cap';
-      cap.innerHTML = '<b></b><span></span>';
+      cap.innerHTML = '<small></small><b></b><span></span>';
+      cap.querySelector('small').textContent = pad(i + 1) + ' / ' + steps.length + ' · ' + chapters[item.chapter].label;
       cap.querySelector('b').textContent = item.title;
       cap.querySelector('span').textContent = item.description;
       card.append(img, cap);
@@ -285,14 +290,17 @@
       wins.append(card);
       return card;
     });
-    const tabs = chapters.map((chapter, c) => {
-      const tab = document.createElement('button');
-      tab.type = 'button';
-      tab.className = 'sc-chip';
-      tab.textContent = chapter.label;
-      tab.addEventListener('click', () => go(steps.findIndex(item => item.chapter === c)));
-      tabsBox.append(tab);
-      return tab;
+    const stepButtons = chapters.map((chapter, c) => {
+      const li = document.createElement('li');
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.innerHTML = '<span class="sc-dot"></span><span class="sc-step-label"></span>';
+      button.querySelector('.sc-dot').textContent = c + 1;
+      button.querySelector('.sc-step-label').textContent = chapter.label;
+      button.addEventListener('click', () => go(steps.findIndex(item => item.chapter === c)));
+      li.append(button);
+      stepList.append(li);
+      return button;
     });
 
     let active = -1;
@@ -301,25 +309,34 @@
       active = step;
       const item = steps[step];
       cards.forEach((card, i) => {
-        const depth = step - i;
-        card.classList.toggle('is-active', depth === 0);
-        card.classList.toggle('is-past', depth > 0);
-        card.classList.toggle('is-next', depth < 0);
-        card.style.setProperty('--d', Math.max(0, Math.min(depth, 3)));
-        card.tabIndex = depth === 0 || !pinned.matches ? 0 : -1;
+        card.classList.toggle('is-active', i === step);
+        card.classList.toggle('is-past', i < step);
+        card.classList.toggle('is-next', i > step);
+        card.tabIndex = i === step || !pinned.matches ? 0 : -1;
       });
-      tabs.forEach((tab, c) => tab.setAttribute('aria-pressed', String(c === item.chapter)));
-      callout.classList.remove('swap');
-      void callout.offsetWidth;
-      callout.classList.add('swap');
-      kicker.textContent = chapters[item.chapter].label + ' · ' + item.title;
-      text.textContent = item.description;
-      counter.textContent = (step + 1) + ' / ' + steps.length + (step < steps.length - 1 && pinned.matches ? ' · keep scrolling' : '');
+      stepButtons.forEach((button, c) => {
+        button.parentElement.classList.toggle('is-done', c < item.chapter);
+        button.parentElement.classList.toggle('is-current', c === item.chapter);
+        if (c === item.chapter) button.setAttribute('aria-current', 'step');
+        else button.removeAttribute('aria-current');
+      });
+      const first = steps.findIndex(s => s.chapter === item.chapter);
+      const within = (step - first) / chapters[item.chapter].shots.length;
+      stepList.style.setProperty('--fill', Math.min(1, (item.chapter + within) / (chapters.length - 1)).toFixed(4));
+      info.classList.remove('swap');
+      void info.offsetWidth;
+      info.classList.add('swap');
+      info.classList.toggle('started', step > 0);
+      num.textContent = pad(step + 1);
+      chapterLabel.textContent = 'Part ' + (item.chapter + 1) + ' · ' + chapters[item.chapter].label;
+      infoTitle.textContent = item.title;
+      infoText.textContent = item.description;
     };
 
     const headerHeight = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 68;
     const travel = () => Math.max(1, showcase.offsetHeight - sticky.offsetHeight);
     const fromScroll = () => {
+      if (showcase.hidden) return;
       if (pinned.matches) {
         const progress = Math.min(1, Math.max(0, (headerHeight() - showcase.getBoundingClientRect().top) / travel()));
         render(Math.min(steps.length - 1, Math.floor(progress * steps.length)));
