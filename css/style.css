@@ -1938,3 +1938,189 @@ html[data-theme="dark"] .showcase { --sc-bg: #1E3A3F; --sc-bg-2: #2C555C; }
   #skills .skill-card { grid-row: span 3; }
   #skills .skill-card > .skill-tools { margin-bottom: 0; }
 }
+
+/* ==== Space & polish pass ====
+   Uses the width of large screens, fills the first screen with the hero,
+   gives the capstone screenshot more room and tightens sparse sections. */
+
+/* Wider canvas on big screens */
+@media (min-width: 1200px) { .container { padding-inline: 40px; } }
+@media (min-width: 1680px) { .container { max-width: 1600px; } }
+
+/* Hero fills the first screen on laptops and desktops */
+@media (min-width: 1100px) and (min-height: 700px) {
+  main > section.hero { min-height: calc(100svh - var(--header-h)); display: grid; align-content: center; padding-block: 40px; }
+  .hero-portrait { min-height: min(64svh, 640px); }
+}
+
+/* About: quick facts become an even row of tiles */
+@media (min-width: 960px) {
+  .about-simple-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .about-simple-facts li { align-items: center; height: 100%; padding: 14px 16px; border-radius: 14px; line-height: 1.4; }
+  .about-simple-facts .icon { flex: none; }
+  .about-simple-bio { max-width: none; }
+}
+
+/* Capstone showcase: narrower side rails, more room for the screenshot */
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .showcase .container { max-width: 1760px; }
+  .sc-stage { grid-template-columns: 230px minmax(0, 1fr) 220px; gap: 22px; }
+  .sc-win { width: min(100cqw, calc((100cqh - 40px) * 2)); }
+  .sc-wins::before { inset: 4% 2%; }
+}
+@media (min-width: 1500px) and (prefers-reduced-motion: no-preference) {
+  .sc-stage { grid-template-columns: 260px minmax(0, 1fr) 240px; gap: 28px; }
+}
+
+/* Education: a horizontal timeline instead of four mostly empty rows */
+@media (min-width: 760px) {
+  .education-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .education-list::before { display: none; }
+  .education-card { align-items: flex-start; }
+}
+@media (min-width: 1200px) {
+  .education-list { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; padding-top: 34px; }
+  .education-list::before {
+    display: block; left: 26px; right: 26px; top: 33px; bottom: auto; width: auto; height: 2px;
+    background: linear-gradient(90deg, var(--link), var(--primary));
+  }
+  .education-card { flex-direction: column; gap: 16px; padding: 0 22px 24px; overflow: visible; background: var(--card); }
+  .education-card:first-child { background: linear-gradient(180deg, var(--chip-bg), var(--card) 70%); }
+  .education-card .education-icon { margin-top: -26px; box-shadow: 0 0 0 6px var(--bg), 0 6px 14px rgba(39, 103, 115, .18); }
+  .education-details { display: flex; flex-direction: column; align-items: stretch; height: 100%; }
+  .education-details .meta { margin-top: auto; padding-top: 10px; }
+  .education-honors { margin-top: 6px; }
+}
+
+/* Achievements: real certificate thumbnails */
+.cert-card { padding: 0; gap: 0; }
+.cert-card .cert-body { padding: 18px 22px 22px; }
+.cert-actions { margin-top: auto; padding-top: 14px; }
+.cert-media.cert-thumb {
+  position: relative; display: block; width: 100%; height: auto; padding: 14px 14px 0; border: 0; border-radius: 0;
+  background: linear-gradient(160deg, var(--chip-bg), var(--card)); box-shadow: none; cursor: zoom-in;
+}
+.cert-thumb img {
+  width: 100%; height: auto; aspect-ratio: 1.42; object-fit: cover; object-position: top;
+  border-radius: 10px 10px 0 0; border: 1px solid var(--border); border-bottom: 0;
+  box-shadow: 0 -6px 22px rgba(39, 103, 115, .10); transition: transform .35s ease;
+}
+.cert-card:hover .cert-thumb img { transform: translateY(-4px); }
+.cert-card::before { z-index: 1; }
+@media (min-width: 720px) {
+  .cert-grid > .cert-card:first-child { flex-direction: row; align-items: stretch; gap: 0; }
+  .cert-grid > .cert-card:first-child .cert-thumb { flex: 0 0 52%; padding: 22px 0 22px 22px; display: flex; align-items: center; }
+  .cert-grid > .cert-card:first-child .cert-thumb img { border-radius: 10px; border-bottom: 1px solid var(--border); }
+  .cert-grid > .cert-card:first-child .cert-body { flex-direction: column; flex-wrap: nowrap; align-items: flex-start; justify-content: center; padding: 26px 28px; }
+  .cert-grid > .cert-card:first-child .cert-body > :not(.cert-actions),
+  .cert-grid > .cert-card:first-child .cert-body > .cert-actions { flex: none; }
+  .cert-grid > .cert-card:first-child .cert-actions { margin-top: 8px; }
+}
+/* Phones: compact rows (thumbnail beside the text) */
+@media (max-width: 559px) {
+  .cert-card { flex-direction: row; align-items: stretch; }
+  .cert-media.cert-thumb { flex: 0 0 112px; padding: 12px 0 12px 12px; display: flex; align-items: center; }
+  .cert-thumb img { border-radius: 8px; border-bottom: 1px solid var(--border); }
+  .cert-card .cert-body { padding: 14px 16px 16px; }
+  .cert-body h3 { font-size: 16px; }
+  .cert-actions { padding-top: 8px; }
+}
+@media (prefers-reduced-motion: reduce) { .cert-card:hover .cert-thumb img { transform: none; } }
+
+/* Documents: one slim banner instead of a wide, empty card */
+@media (min-width: 720px) {
+  .doc-card { grid-template-columns: 60px minmax(0, 1fr); align-items: center; padding: 22px 28px; }
+  .doc-card > div { display: flex; flex-wrap: wrap; align-items: center; column-gap: 24px; }
+  .doc-card > div > h3 { margin: 0; }
+  .doc-card > div > .meta { margin: 0; flex: 1; }
+  .doc-card .btn-row { margin: 0; }
+}
+
+/* Tighter vertical rhythm between sections on large screens */
+@media (min-width: 900px) { main > section { padding: 64px 0; } main > section + section:not(.hero) { padding-top: 48px; } }
+
+/* ==== Phones & touch screens: readable text and comfortable tap targets ====
+   Labels never go below 12px, body copy stays 15–16px, and every button or
+   link people tap is at least 44px tall (Apple/Google touch guidelines). */
+html { text-size-adjust: 100%; }
+body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -webkit-tap-highlight-color: rgba(39, 103, 115, .15); }
+
+@media (max-width: 759px), (max-height: 500px) and (orientation: landscape) {
+  /* Small uppercase labels */
+  .eyebrow, .card-kicker, #skills .card-kicker, .education-details .card-kicker, .cert-body .card-kicker,
+  .contact-label, #skills .skill-tools-label, .about-simple-block h3, .quote-badge, .contact-cta .quote-badge,
+  #skills .skill-level, .sc-cap small, #projects .sc-float-kicker { font-size: 12px; letter-spacing: 1.1px; }
+  .brand-tag { font-size: 11.5px; letter-spacing: .8px; }
+  .hero-portrait .status-badge { font-size: 12.5px; }
+  #skills .skill-chips small { font-size: 11.5px; }
+
+  /* Body copy and secondary text */
+  .meta, .cert-body .meta, .education-details .meta { font-size: 14px; }
+  #experience .involvement-details > p:not(.involvement-organization),
+  .summary-description, #projects .project-summary .summary-description,
+  .education-details .education-degree, .about-simple-goals dd, #projects .sc-cap span { font-size: 15px; line-height: 1.6; }
+  .involvement-details .involvement-organization { font-size: 14.5px; }
+  .chips li, #skills .skill-chips li, .about-simple-chips li, .about-simple-facts li { font-size: 14px; }
+  .lang-list span, .course-list li, #skills .lang-list span, #skills .course-list li { font-size: 15px; }
+  .contact-text { font-size: 15px; }
+  .site-footer, .footer-inner p { font-size: 14px; }
+
+  /* Headings scale smoothly from 320px to 760px */
+  #home h1 { font-size: clamp(2rem, 8.6vw, 2.75rem); letter-spacing: -1px; }
+  #about .about-head h2, #skills .skills-head h2, #projects .section-head h2, .split-head h2 { font-size: clamp(1.6rem, 7vw, 2.1rem); }
+  .sc-title { font-size: clamp(1.75rem, 8vw, 2.4rem); }
+  .education-details h3, .involvement-heading h3, .cert-body h3, .summary-title h3, #skills .skill-card-head h3 { font-size: clamp(16.5px, 4.6vw, 18px); }
+  .contact-cta h3 { font-size: clamp(1.35rem, 6vw, 1.6rem); }
+}
+
+/* Comfortable tap targets on touch screens and phones */
+@media (pointer: coarse), (max-width: 759px) {
+  .btn { min-height: 46px; }
+  .btn-sm { min-height: 44px; padding: 10px 16px; font-size: 14px; }
+  .back-to-top { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; }
+  .menu-toggle { width: 44px; height: 44px; }
+  .theme-toggle { width: 44px; height: 44px; }
+  .contact-socials a { width: 46px; height: 46px; }
+  .js .nav-list a { min-height: 48px; display: flex; align-items: center; font-size: 15px; }
+  .contact-text a { padding-block: 8px; }
+  .sc-steps button { min-width: 44px; min-height: 44px; }
+}
+
+/* Very small phones (320–359px): a little more room for content */
+@media (max-width: 359px) {
+  .container { padding-inline: 12px; }
+  .card, .education-card, .involvement-card, .doc-card { padding: 16px; }
+  .cert-media.cert-thumb { flex-basis: 96px; }
+  .hero-actions .btn { flex: 1 1 100%; }
+  .brand-tag { display: none; }
+}
+
+/* Phones turned sideways: shorter header so content has room */
+@media (max-height: 500px) and (orientation: landscape) {
+  :root, html:not(.js) { --header-h: 56px; }
+  .header-inner { min-height: 56px; }
+  .brand img { width: 34px; height: 34px; }
+  .brand { min-height: 44px; }
+  .theme-toggle, .menu-toggle { width: 40px; height: 40px; }
+  .js .site-nav { max-height: calc(100svh - 56px); overflow-y: auto; }
+  main > section.hero { padding: 20px 0 28px; }
+  .hero-layout { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); grid-template-areas: "main photo"; align-items: center; gap: 24px; }
+  .hero-portrait { min-height: 0; max-height: 300px; aspect-ratio: 1; }
+}
+
+/* Narrow phones: keep "View Certificate" on one line beside the thumbnail */
+.btn-certificate { white-space: nowrap; }
+@media (max-width: 400px) {
+  .cert-media.cert-thumb { flex-basis: 88px; padding: 12px 0 12px 10px; }
+  .cert-card .cert-body { padding: 12px 12px 14px; min-width: 0; }
+  .cert-card .btn-certificate { padding-inline: 12px; gap: 6px; font-size: 13.5px; }
+}
+
+/* Phones turned sideways: headline and screenshots fit the short screen */
+@media (max-height: 500px) and (orientation: landscape) {
+  #home h1 { font-size: clamp(1.8rem, 4.6vw, 2.4rem); margin-bottom: 12px; }
+  #home .hero-hook { margin-bottom: 18px; }
+  #home .hero-role { font-size: 13px; }
+  .sc-win { flex-basis: min(88%, calc((100svh - 150px) * 2)); }
+  .sc-title { font-size: clamp(1.6rem, 4vw, 2.1rem); }
+}
