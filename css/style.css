@@ -516,7 +516,7 @@ html[data-theme="dark"] #about { --ab-shadow: 0 10px 30px rgba(0, 0, 0, .22); --
   .about-intro { display: flex; flex-direction: column; }
   #about .about-quote { flex: 1; padding: 34px 32px 28px; }
   #about .about-quote .quote-text { font-size: clamp(1.6rem, 2.4vw, 2.15rem); }
-  .about-panels { grid-template-rows: auto auto 1fr; }
+  .about-panels { grid-template-rows: auto 1fr auto; }
 }
 
 /* Intro column */
@@ -721,7 +721,7 @@ html[data-theme="dark"] #skills { --sk-shadow: 0 10px 30px rgba(0, 0, 0, .22); }
 .tech-languages, .tech-database { --n: 5; }
 .tech-version { --n: 2; }
 .tech-servers { --n: 1; }
-.tech-office { --n: 3; }
+.tech-office { --n: 6; }
 .tech-category h4 {
   display: flex; align-items: center; gap: 8px; margin: 0 0 12px; padding: 7px 14px; border-radius: 999px;
   background: var(--chip-bg); font-size: 11.5px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase; color: var(--eyebrow); white-space: nowrap;
@@ -1123,7 +1123,7 @@ html[data-theme="dark"] { --panel-shadow: 0 10px 30px rgba(0, 0, 0, .22); --pane
 
 /* ---------- Experience & involvement ---------- */
 .involvement-list { display: grid; gap: 18px; }
-@media (min-width: 900px) { .involvement-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .involvement-list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .involvement-card { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px; overflow: hidden; }
 .involvement-card::after {
   content: ''; position: absolute; right: 0; bottom: 0; width: 72px; height: 44px; pointer-events: none;
@@ -1180,7 +1180,7 @@ html[data-theme="dark"] .contact-cta { background: radial-gradient(circle at 90%
   border: 2px solid rgba(191, 231, 234, .22); box-shadow: 0 0 0 24px rgba(191, 231, 234, .06), 0 0 0 50px rgba(191, 231, 234, .04);
 }
 .contact-cta .quote-badge { color: inherit; }
-.contact-cta h2, .contact-cta h3 { margin: 0; font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1.2; letter-spacing: -.6px; color: inherit; }
+.contact-cta h3 { margin: 0; font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1.2; letter-spacing: -.6px; color: inherit; }
 #contact .contact-cta p { margin: 0; color: inherit; opacity: .86; text-align: left; hyphens: none; }
 .btn-cta { margin-top: auto; min-height: 48px; padding: 12px 24px; border-radius: 999px; background: #FFFFFF; color: #1F5862; font-size: 15px; }
 .btn-cta:hover { background: var(--cyan-300); }
@@ -1400,56 +1400,3 @@ html[data-theme="dark"] .education-honors { background: rgba(110, 231, 168, .12)
   .doc-card > .contact-icon { width: 46px; height: 46px; }
   .skill-card::after, .tools-panel::after, .info-card::after, .involvement-card::after, .doc-card::after { width: 48px; height: 30px; }
 }
-
-/* Certificates subheading inside Experience */
-.subsection-title { margin: 44px 0 18px; font-size: clamp(1.3rem, 2vw, 1.6rem); letter-spacing: -.4px; color: var(--heading); }
-
-/* Résumé buttons inside the teal contact card */
-.contact-resume { margin: 0; }
-.contact-resume .btn { background: transparent; color: inherit; border: 1px solid rgba(255, 255, 255, .55); }
-.contact-resume .btn:hover { background: rgba(255, 255, 255, .14); border-color: #FFFFFF; }
-
-/* ---- Hero: headline + portrait only (intro lives in About, contact at the bottom) ---- */
-.hero-layout { grid-template-areas: "main" "photo"; }
-@media (min-width: 760px) {
-  .hero-layout { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); grid-template-areas: "main photo"; align-items: center; gap: 48px; }
-  .hero-portrait { min-height: 480px; }
-}
-#home h1 { font-size: clamp(2.3rem, 4.4vw, 4rem); margin-bottom: 18px; }
-#home .hero-hook { max-width: 46ch; margin: 0 0 28px; font-size: clamp(1rem, 1.4vw, 1.2rem); line-height: 1.6; color: var(--para); text-align: left; hyphens: none; }
-#home .hero-role { align-self: flex-start; }
-.hero-actions { flex: none; display: flex; flex-wrap: wrap; gap: 12px; padding: 0; border: 0; }
-@media (min-width: 960px) { main > section.hero { padding: 64px 0 72px; } }
-
-/* ---- About: "Who I am" panel ---- */
-#about .about-bg p { margin: 0 0 10px; }
-#about .about-bg p:last-child { margin: 0; }
-.about-facts { margin: 20px 6px 0; }
-.about-stats { margin-top: 18px; }
-
-/* ---- Contact lives in the footer ---- */
-.site-footer { padding: 0 0 28px; }
-.footer-contact { padding-block: 48px 40px; }
-@media (min-width: 900px) { .footer-contact { padding-block: 64px 48px; } }
-.site-footer .contact-cta h2 { margin: 0; }
-.site-footer .footer-inner { padding-top: 20px; border-top: 1px solid var(--border); }
-#contact .contact-cta p { margin: 0; color: inherit; opacity: .86; text-align: left; hyphens: none; }
-
-/* Professional profile within About Me. */
-#about .about-profile { --h-radius: 20px; --h-shadow: var(--ab-shadow); }
-#about .about-profile-name { margin: 0 0 18px; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.1; letter-spacing: -1.5px; overflow-wrap: anywhere; }
-#about .about-profile-name span { color: var(--link); }
-#about .about-profile .hero-role {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px;
-  margin: 0 0 20px; padding: 5px 16px 5px 5px; border-radius: 24px;
-  background: var(--chip-bg); border: 1px solid var(--chip-border);
-  font-size: 1rem; font-weight: 700; line-height: 1.4;
-}
-#about .about-profile .about-facts { margin: 0 0 24px; row-gap: 16px; }
-#about .about-profile .hero-tab {
-  align-self: flex-start; margin: -1px 0 20px -23px; padding: 12px 32px 12px 22px;
-  border-radius: 20px 0 40px 0; background: var(--link); color: var(--card);
-  font-size: 1.25rem; box-shadow: 4px 0 0 var(--primary);
-}
-#about .about-profile .hero-intro p { margin: 0 0 16px; text-align: justify; text-align-last: start; }
-#about .about-profile .hero-intro p:last-child { margin-bottom: 0; }
