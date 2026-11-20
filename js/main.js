@@ -7,8 +7,8 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const scrollBehavior = () => (reduceMotion.matches ? 'auto' : 'smooth');
 
-  /* ---------- Theme selector (System / Light / Dark) ---------- */
-  const themeSelect = document.getElementById('theme-select');
+  /* ---------- Theme toggle (Light / Dark) ---------- */
+  const themeToggle = document.getElementById('theme-toggle');
   const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
   const readPref = () => {
     try { return localStorage.getItem('theme') || 'system'; } catch (e) { return 'system'; }
@@ -18,11 +18,16 @@
     const dark = pref === 'dark' || (pref === 'system' && darkQuery.matches);
     root.setAttribute('data-theme', dark ? 'dark' : 'light');
     root.setAttribute('data-theme-pref', pref);
-    if (themeSelect) themeSelect.value = pref;
+    if (themeToggle) {
+      const label = dark ? 'Switch to light theme' : 'Switch to dark theme';
+      themeToggle.setAttribute('aria-label', label);
+      themeToggle.title = label;
+      themeToggle.setAttribute('aria-pressed', String(dark));
+    }
   };
   applyTheme(readPref());
-  themeSelect?.addEventListener('change', () => {
-    const pref = themeSelect.value;
+  themeToggle?.addEventListener('click', () => {
+    const pref = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     try {
       if (pref === 'system') localStorage.removeItem('theme');
       else localStorage.setItem('theme', pref);

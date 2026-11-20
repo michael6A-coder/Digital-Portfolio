@@ -267,24 +267,13 @@ html:not(.js) .header-inner { padding-top: 10px; }
 }
 
 .header-actions { grid-area: actions; display: flex; align-items: center; gap: 8px; }
-.select-wrap { position: relative; display: inline-flex; align-items: center; color: var(--muted); }
-.ti { position: absolute; left: 9px; display: none; pointer-events: none; line-height: 0; }
-.ti .icon { width: 16px; height: 16px; }
-html[data-theme-pref="system"] .ti-system,
-html[data-theme-pref="light"] .ti-light,
-html[data-theme-pref="dark"] .ti-dark { display: block; }
-.select-wrap::after {
-  content: ""; position: absolute; right: 11px; top: 50%; width: 6px; height: 6px;
-  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
-  transform: translateY(-70%) rotate(45deg); pointer-events: none;
+.theme-toggle {
+  display: grid; place-items: center; width: 48px; height: 48px; padding: 0;
+  border: 1px solid var(--border); border-radius: 50%;
+  background: var(--bg); color: var(--heading);
 }
-.theme-control select {
-  -webkit-appearance: none; appearance: none;
-  font: 600 13px var(--font); color: var(--text);
-  background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 6px;
-  min-height: 36px; padding: 6px 28px 6px 31px; cursor: pointer;
-}
-.theme-control select:hover { border-color: var(--nav-active); }
+.theme-toggle .icon { width: 19px; height: 19px; }
+.theme-toggle:hover { background: var(--chip-bg); border-color: var(--nav-active); }
 
 .menu-toggle {
   display: grid; place-items: center; width: 40px; height: 40px; padding: 0;
