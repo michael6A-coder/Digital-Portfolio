@@ -1,0 +1,13 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 112" fill="none">
+  <defs>
+    <linearGradient id="ssms-top" x1="12" y1="12" x2="80" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#0750C8"/><stop offset=".52" stop-color="#008FE9"/><stop offset="1" stop-color="#00C8FF"/></linearGradient>
+    <linearGradient id="ssms-dark" x1="18" y1="45" x2="79" y2="70" gradientUnits="userSpaceOnUse"><stop stop-color="#003C9B"/><stop offset=".55" stop-color="#005FAE"/><stop offset="1" stop-color="#002D78"/></linearGradient>
+    <linearGradient id="ssms-front" x1="18" y1="76" x2="78" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#00B9F0"/><stop offset=".48" stop-color="#57C8F5"/><stop offset="1" stop-color="#C1D1FF"/></linearGradient>
+    <linearGradient id="ssms-bottom" x1="16" y1="91" x2="79" y2="91" gradientUnits="userSpaceOnUse"><stop stop-color="#004DC5"/><stop offset=".55" stop-color="#008DE9"/><stop offset="1" stop-color="#00BFFA"/></linearGradient>
+  </defs>
+  <path d="M12 25C12 6 84 6 84 25V43C84 52 62 57 48 61C29 56 12 51 12 43Z" fill="url(#ssms-dark)"/>
+  <ellipse cx="48" cy="25" rx="36" ry="15" fill="url(#ssms-top)"/>
+  <path d="M12 71C12 59 34 54 48 50C64 56 84 61 84 71V87C84 107 12 107 12 87Z" fill="url(#ssms-dark)"/>
+  <ellipse cx="48" cy="87" rx="36" ry="15" fill="url(#ssms-bottom)"/>
+  <path d="M84 25C84 36 58 42 36 49C21 54 12 59 12 68V87C12 76 38 70 60 63C75 58 84 53 84 44Z" fill="url(#ssms-front)"/>
+</svg>
