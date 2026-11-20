@@ -1236,6 +1236,10 @@ html[data-theme="dark"] .contact-cta { background: radial-gradient(circle at 90%
 }
 
 /* ---------- Footer ---------- */
+main { display: flex; flex-direction: column; }
+main > section { order: 0; }
+main > #documents { order: 98; }
+main > #contact { order: 99; }
 .site-footer { position: relative; border-top: 1px solid var(--border); padding: 26px 0 32px; font-size: 14px; background: var(--card); }
 .site-footer::before { content: ''; position: absolute; left: 0; right: 0; top: -1px; height: 3px; background: linear-gradient(90deg, var(--link), var(--primary), transparent); }
 .footer-inner { display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: center; justify-content: space-between; }
