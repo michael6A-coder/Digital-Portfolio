@@ -273,9 +273,34 @@
             "description": "The five booking steps and a sample Pending → Completed status tracker."
           },
           {
+            "src": "assets/images/screens/ums/gift-certificates.webp",
+            "title": "Gift Certificates",
+            "description": "₱500 and ₱1,000 gift certificates, valid for one-time use."
+          },
+          {
+            "src": "assets/images/screens/ums/footer.webp",
+            "title": "Footer",
+            "description": "Branch addresses, contact details and the salon's Facebook pages."
+          }
+        ]
+      },
+      {
+        "label": "Services",
+        "shots": [
+          {
+            "src": "assets/images/screens/ums/services-choose-branch.webp",
+            "title": "Services – Choose a Branch",
+            "description": "Prices are set per branch, so the customer picks a branch first."
+          },
+          {
             "src": "assets/images/screens/ums/services-pricing.webp",
             "title": "Services & Pricing",
-            "description": "Each branch's price list with active promos, category filters and search."
+            "description": "Active promos, category filters, search and a Book button on every service."
+          },
+          {
+            "src": "assets/images/screens/ums/wedding-packages.webp",
+            "title": "Wedding Packages",
+            "description": "Packages A to D with price, inclusions and an Inquire button."
           },
           {
             "src": "assets/images/screens/ums/stylists-team.webp",
@@ -283,9 +308,104 @@
             "description": "Beauty professionals per branch, with who is on shift right now."
           },
           {
+            "src": "assets/images/screens/ums/products.webp",
+            "title": "Products",
+            "description": "Salon products with search and category filters."
+          },
+          {
+            "src": "assets/images/screens/ums/branches.webp",
+            "title": "Branches",
+            "description": "Each branch's location, contact numbers, hours and services."
+          },
+          {
+            "src": "assets/images/screens/ums/gallery.webp",
+            "title": "Gallery",
+            "description": "Video clips of the salons and finished work."
+          }
+        ]
+      },
+      {
+        "label": "Home & Events",
+        "shots": [
+          {
             "src": "assets/images/screens/ums/home-events.webp",
             "title": "Home & Events Service",
             "description": "Request a stylist for a wedding, debut, graduation or photoshoot."
+          },
+          {
+            "src": "assets/images/screens/ums/event-categories.webp",
+            "title": "Event Categories",
+            "description": "Weddings & Debuts, Graduations & Galas, and Personal Events."
+          },
+          {
+            "src": "assets/images/screens/ums/events-process.webp",
+            "title": "The Process",
+            "description": "Six steps from telling the salon about the event to sharing feedback."
+          },
+          {
+            "src": "assets/images/screens/ums/home-service-form.webp",
+            "title": "Home Service Request Form",
+            "description": "Customer info, event details, services and review, in four steps."
+          },
+          {
+            "src": "assets/images/screens/ums/rescheduling-reminders.webp",
+            "title": "Rescheduling & Reminders",
+            "description": "How to move a request online and the rules for rescheduling."
+          },
+          {
+            "src": "assets/images/screens/ums/events-notifications.webp",
+            "title": "Notifications",
+            "description": "Booking confirmation, reminders, service updates, SMS and email."
+          },
+          {
+            "src": "assets/images/screens/ums/offsite-services.webp",
+            "title": "Off-site Services",
+            "description": "Makeup, hair styling, lash and brow services and event packages."
+          }
+        ]
+      },
+      {
+        "label": "Guest Booking",
+        "shots": [
+          {
+            "src": "assets/images/screens/ums/book-as-guest.webp",
+            "title": "Book an Appointment",
+            "description": "Book as a guest without an account, or track an existing booking."
+          },
+          {
+            "src": "assets/images/screens/ums/guest-step-1.webp",
+            "title": "Step 1 · Guest Information",
+            "description": "Name, mobile number, optional email and how to get updates."
+          },
+          {
+            "src": "assets/images/screens/ums/guest-step-2.webp",
+            "title": "Step 2 · Branch & Services",
+            "description": "Choose a branch, then search and pick services."
+          },
+          {
+            "src": "assets/images/screens/ums/guest-step-3.webp",
+            "title": "Step 3 · Date & Time",
+            "description": "Open time slots for the day; full slots are crossed out."
+          },
+          {
+            "src": "assets/images/screens/ums/guest-step-4.webp",
+            "title": "Step 4 · Payment",
+            "description": "Deposit or full payment by GCash, Maya, card or cash at the branch."
+          },
+          {
+            "src": "assets/images/screens/ums/payment-result.webp",
+            "title": "Online Payment Result",
+            "description": "PayMongo returns here with the reference and payment details."
+          },
+          {
+            "src": "assets/images/screens/ums/track-a-booking.webp",
+            "title": "Track a Booking",
+            "description": "Look up any booking by its reference; no account needed."
+          },
+          {
+            "src": "assets/images/screens/ums/booking-status.webp",
+            "title": "Booking Status",
+            "description": "Pending → Confirmed → In Progress → Completed, with booking details."
           }
         ]
       },
@@ -310,7 +430,12 @@
           {
             "src": "assets/images/screens/ums/forgot-password.webp",
             "title": "Forgot Password",
-            "description": "Request a reset code by email, then set a new password."
+            "description": "Request a reset code by email."
+          },
+          {
+            "src": "assets/images/screens/ums/reset-code.webp",
+            "title": "Enter Your Code",
+            "description": "Enter the code within 10 minutes, then set a new password."
           },
           {
             "src": "assets/images/screens/ums/confirm-mobile.webp",
@@ -358,9 +483,19 @@
             "description": "Only stylists who are qualified and free at that time are listed."
           },
           {
+            "src": "assets/images/screens/ums/booking-details.webp",
+            "title": "Booking Details",
+            "description": "Review of branch, service, time, stylist, total and amount to pay now."
+          },
+          {
             "src": "assets/images/screens/ums/payment.webp",
             "title": "Payment",
             "description": "Deposit or full payment by GCash, Maya, card or cash at the branch."
+          },
+          {
+            "src": "assets/images/screens/ums/booking-updates.webp",
+            "title": "Booking Updates",
+            "description": "Choose email updates, SMS updates, or both."
           },
           {
             "src": "assets/images/screens/ums/review-confirm.webp",
@@ -368,9 +503,19 @@
             "description": "Booking summary and the terms before paying."
           },
           {
+            "src": "assets/images/screens/ums/paymongo-test.webp",
+            "title": "GCash Payment (PayMongo)",
+            "description": "The PayMongo payment page for GCash, Maya or card."
+          },
+          {
+            "src": "assets/images/screens/ums/payment-not-completed.webp",
+            "title": "Payment Not Completed",
+            "description": "Retry or switch payment method while the slot is held."
+          },
+          {
             "src": "assets/images/screens/ums/payment-successful.webp",
             "title": "Payment Successful",
-            "description": "PayMongo returns here with the reference number and payment details."
+            "description": "Reference, amount paid and the late-arrival reminder."
           }
         ]
       },
@@ -388,9 +533,29 @@
             "description": "Shows the current schedule and the deadline for changing it online."
           },
           {
+            "src": "assets/images/screens/ums/confirm-cancellation.webp",
+            "title": "Confirm Cancellation",
+            "description": "Shows the deposit policy; reschedule instead or keep the appointment."
+          },
+          {
             "src": "assets/images/screens/ums/home-service.webp",
             "title": "Home Service",
             "description": "Home and event requests with their quote, payment summary and status."
+          },
+          {
+            "src": "assets/images/screens/ums/request-venue.webp",
+            "title": "Request Home Service – Venue",
+            "description": "Venue address in Albay, event type and number of clients."
+          },
+          {
+            "src": "assets/images/screens/ums/request-services.webp",
+            "title": "Request Home Service – Services",
+            "description": "Services, estimated cost, responsible branch and preferred schedule."
+          },
+          {
+            "src": "assets/images/screens/ums/request-review.webp",
+            "title": "Request Home Service – Review",
+            "description": "Payment notice, service notes and the request summary."
           },
           {
             "src": "assets/images/screens/ums/track-booking.webp",
@@ -406,6 +571,11 @@
             "src": "assets/images/screens/ums/my-profile.webp",
             "title": "My Profile",
             "description": "Photo, personal details, address and notification preferences."
+          },
+          {
+            "src": "assets/images/screens/ums/change-password.webp",
+            "title": "Change Password",
+            "description": "New password with live rules, confirmed by an email code."
           }
         ]
       }
