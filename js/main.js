@@ -718,3 +718,52 @@
     fromScroll();
   })();
 })();
+
+// Phones: dots under each swipe carousel (Education, Experience, Certificates, Other projects).
+(() => {
+  const phone = window.matchMedia('(max-width: 759px)');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  document.querySelectorAll('.m-swipe').forEach(track => {
+    const cards = [...track.children];
+    if (cards.length < 2) return;
+    const label = track.dataset.swipeLabel || 'Items';
+    const dots = document.createElement('div');
+    dots.className = 'swipe-dots';
+    dots.setAttribute('aria-label', label + ' carousel');
+    const buttons = cards.map((card, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', label + ': show ' + (i + 1) + ' of ' + cards.length);
+      b.addEventListener('click', () => {
+        track.scrollTo({left: card.offsetLeft - track.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft), behavior: reduce.matches ? 'auto' : 'smooth'});
+      });
+      dots.append(b);
+      return b;
+    });
+    const count = document.createElement('span');
+    count.className = 'swipe-count';
+    count.setAttribute('aria-hidden', 'true');
+    dots.append(count);
+    track.after(dots);
+
+    let current = -1;
+    const update = () => {
+      if (!phone.matches) return;
+      const start = track.scrollLeft;
+      let best = 0, bestDist = Infinity;
+      cards.forEach((card, i) => {
+        const d = Math.abs(card.offsetLeft - track.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft) - start);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 4) best = cards.length - 1;
+      if (best === current) return;
+      current = best;
+      buttons.forEach((b, i) => b.setAttribute('aria-current', String(i === best)));
+      count.textContent = (best + 1) + ' / ' + cards.length;
+    };
+    let frame = 0;
+    track.addEventListener('scroll', () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(update); }, {passive: true});
+    phone.addEventListener('change', () => { current = -1; update(); });
+    update();
+  });
+})();

@@ -1699,3 +1699,40 @@ html[data-theme="dark"] .sk-logo[src$="mysql.svg"], html[data-theme="dark"] .sk-
 }
 @media (max-width: 359px) { .sk-checks li, .sk-logos li { font-size: .88rem; } }
 @media (prefers-reduced-motion: reduce) { .sk-tile:hover, .sk-logos li:hover { transform: none; } }
+
+/* ==== Phones: swipe carousels instead of long stacks ====
+   Education, Experience, Certificates and Other projects scroll sideways
+   with the next card peeking in, plus dots that show where you are. */
+.swipe-dots { display: none; }
+@media (max-width: 759px) {
+  .m-swipe {
+    --gutter: 14px;
+    display: flex !important; flex-direction: row !important; align-items: stretch; gap: 12px;
+    margin-inline: calc(var(--gutter) * -1); padding: 6px var(--gutter) 10px;
+    overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter); scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .m-swipe::-webkit-scrollbar { display: none; }
+  .m-swipe > * { flex: 0 0 86%; min-width: 0; margin: 0; scroll-snap-align: start; }
+  .m-swipe.education-list::before { display: none; }
+  .m-swipe .education-card { align-items: flex-start; }
+  .m-swipe > .project-summary { height: auto; }
+  /* cards off to the side are already visible, no scroll-in animation */
+  .reveal-ready .m-swipe > .reveal { opacity: 1; transform: none; }
+  /* hover lift would be clipped by the scroller */
+  .m-swipe > *:hover { transform: none; }
+
+  .swipe-dots { display: flex; justify-content: center; align-items: center; gap: 2px; margin: 2px 0 0; }
+  .swipe-dots button {
+    display: grid; place-items: center; width: 28px; height: 28px; padding: 0; border: 0; background: none; cursor: pointer;
+  }
+  .swipe-dots button::before {
+    content: ""; width: 8px; height: 8px; border-radius: 999px; background: var(--chip-border);
+    transition: width .25s ease, background-color .25s ease;
+  }
+  .swipe-dots button[aria-current="true"]::before { width: 22px; background: var(--link); }
+  .swipe-count { margin-left: 8px; font-size: 12px; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
+}
+@media (min-width: 600px) and (max-width: 759px) { .m-swipe { --gutter: 16px; } .m-swipe > * { flex-basis: 62%; } }
+@media (max-width: 359px) { .m-swipe { --gutter: 12px; } .m-swipe > * { flex-basis: 90%; } }
+@media (max-width: 759px) and (prefers-reduced-motion: reduce) { .swipe-dots button::before { transition: none; } }
