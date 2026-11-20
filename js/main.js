@@ -239,6 +239,118 @@
     thumbnail: 'assets/images/screens/manual/' + item.n + '-thumb.jpg'
   }));
 
+  /* ---------- Capstone scroll showcase ---------- */
+  (() => {
+    const showcase = document.querySelector('.showcase');
+    if (!showcase) return;
+    const chapters = [
+      {label: 'Home', shots: ['01', '02']},
+      {label: 'Services', shots: ['05', '07', '10']},
+      {label: 'Booking', shots: ['14', '15', '16']},
+      {label: 'Payment', shots: ['17', '18']},
+      {label: 'Tracking', shots: ['19', '20']},
+      {label: 'Account', shots: ['21', '22']}
+    ];
+    const steps = chapters.flatMap((chapter, c) => chapter.shots.map(n => ({...screens.find(item => item.n === n), chapter: c})));
+    const sticky = showcase.querySelector('.sc-sticky');
+    const wins = showcase.querySelector('.sc-wins');
+    const tabsBox = showcase.querySelector('.sc-tabs');
+    const kicker = showcase.querySelector('.sc-callout-kicker');
+    const text = showcase.querySelector('.sc-callout-text');
+    const callout = showcase.querySelector('.sc-callout');
+    const counter = showcase.querySelector('.sc-counter');
+    const pinned = window.matchMedia('(min-width: 900px) and (prefers-reduced-motion: no-preference)');
+    showcase.style.setProperty('--steps', steps.length);
+
+    const cards = steps.map((item, i) => {
+      const card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'sc-win';
+      card.setAttribute('aria-label', 'Enlarge ' + item.title + ' screenshot');
+      card.innerHTML = '<span class="sc-bar"><span class="sc-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="sc-tab"></span></span>';
+      card.querySelector('.sc-tab').textContent = item.title;
+      const img = document.createElement('img');
+      img.src = item.src;
+      img.alt = 'Salon system — ' + item.title;
+      img.width = 1440;
+      img.height = 900;
+      img.loading = i < 2 ? 'eager' : 'lazy';
+      const cap = document.createElement('span');
+      cap.className = 'sc-cap';
+      cap.innerHTML = '<b></b><span></span>';
+      cap.querySelector('b').textContent = item.title;
+      cap.querySelector('span').textContent = item.description;
+      card.append(img, cap);
+      card.addEventListener('click', () => openImage({src: item.src, alt: img.alt, title: item.title, description: item.description}, card));
+      wins.append(card);
+      return card;
+    });
+    const tabs = chapters.map((chapter, c) => {
+      const tab = document.createElement('button');
+      tab.type = 'button';
+      tab.className = 'sc-chip';
+      tab.textContent = chapter.label;
+      tab.addEventListener('click', () => go(steps.findIndex(item => item.chapter === c)));
+      tabsBox.append(tab);
+      return tab;
+    });
+
+    let active = -1;
+    const render = step => {
+      if (step === active) return;
+      active = step;
+      const item = steps[step];
+      cards.forEach((card, i) => {
+        const depth = step - i;
+        card.classList.toggle('is-active', depth === 0);
+        card.classList.toggle('is-past', depth > 0);
+        card.classList.toggle('is-next', depth < 0);
+        card.style.setProperty('--d', Math.max(0, Math.min(depth, 3)));
+        card.tabIndex = depth === 0 || !pinned.matches ? 0 : -1;
+      });
+      tabs.forEach((tab, c) => tab.setAttribute('aria-pressed', String(c === item.chapter)));
+      callout.classList.remove('swap');
+      void callout.offsetWidth;
+      callout.classList.add('swap');
+      kicker.textContent = chapters[item.chapter].label + ' · ' + item.title;
+      text.textContent = item.description;
+      counter.textContent = (step + 1) + ' / ' + steps.length + (step < steps.length - 1 && pinned.matches ? ' · keep scrolling' : '');
+    };
+
+    const headerHeight = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 68;
+    const travel = () => Math.max(1, showcase.offsetHeight - sticky.offsetHeight);
+    const fromScroll = () => {
+      if (pinned.matches) {
+        const progress = Math.min(1, Math.max(0, (headerHeight() - showcase.getBoundingClientRect().top) / travel()));
+        render(Math.min(steps.length - 1, Math.floor(progress * steps.length)));
+      } else {
+        const width = cards[0].offsetWidth + parseFloat(getComputedStyle(wins).columnGap || 0);
+        render(Math.min(steps.length - 1, Math.max(0, Math.round(wins.scrollLeft / width))));
+      }
+    };
+    const go = step => {
+      if (pinned.matches) {
+        const top = window.scrollY + showcase.getBoundingClientRect().top - headerHeight() + (step + 0.5) / steps.length * travel();
+        window.scrollTo({top, behavior: scrollBehavior()});
+      } else {
+        wins.scrollTo({left: cards[step].offsetLeft, behavior: scrollBehavior()});
+      }
+    };
+
+    let queued = false;
+    const queue = () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => { queued = false; fromScroll(); });
+    };
+    window.addEventListener('scroll', queue, {passive: true});
+    window.addEventListener('resize', queue);
+    wins.addEventListener('scroll', queue, {passive: true});
+    pinned.addEventListener('change', () => { active = -1; fromScroll(); });
+    render(0);
+    fromScroll();
+  })();
+
   const tour = document.querySelector('.tour');
   if (!tour) return;
   const tabs = [...tour.querySelectorAll('[role="tab"]')];
@@ -364,13 +476,13 @@
   const grid = document.querySelector('.featured-grid');
   if (!grid) return;
   const feature = grid.closest('article');
-  const salon = [grid.querySelector('.salon-preview'), grid.querySelector('.featured-info'), feature.querySelector(':scope > .featured-more')];
+  const salon = [document.querySelector('.showcase'), feature.querySelector(':scope > .featured-more')].filter(Boolean);
   const panels = new Map([['capstone-title', salon]]);
   for (const card of grid.querySelectorAll('.project-summary')) {
     const id = card.getAttribute('aria-labelledby');
     panels.set(id, [card]);
   }
-  const choices = feature.querySelectorAll('.project-choice');
+  const choices = document.querySelectorAll('#projects .project-choice');
   function select(id) {
     for (const [key, elements] of panels) {
       for (const element of elements) element.hidden = key !== id;
