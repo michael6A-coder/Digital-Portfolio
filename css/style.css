@@ -1932,3 +1932,9 @@ html[data-theme="dark"] .showcase { --sc-bg: #1E3A3F; --sc-bg-2: #2C555C; }
 #skills .skill-level { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 10px; padding: 4px 12px; border-radius: 999px; background: var(--chip-bg); border: 1px solid var(--chip-border); font-size: .72rem; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--link); text-align: left; }
 .skill-level-dot { width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(90deg, var(--link) 50%, var(--chip-border) 50%); }
 #skills .skill-card > .skill-main { align-self: start; }
+/* Skill cards no longer have the "Used in / Certified" note: three aligned rows */
+@media (min-width: 720px) {
+  #skills .skill-grid { grid-template-rows: repeat(3, auto); }
+  #skills .skill-card { grid-row: span 3; }
+  #skills .skill-card > .skill-tools { margin-bottom: 0; }
+}
