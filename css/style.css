@@ -1626,4 +1626,21 @@ html[data-theme="dark"] .showcase { --sc-bg: #1E3A3F; --sc-bg-2: #2C555C; }
 .other-modules li::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 50%; background: var(--nav-active); }
 #projects .other-team { display: flex; gap: 10px; align-items: flex-start; margin: 0; font-size: .9rem; color: var(--para); text-align: left; hyphens: none; }
 .other-team svg { flex: none; width: 18px; height: 18px; margin-top: 2px; color: var(--link); }
-.other-grid { align-items: start; }
+
+/* UMS screenshots are about 2:1 */
+.sc-win > img { aspect-ratio: 2 / 1; object-position: center; }
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .sc-win { width: min(100cqw, calc((100cqh - 50px) * 2)); }
+}
+
+/* Other projects: equal cards with aligned rows */
+.other-grid { align-items: stretch; }
+.other-card { display: grid; grid-template-rows: auto auto auto 1fr; align-content: start; }
+@media (min-width: 860px) {
+  .other-grid { grid-template-rows: auto auto auto auto; row-gap: 0; }
+  .other-card { grid-row: span 4; grid-template-rows: subgrid; row-gap: 14px; }
+}
+.other-chips { align-content: start; }
+.other-more { margin-top: 0; align-self: start; }
+.other-modules { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 479px) { .other-modules { grid-template-columns: 1fr; } }

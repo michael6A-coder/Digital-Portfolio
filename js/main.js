@@ -244,14 +244,173 @@
     const showcase = document.querySelector('.showcase');
     if (!showcase) return;
     const chapters = [
-      {label: 'Explore', shots: ['01', '02', '03']},
-      {label: 'Services', shots: ['04', '05', '06', '07', '08', '09', '12']},
-      {label: 'Home Service', shots: ['10', '11']},
-      {label: 'Booking', shots: ['13', '14', '15', '16', '17']},
-      {label: 'Tracking', shots: ['18', '19', '20']},
-      {label: 'Account', shots: ['21', '22', '23', '24', '25', '26']}
+      {
+        "label": "Home",
+        "shots": [
+          {
+            "src": "assets/images/screens/ums/home-page.webp",
+            "title": "Home Page",
+            "description": "Navigation, log in, dark mode, Book an Appointment and live counts of branches, services and stylists."
+          },
+          {
+            "src": "assets/images/screens/ums/branch-selection.webp",
+            "title": "Branch Selection",
+            "description": "Daraga Main, Yashano Mall and Cabangan, each with address, hours and services."
+          },
+          {
+            "src": "assets/images/screens/ums/inside-leo-mejillano.webp",
+            "title": "Inside Leo Mejillano",
+            "description": "Introduces the salon, its three branches and the home and event services."
+          },
+          {
+            "src": "assets/images/screens/ums/see-it-for-yourself.webp",
+            "title": "See It for Yourself",
+            "description": "Drag the handle to compare real before-and-after results, then book that look."
+          },
+          {
+            "src": "assets/images/screens/ums/how-booking-works.webp",
+            "title": "How Booking Works",
+            "description": "The five booking steps and a sample Pending → Completed status tracker."
+          },
+          {
+            "src": "assets/images/screens/ums/services-pricing.webp",
+            "title": "Services & Pricing",
+            "description": "Each branch's price list with active promos, category filters and search."
+          },
+          {
+            "src": "assets/images/screens/ums/stylists-team.webp",
+            "title": "Stylists & Salon Team",
+            "description": "Beauty professionals per branch, with who is on shift right now."
+          },
+          {
+            "src": "assets/images/screens/ums/home-events.webp",
+            "title": "Home & Events Service",
+            "description": "Request a stylist for a wedding, debut, graduation or photoshoot."
+          }
+        ]
+      },
+      {
+        "label": "Login",
+        "shots": [
+          {
+            "src": "assets/images/screens/ums/login.webp",
+            "title": "Login",
+            "description": "One sign-in for customers, admins, cashiers and staff; it opens the right dashboard."
+          },
+          {
+            "src": "assets/images/screens/ums/create-account.webp",
+            "title": "Create an Account",
+            "description": "Customer sign-up with live password rules and the terms to agree to."
+          },
+          {
+            "src": "assets/images/screens/ums/verify-email.webp",
+            "title": "Verify Your Email",
+            "description": "A six-digit code sent to the email activates the account."
+          },
+          {
+            "src": "assets/images/screens/ums/forgot-password.webp",
+            "title": "Forgot Password",
+            "description": "Request a reset code by email, then set a new password."
+          },
+          {
+            "src": "assets/images/screens/ums/confirm-mobile.webp",
+            "title": "Confirm Mobile Number",
+            "description": "Links earlier guest bookings and loyalty points to the new account."
+          }
+        ]
+      },
+      {
+        "label": "Dashboard",
+        "shots": [
+          {
+            "src": "assets/images/screens/ums/customer-dashboard.webp",
+            "title": "Customer Dashboard",
+            "description": "The next appointment, promos made for the customer and the loyalty card."
+          },
+          {
+            "src": "assets/images/screens/ums/loyalty-card.webp",
+            "title": "Digital Loyalty Card",
+            "description": "10 stamps: a 20% discount on the 5th visit and a free treatment on the 10th."
+          },
+          {
+            "src": "assets/images/screens/ums/notifications.webp",
+            "title": "Notifications",
+            "description": "Updates on booking confirmations, payment checks and finished services."
+          }
+        ]
+      },
+      {
+        "label": "Booking",
+        "shots": [
+          {
+            "src": "assets/images/screens/ums/book-appointment.webp",
+            "title": "Book an Appointment",
+            "description": "Pick a branch and browse its services with price and duration."
+          },
+          {
+            "src": "assets/images/screens/ums/choose-schedule.webp",
+            "title": "Choose Your Schedule",
+            "description": "Pick a date and one of the open time slots."
+          },
+          {
+            "src": "assets/images/screens/ums/choose-stylist.webp",
+            "title": "Choose a Stylist",
+            "description": "Only stylists who are qualified and free at that time are listed."
+          },
+          {
+            "src": "assets/images/screens/ums/payment.webp",
+            "title": "Payment",
+            "description": "Deposit or full payment by GCash, Maya, card or cash at the branch."
+          },
+          {
+            "src": "assets/images/screens/ums/review-confirm.webp",
+            "title": "Review & Confirm",
+            "description": "Booking summary and the terms before paying."
+          },
+          {
+            "src": "assets/images/screens/ums/payment-successful.webp",
+            "title": "Payment Successful",
+            "description": "PayMongo returns here with the reference number and payment details."
+          }
+        ]
+      },
+      {
+        "label": "My Account",
+        "shots": [
+          {
+            "src": "assets/images/screens/ums/my-bookings.webp",
+            "title": "My Bookings",
+            "description": "Upcoming appointments and history, with tracking, reschedule and cancel."
+          },
+          {
+            "src": "assets/images/screens/ums/reschedule.webp",
+            "title": "Reschedule Appointment",
+            "description": "Shows the current schedule and the deadline for changing it online."
+          },
+          {
+            "src": "assets/images/screens/ums/home-service.webp",
+            "title": "Home Service",
+            "description": "Home and event requests with their quote, payment summary and status."
+          },
+          {
+            "src": "assets/images/screens/ums/track-booking.webp",
+            "title": "Track Booking",
+            "description": "Booking progress, latest status update and payment details."
+          },
+          {
+            "src": "assets/images/screens/ums/my-feedback.webp",
+            "title": "My Feedback",
+            "description": "Rate and review completed appointments."
+          },
+          {
+            "src": "assets/images/screens/ums/my-profile.webp",
+            "title": "My Profile",
+            "description": "Photo, personal details, address and notification preferences."
+          }
+        ]
+      }
     ];
-    const steps = chapters.flatMap((chapter, c) => chapter.shots.map(n => ({...screens.find(item => item.n === n), chapter: c})));
+    const steps = chapters.flatMap((chapter, c) => chapter.shots.map(shot => ({...shot, chapter: c})));
     const shotCount = steps.length;
     chapters.push({label: 'Behind the build', shots: []});
     steps.push({details: true, chapter: chapters.length - 1, title: 'Features, tools & my part', description: 'What the system does, what it was built with, and what I worked on.'});
@@ -535,4 +694,12 @@
     });
   }
   select(panels.has(location.hash.slice(1)) ? location.hash.slice(1) : 'capstone-title');
+})();
+
+// Keep the "Modules & team" panels of the other projects opening and closing together.
+(() => {
+  const panels = [...document.querySelectorAll('.other-more')];
+  panels.forEach(panel => panel.addEventListener('toggle', () => {
+    panels.forEach(other => { if (other !== panel && other.open !== panel.open) other.open = panel.open; });
+  }));
 })();
