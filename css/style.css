@@ -477,8 +477,8 @@ html[data-theme="dark"] #skills { --sk-shadow: 0 10px 30px rgba(0, 0, 0, .22); }
 @media (min-width: 1000px) { .skill-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .skill-card { display: flex; flex-direction: column; padding: 24px; }
 .skill-card .skill-card-head { padding-bottom: 18px; border-bottom: 1px solid var(--border); }
-.skill-chips { margin: 18px 0 22px; gap: 10px; }
-.skill-chips li { border-radius: 10px; font-weight: 500; color: var(--heading); padding: 8px 12px; }
+.skill-chips { flex: 1; align-content: space-evenly; margin: 18px 0 22px; gap: 10px; }
+.skill-chips li { flex: 1 1 auto; text-align: center; border-radius: 10px; font-weight: 500; color: var(--heading); padding: 9px 12px; }
 .skill-chips small { margin-left: 2px; font-size: 12px; font-weight: 500; color: var(--muted); }
 .skill-chips small::before { content: '· '; }
 .skill-card .skill-note {
@@ -509,18 +509,23 @@ html[data-theme="dark"] #skills { --sk-shadow: 0 10px 30px rgba(0, 0, 0, .22); }
 .tools-head h3 { margin: 0; font-size: 24px; letter-spacing: -.5px; color: var(--heading); }
 .tools-head p { margin: 0; padding-left: 18px; border-left: 1px solid var(--border); font-size: 14px; font-style: italic; color: var(--muted); }
 
-/* Groups flow in rows; each grows to fill its row so the panel stays tidy at any width */
-.tech-stack-grid { display: flex; flex-wrap: wrap; gap: 26px 28px; }
-.tech-category { flex: 1 1 auto; min-width: 0; }
+/* Groups flow in rows. Each group grows in proportion to its tool count (--n),
+   and its tiles stretch to fill it, so every row is filled edge to edge with equal-width tiles. */
+.tech-stack-grid { display: flex; flex-wrap: wrap; gap: 26px 22px; }
+.tech-category { --n: 3; flex: var(--n) 1 calc(var(--n) * 96px); min-width: 0; display: flex; flex-direction: column; }
+.tech-languages, .tech-database { --n: 5; }
+.tech-version { --n: 2; }
+.tech-servers { --n: 1; }
+.tech-office { --n: 6; }
 .tech-category h4 {
   display: flex; align-items: center; gap: 8px; margin: 0 0 12px; padding: 7px 14px; border-radius: 999px;
-  background: var(--chip-bg); font-size: 11.5px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase; color: var(--eyebrow);
+  background: var(--chip-bg); font-size: 11.5px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase; color: var(--eyebrow); white-space: nowrap;
 }
 .tech-category h4::before { content: ''; flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--nav-active); }
-.tech-card { display: flex; flex-wrap: wrap; gap: 10px; }
+.tech-card { flex: 1; display: flex; flex-wrap: wrap; gap: 10px; }
 .stack-item {
-  display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 6px;
-  width: 86px; min-height: 96px; padding: 12px 6px 10px; text-align: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  flex: 1 1 78px; min-width: 78px; min-height: 108px; padding: 14px 6px 12px; text-align: center;
   border: 1px solid var(--border); border-radius: 12px; background: var(--card);
   box-shadow: 0 3px 10px rgba(39, 103, 115, .06);
   transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
@@ -560,7 +565,7 @@ html[data-theme="dark"] #skills { --sk-shadow: 0 10px 30px rgba(0, 0, 0, .22); }
   .skill-card, .tools-panel, .info-card { padding: 18px; }
   .tools-panel { padding-bottom: 36px; }
   .tools-head p { padding-left: 0; border-left: 0; flex-basis: 100%; }
-  .stack-item { width: 78px; }
+  .stack-item { min-width: 72px; }
 }
 @media (prefers-reduced-motion: reduce) { .stack-item:hover { transform: none; } }
 
