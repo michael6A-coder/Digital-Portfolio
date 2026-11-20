@@ -259,6 +259,11 @@ html:not(.js) .header-inner { padding-top: 10px; }
   width: 40px; height: 40px; flex: none; border-radius: 50%;
   object-fit: cover; object-position: 50% 25%; border: 2px solid var(--chip-border);
 }
+.brand-mark {
+  display: grid; place-items: center; flex: none; width: 40px; height: 40px;
+  border-radius: 8px; background: var(--link); color: var(--card);
+  font-size: 15px; font-weight: 800; letter-spacing: -.5px;
+}
 .brand-text { display: flex; flex-direction: column; min-width: 0; line-height: 1.25; }
 .brand-name { font-weight: 700; font-size: 15px; letter-spacing: -.2px; }
 .brand-tag {
